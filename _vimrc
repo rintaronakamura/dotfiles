@@ -22,7 +22,6 @@ set expandtab
 set smarttab
 set shiftround
 
-" TODO space聞かない
 " ファイルのスプリット(と行結合)
 nnoremap <silent> <Space>j :split<CR>
 nnoremap <silent> <Space>l :vsplit<CR>
@@ -34,3 +33,39 @@ nnoremap <S-j> <C-w>j
 nnoremap <S-k> <C-w>k
 nnoremap <S-l> <C-w>l
 
+
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath+=/Users/rintaro/.cache/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('/Users/rintaro/.cache/dein')
+  call dein#begin('/Users/rintaro/.cache/dein')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('/Users/rintaro/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+  " Add or remove your plugins here like this:
+  "call dein#add('Shougo/neosnippet.vim')
+  "call dein#add('Shougo/neosnippet-snippets')
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
