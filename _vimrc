@@ -56,7 +56,7 @@ if dein#load_state('/Users/rintaro/.cache/dein')
   call dein#add('/Users/rintaro/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here like this:
-  "call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet.vim')
   "call dein#add('Shougo/neosnippet-snippets')
 
   " Required:
@@ -75,3 +75,4 @@ endif
 "*****************************************************************************
 "" End dein Scripts
 "*****************************************************************************"
+
