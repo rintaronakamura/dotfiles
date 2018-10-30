@@ -2,7 +2,7 @@
 "" dein Scripts
 "*****************************************************************************"
 if &compatible
-  set nocompatible               " Be iMproved
+  set nocompatible
 endif
 
 " Required: dein.vim本体をruntimepathに自己代入.
@@ -49,7 +49,7 @@ set number
 " ファイルタイトルを表示
 set title
 
-" 検索&痴漢(小文字だけの検索は大文字小文字を無視、大文字で検索した場合は無視しない)
+" 検索&置換(小文字だけの検索は大文字小文字を無視、大文字で検索した場合は無視しない)
 set ignorecase
 set smartcase
 set wrapscan
@@ -68,7 +68,7 @@ nnoremap <silent> <Space>j :split<CR>
 nnoremap <silent> <Space>l :vsplit<CR>
 nnoremap <Bar> $:let pos = getpos(".")<CR>:join<CR>:call setpos('.', pos)<CR>
 
-" ウィンドウ移動 
+" ウィンドウ移動
 nnoremap <S-h> <C-w>h
 nnoremap <S-j> <C-w>j
 nnoremap <S-k> <C-w>k
@@ -76,7 +76,6 @@ nnoremap <S-l> <C-w>l
 
 " -(ハイフン)を単語に含める
 :set isk+=-
-
 
 " カラースキームを設定
 colorscheme tender
