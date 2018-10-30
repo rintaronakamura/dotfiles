@@ -17,10 +17,11 @@ if dein#load_state('/Users/rintaro/.cache/dein')
   call dein#add('/Users/rintaro/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here like this:
+  " スニペット機能
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/neocomplete.vim')
-  " カラースキーム"
+  " カラースキーム
   call dein#add('jacoborus/tender.vim')
 
   " Required:
