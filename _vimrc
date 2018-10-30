@@ -20,8 +20,8 @@ if dein#load_state('/Users/rintaro/.cache/dein')
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/neocomplete.vim')
-  "molokaiのカラーテーマ"
-  call dein#add('tomasr/molokai')
+  " カラースキーム"
+  call dein#add('jacoborus/tender.vim')
 
   " Required:
   call dein#end()
@@ -78,8 +78,9 @@ nnoremap <S-l> <C-w>l
 :set isk+=-
 
 
-" カラースキーマを設定
-colorscheme molokai
+" カラースキームを設定
+colorscheme tender
+
 " vimの256色対応 <= TODO 必要ないかも調べる.
 set t_Co=256
 "*****************************************************************************
