@@ -1,7 +1,48 @@
 "*****************************************************************************
-"" Basic Setup
+"" dein Scripts
+"*****************************************************************************"
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required: dein.vim本体をruntimepathに自己代入.
+set runtimepath+=/Users/rintaro/.cache/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('/Users/rintaro/.cache/dein')
+  call dein#begin('/Users/rintaro/.cache/dein')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('/Users/rintaro/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+  " Add or remove your plugins here like this:
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/neocomplete.vim')
+  "molokaiのカラーテーマ"
+  call dein#add('tomasr/molokai')
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+"*****************************************************************************
+"" End dein Scripts
 "*****************************************************************************"
 
+"*****************************************************************************
+"" Basic Setup
+"*****************************************************************************"
 " 行数を表示
 set number
 
@@ -32,48 +73,16 @@ nnoremap <S-h> <C-w>h
 nnoremap <S-j> <C-w>j
 nnoremap <S-k> <C-w>k
 nnoremap <S-l> <C-w>l
+
+" -(ハイフン)を単語に含める
+:set isk+=-
+
+
+" カラースキーマを設定
+colorscheme molokai
+" vimの256色対応 <= TODO 必要ないかも調べる.
+set t_Co=256
 "*****************************************************************************
 "" End Basic Setup
-"*****************************************************************************"
-
-
-"*****************************************************************************
-"" dein Scripts
-"*****************************************************************************"
-if &compatible
-  set nocompatible               " Be iMproved
-endif
-
-" Required: dein.vim本体をruntimepathに自己代入.
-set runtimepath+=/Users/rintaro/.cache/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-if dein#load_state('/Users/rintaro/.cache/dein')
-  call dein#begin('/Users/rintaro/.cache/dein')
-
-  " Let dein manage dein
-  " Required:
-  call dein#add('/Users/rintaro/.cache/dein/repos/github.com/Shougo/dein.vim')
-
-  " Add or remove your plugins here like this:
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/neocomplete.vim')
-
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
-
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
-"*****************************************************************************
-"" End dein Scripts
 "*****************************************************************************"
 
