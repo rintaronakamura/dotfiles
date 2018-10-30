@@ -44,7 +44,7 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" Required:
+" Required: dein.vim本体をruntimepathに自己代入.
 set runtimepath+=/Users/rintaro/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
@@ -58,6 +58,7 @@ if dein#load_state('/Users/rintaro/.cache/dein')
   " Add or remove your plugins here like this:
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/neocomplete.vim')
 
   " Required:
   call dein#end()
