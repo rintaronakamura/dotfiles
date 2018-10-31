@@ -44,18 +44,21 @@ endif
 "*****************************************************************************
 "" Basic Setup
 "*****************************************************************************"
+" カラースキームを設定
+colorscheme tender
 " 行数を表示
 set number
-
 " ファイルタイトルを表示
 set title
-
+" -(ハイフン)を単語に含める
+:set isk+=-
+" vimの256色対応 <= TODO 必要ないかも調べる.
+set t_Co=256
 " 検索&置換(小文字だけの検索は大文字小文字を無視、大文字で検索した場合は無視しない)
 set ignorecase
 set smartcase
 set wrapscan
 set incsearch
-
 " タブ幅
 set tabstop=2
 set shiftwidth=2
@@ -63,26 +66,17 @@ set softtabstop=0
 set expandtab
 set smarttab
 set shiftround
-
 " ファイルのスプリット(と行結合)
 nnoremap <silent> <Space>j :split<CR>
 nnoremap <silent> <Space>l :vsplit<CR>
 nnoremap <Bar> $:let pos = getpos(".")<CR>:join<CR>:call setpos('.', pos)<CR>
-
 " ウィンドウ移動
 nnoremap <S-h> <C-w>h
 nnoremap <S-j> <C-w>j
 nnoremap <S-k> <C-w>k
 nnoremap <S-l> <C-w>l
-
-" -(ハイフン)を単語に含める
-:set isk+=-
-
-" カラースキームを設定
-colorscheme tender
-
-" vimの256色対応 <= TODO 必要ないかも調べる.
-set t_Co=256
+" 即座にvimrcを開くため
+nnoremap <F5> :<C-u>split $MYVIMRC<CR>
 "*****************************************************************************
 "" End Basic Setup
 "*****************************************************************************"
