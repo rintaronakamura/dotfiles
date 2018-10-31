@@ -67,9 +67,9 @@ set expandtab
 set smarttab
 set shiftround
 " ファイルのスプリット(と行結合)
-nnoremap <silent> <Space>j :split<CR>
-nnoremap <silent> <Space>l :vsplit<CR>
-nnoremap <Bar> $:let pos = getpos(".")<CR>:join<CR>:call setpos('.', pos)<CR>
+nnoremap <silent> <Space>j :<C-u>split<CR>
+nnoremap <silent> <Space>l :<C-u>vsplit<CR>
+nnoremap <Bar> $:<C-u>let pos = getpos(".")<CR>:<C-u>join<CR>:<C-u>call setpos('.', pos)<CR>
 " ウィンドウ移動
 nnoremap <S-h> <C-w>h
 nnoremap <S-j> <C-w>j
