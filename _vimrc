@@ -75,8 +75,9 @@ nnoremap <S-h> <C-w>h
 nnoremap <S-j> <C-w>j
 nnoremap <S-k> <C-w>k
 nnoremap <S-l> <C-w>l
-" ナイスなVimの設定を思いついたら即座にvimrcを開けるように
+" ナイスなVimの設定を思いついたら即座にvimrcを開き反映
 nnoremap <F5> :<C-u>split $MYVIMRC<CR>
+nnoremap <F6> :<C-u>source $MYVIMRC<CR>
 "*****************************************************************************
 "" End Basic Setup
 "*****************************************************************************"
