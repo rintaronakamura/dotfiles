@@ -52,7 +52,7 @@ set number
 set title
 " -(ハイフン)を単語に含める
 :set isk+=-
-" vimの256色対応 <= TODO 必要ないかも調べる.
+" vimの256色対応
 set t_Co=256
 " 検索&置換(小文字だけの検索は大文字小文字を無視、大文字で検索した場合は無視しない)
 set ignorecase
@@ -66,6 +66,8 @@ set softtabstop=0
 set expandtab
 set smarttab
 set shiftround
+" クリップボード
+set clipboard=unnamed
 " ファイルのスプリット(と行結合)
 nnoremap <silent> <Space>j :<C-u>split<CR>
 nnoremap <silent> <Space>l :<C-u>vsplit<CR>
