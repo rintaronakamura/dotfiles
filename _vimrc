@@ -100,11 +100,11 @@ command! DeleteFirstLine 1delete
 augroup myvimrc
   autocmd!
 augroup END
-" 保存時に行末スペースを取り除く
+" 保存時に行末スペースを取り除く TODO: 全角対応
 " eフラグは検索パターンが何もマッチしなかった時に、エラーメッセージを表示させないため
 " 必ずaugroup名を指定して書く
 autocmd myvimrc BufWritePre * %s/\s\+$//e
-" 行末スペースをハイライトで可視化する
+" 行末スペースをハイライトで可視化する TODO: 全角対応
 autocmd myvimrc VimEnter,WinEnter *
   \ match Error /\s\+$/
 "*****************************************************************************
