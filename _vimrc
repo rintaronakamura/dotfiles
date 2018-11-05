@@ -118,7 +118,7 @@ autocmd VimEnter * execute 'NERDTree'
 " Plugin Setup
 "*****************************************************************************
 "
-" neocomplete/neosnippet Setup
+" neocomplete/neosnippet
 "
 " Vim起動時にneocompleteを有効にする
 let g:neocomplete#enable_at_startup = 1
@@ -136,6 +136,25 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
 imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
 " タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ
 imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
+"
+" scrooloose/nerdtree
+"
+" NERDTreeを表示/非表示
+map <silent> <Space>ne :NERDTreeToggle<CR>
+" 起動時にブックマークを表示
+let g:NERDTreeShowBookmarks=1
+" 選択しているファイルをブックマークに登録
+map <silent> <Space>a :<C-u>Bookmark<CR>
+" 選択しているファイルをブックマークから削除
+map <silent> <Space>d :<C-u>ClearBookmarks<CR>
+" 全ブックマークを削除
+map <silent> <Space>da :<C-u>ClearAllBookmarks<CR>
+" 隠しファイルを表示
+let g:NERDTreeShowHidden=1
+" 非表示ファイル
+let g:NERDTreeIgnore=['\.swp$']
+"開いているウィンドウがNERDTreeだけならVimを閉じる
+autocmd Bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "*****************************************************************************
 " End Plugin Setup
 " *****************************************************************************
