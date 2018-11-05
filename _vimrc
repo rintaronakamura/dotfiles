@@ -23,6 +23,8 @@ if dein#load_state('/Users/rintaro/.cache/dein')
   call dein#add('Shougo/neocomplete.vim')
   " カラースキーム
   call dein#add('jacoborus/tender.vim')
+  " ディレクトリツリー
+  call dein#add('scrooloose/nerdtree')
 
   " Required:
   call dein#end()
@@ -99,13 +101,15 @@ command! DeleteFirstLine 1delete
 augroup myvimrc
   autocmd!
 augroup END
+" 必ずaugroup名を指定して書く
 " 保存時に行末スペースを取り除く TODO: 全角対応
 " eフラグは検索パターンが何もマッチしなかった時に、エラーメッセージを表示させないため
-" 必ずaugroup名を指定して書く
 autocmd myvimrc BufWritePre * %s/\s\+$//e
 " 行末スペースをハイライトで可視化する TODO: 全角対応
 autocmd myvimrc VimEnter,WinEnter *
   \ match Error /\s\+$/
+" *で全ファイルに適用
+autocmd VimEnter * execute 'NERDTree'
 "*****************************************************************************
 " End Autocmd
 " *****************************************************************************
