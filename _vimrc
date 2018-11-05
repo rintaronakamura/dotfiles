@@ -68,10 +68,9 @@ set smarttab
 set shiftround
 " クリップボード
 set clipboard=unnamed
-" ファイルのスプリット(と行結合)
+" ファイルのスプリット
 nnoremap <silent> <Space>j :<C-u>split<CR>
 nnoremap <silent> <Space>l :<C-u>vsplit<CR>
-nnoremap <Bar> $:<C-u>let pos = getpos(".")<CR>:<C-u>join<CR>:<C-u>call setpos('.', pos)<CR>
 " ウィンドウ移動
 nnoremap <S-h> <C-w>h
 nnoremap <S-j> <C-w>j
