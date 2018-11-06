@@ -1,10 +1,6 @@
 "*****************************************************************************
-"" dein Scripts
+"" dein Settings
 "*****************************************************************************"
-if &compatible
-  set nocompatible
-endif
-
 " Required: dein.vim本体をruntimepathに自己代入.
 set runtimepath+=/Users/rintaro/.cache/dein/repos/github.com/Shougo/dein.vim
 
@@ -40,14 +36,16 @@ if dein#check_install()
   call dein#install()
 endif
 "*****************************************************************************
-"" End dein Scripts
+"" End dein Settings
 "*****************************************************************************"
 
 "*****************************************************************************
-"" Basic Setup
+"" Basic Settings
 "*****************************************************************************"
-" VimをVi互換モードではなく、Vimとして使用(compatibleオプションはデフォルトで有効だが、vimrc/gvimrcを読み込むと無効になるため'set nocompatible'はコメントアウト)
-" set nocompatible
+" VimをVi互換モードではなく、Vimとして使用(compatibleオプションはデフォルトで有効だが、vimrc/gvimrcを読み込むと無効になる)
+if &compatible
+  set nocompatible
+endif
 " カラースキームを設定
 colorscheme tender
 " 行数を表示
@@ -84,7 +82,7 @@ nnoremap <S-l> <C-w>l
 nnoremap <F5> :<C-u>split $MYVIMRC<CR>
 nnoremap <F6> :<C-u>source $MYVIMRC<CR>
 "*****************************************************************************
-"" End Basic Setup
+"" End Basic Settings
 "*****************************************************************************"
 
 "*****************************************************************************
@@ -117,7 +115,7 @@ autocmd VimEnter * execute 'NERDTree'
 "*****************************************************************************
 
 "*****************************************************************************
-" Plugin Setup
+" Plugin Settings
 "*****************************************************************************
 "
 " neocomplete/neosnippet
@@ -158,6 +156,6 @@ let g:NERDTreeIgnore=['\.swp$']
 "開いているウィンドウがNERDTreeだけならVimを閉じる
 autocmd Bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "*****************************************************************************
-" End Plugin Setup
+" End Plugin Settings
 "*****************************************************************************
 
