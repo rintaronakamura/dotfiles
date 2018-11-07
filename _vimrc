@@ -12,10 +12,10 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
-" TODO: ここなにしているのかモヤモヤしてる.system,shellescape
 " dein.vimを自動でインストール.
+" system はシェルの実行、shellescapeはシェルで利用できる文字列に変換
 if !isdirectory(s:dein_repo_dir)
-  call system('git clone https://github.com/Shougo/dein.vim' . shellescape(s:dein_repo_dir))
+  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
 endif
 
 " dein.vim本体をruntimepathに自己代入.つまりプラグインとして読み込む.
