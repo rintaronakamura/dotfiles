@@ -27,12 +27,12 @@ hook_add = '''
 repo = 'jacoborus/tender.vim'
 hook_add = '''
   set background=dark
+  " カラースキームを設定
   " colorscheme 設定は source 後に行う必要があるので確実に読まれている VimEnter のタイミングで行う。
   " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
   " TODO:
   " nestedについて&auとautocmdの違いについて
-  " augroup(MyAutoCmd)は_vimrcに定義してるからここから呼び出せない.どうするのがよい...
-  " autocmd MyAutoCmd VimEnter * nested colorscheme tender
+  autocmd MyAutoCmd VimEnter * nested colorscheme tender
 '''
 
 [[plugins]]

@@ -5,6 +5,12 @@ let s:cache_home = empty($XDG_CACHE_HOME) ? expand('$HOME/.cache') : $XDG_CACHE_
 let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir .'/repos/github.com/Shougo/dein.vim'
 
+" autocmd が複数登録されないように最初に削除
+" dein.toml で MyAutoCmd を使うので dein.toml を読み込む前に定義
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
 " TODO: ここなにしているのかモヤモヤしてる.system,shellescape
 " dein.vimを自動でインストール.
 if !isdirectory(s:dein_repo_dir)
@@ -46,8 +52,6 @@ syntax enable
 if &compatible
   set nocompatible
 endif
-" カラースキームを設定
-colorscheme tender
 " 行数を表示
 set number
 " ファイルタイトルを表示
@@ -97,10 +101,6 @@ command! DeleteFirstLine 1delete
 "*****************************************************************************
 " Autocmd
 "*****************************************************************************
-" autocmdが複数登録されないように最初に削除しておく
-augroup MyAutoCmd
-  autocmd!
-augroup END
 " 必ずaugroup名を指定して書く
 " 保存時に行末スペースを取り除く TODO: 全角対応
 " eフラグは検索パターンが何もマッチしなかった時に、エラーメッセージを表示させないため
