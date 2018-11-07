@@ -18,7 +18,7 @@ hook_add = '''
   " 隠しファイルを表示
   let g:NERDTreeShowHidden=1
   " 非表示ファイル
-  let g:NERDTreeIgnore=['\.swp$']
+  let g:NERDTreeIgnore=['\.swp$', '.DS_Store']
   " 開いているウィンドウがNERDTreeだけならVimを閉じる
   autocmd Bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 '''
