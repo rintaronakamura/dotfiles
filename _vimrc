@@ -1,40 +1,40 @@
 "*****************************************************************************
 "" dein Settings
 "*****************************************************************************"
-" Required: dein.vim本体をruntimepathに自己代入.
+let s:cache_home = empty($XDG_CACHE_HOME) ? expand('$HOME/.cache') : $XDG_CACHE_HOME
+let s:dein_dir = s:cache_home . '/dein'
+let s:dein_repo_dir = s:dein_dir .'/repos/github.com/Shougo/dein.vim'
+
+" TODO: ここなにしているのかモヤモヤしてる.system,shellescape
+" dein.vimを自動でインストール.
+if !isdirectory(s:dein_repo_dir)
+  call system('git clone https://github.com/Shougo/dein.vim' . shellescape(s:dein_repo_dir))
+endif
+
+" dein.vim本体をruntimepathに自己代入.つまりプラグインとして読み込む.
 set runtimepath+=/Users/rintaro/.cache/dein/repos/github.com/Shougo/dein.vim
+" TODO 上記では set しているが参考サイトでは下記のように let を使っているがそれぞれのメリデメが分からない.
+" 参考サイト : https://qiita.com/kawaz/items/ee725f6214f91337b42b
+" let &runtimepath = s:dein_repo_dir .",". &runtimepath
 
-" Required:
-if dein#load_state('/Users/rintaro/.cache/dein')
-  call dein#begin('/Users/rintaro/.cache/dein')
+" プラグイン読み込み&キャッシュ作成.
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
-  " Let dein manage dein
-  " Required:
-  call dein#add('/Users/rintaro/.cache/dein/repos/github.com/Shougo/dein.vim')
+  let s:plugings_file = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
+  call dein#load_toml(s:plugings_file)
 
-  " Add or remove your plugins here like this:
-  " スニペット機能
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/neocomplete.vim')
-  " カラースキーム
-  call dein#add('jacoborus/tender.vim')
-  " ディレクトリツリー
-  call dein#add('scrooloose/nerdtree')
-
-  " Required:
   call dein#end()
   call dein#save_state()
 endif
 
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
+" 起動時に不足プラグインを自動でインストール.
+if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
+
+filetype plugin indent on
+syntax enable
 "*****************************************************************************
 "" End dein Settings
 "*****************************************************************************"
@@ -98,64 +98,19 @@ command! DeleteFirstLine 1delete
 " Autocmd
 "*****************************************************************************
 " autocmdが複数登録されないように最初に削除しておく
-augroup myvimrc
+augroup MyAutoCmd
   autocmd!
 augroup END
 " 必ずaugroup名を指定して書く
 " 保存時に行末スペースを取り除く TODO: 全角対応
 " eフラグは検索パターンが何もマッチしなかった時に、エラーメッセージを表示させないため
-autocmd myvimrc BufWritePre * %s/\s\+$//e
+autocmd MyAutoCmd BufWritePre * %s/\s\+$//e
 " 行末スペースをハイライトで可視化する TODO: 全角対応
-autocmd myvimrc VimEnter,WinEnter *
+autocmd MyAutoCmd VimEnter,WinEnter *
   \ match Error /\s\+$/
 " *で全ファイルに適用
-autocmd VimEnter * execute 'NERDTree'
+autocmd MyAutoCmd VimEnter * execute 'NERDTree'
 "*****************************************************************************
 " End Autocmd
-"*****************************************************************************
-
-"*****************************************************************************
-" Plugin Settings
-"*****************************************************************************
-"
-" neocomplete/neosnippet
-"
-" Vim起動時にneocompleteを有効にする
-let g:neocomplete#enable_at_startup = 1
-" smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
-let g:neocomplete#enable_smart_case = 1
-" 3文字以上の単語に対して補完を有効にする
-let g:neocomplete#min_keyword_length = 3
-" 区切り文字まで補完する
-let g:neocomplete#enable_auto_delimiter = 1
-" 1文字目の入力から補完のポップアップを表示
-let g:neocomplete#auto_completion_start_length = 1
-" バックスペースで補完のポップアップを閉じる
-inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
-" エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定
-imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
-" タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ
-imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
-"
-" scrooloose/nerdtree
-"
-" NERDTreeを表示/非表示
-map <silent> <Space>ne :NERDTreeToggle<CR>
-" 起動時にブックマークを表示
-let g:NERDTreeShowBookmarks=1
-" 選択しているファイルをブックマークに登録
-map <silent> <Space>a :<C-u>Bookmark<CR>
-" 選択しているファイルをブックマークから削除
-map <silent> <Space>d :<C-u>ClearBookmarks<CR>
-" 全ブックマークを削除
-map <silent> <Space>da :<C-u>ClearAllBookmarks<CR>
-" 隠しファイルを表示
-let g:NERDTreeShowHidden=1
-" 非表示ファイル
-let g:NERDTreeIgnore=['\.swp$']
-"開いているウィンドウがNERDTreeだけならVimを閉じる
-autocmd Bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-"*****************************************************************************
-" End Plugin Settings
 "*****************************************************************************
 
