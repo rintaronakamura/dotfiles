@@ -64,4 +64,14 @@ hook_add = '''
   inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
 '''
 
+[[plugins]] # tomlのシンタックスを有効に.
+repo = 'cespare/vim-toml'
+
+[[plugins]] # カーソル位置のコンテキストに合わせて filetype を切り替え.
+repo = 'osyo-manga/vim-precious'
+depends = ['Shougo/context_filetype.vim']
+
+[[plugins]] # カーソル位置のコンテキストの filetype を判定するライブラリ.
+repo = 'Shougo/context_filetype.vim'
+
 
