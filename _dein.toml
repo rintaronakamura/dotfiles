@@ -72,11 +72,7 @@ depends = ['Shougo/context_filetype.vim']
 [[plugins]] # カーソル位置のコンテキストの filetype を判定するライブラリ.
 repo = 'Shougo/context_filetype.vim'
 
-[[plugins]] # オリジナルの Markdown と拡張機能のシンタックスハイライト&マッチングルール&マッピング.
-repo = 'plasticboy/vim-markdown'
-hook_add = '''
-  " 折りたたみを無効化.
-  let g:vim_markdown_folding_disabled = 1
-'''
+[[plugins]]
+repo = 'tpope/vim-markdown'
 
 

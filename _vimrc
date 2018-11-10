@@ -113,6 +113,8 @@ autocmd MyAutoCmd VimEnter,WinEnter *
   \ match Error /\s\+$/
 " *で全ファイルに適用
 autocmd MyAutoCmd VimEnter * execute 'NERDTree'
+
+autocmd BufRead,BufNewFile *.md set filetype=markdown
 "*****************************************************************************
 " End Autocmd
 "*****************************************************************************
