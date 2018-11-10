@@ -1,3 +1,3 @@
 
-ln -s ./_vimrc ~/.vimrc
-ln -s ./_dein.toml ~/dein.toml
+ln -s ~/dotfiles/_vimrc ~/.vimrc
+ln -s ~/dotfiles/_dein.toml ~/dein.toml
