@@ -75,4 +75,10 @@ repo = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'tpope/vim-markdown'
 
+[[plugins]]
+repo = 'previm/previm'
+hook_add = '''
+  let g:previm_open_cmd = "open -a 'Google Chrome'"
+'''
+
 
