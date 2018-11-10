@@ -1,4 +1,5 @@
 # dotfiles
+![dotfiles_img](./dotfiles_img.png)
 
 ## Setup
 
@@ -9,4 +10,5 @@ git clone git@github.com:NRintaro/dotfiles.git
 cd dotfiles
 sh setup.sh
 ```
+
 
