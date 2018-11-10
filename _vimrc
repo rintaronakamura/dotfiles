@@ -19,10 +19,12 @@ if !isdirectory(s:dein_repo_dir)
 endif
 
 " dein.vim本体をruntimepathに自己代入.つまりプラグインとして読み込む.
-set runtimepath+=/Users/rintaro/.cache/dein/repos/github.com/Shougo/dein.vim
-" TODO 上記では set しているが参考サイトでは下記のように let を使っているがそれぞれのメリデメが分からない.
+" TODO:下記の場合 rintaro の部分が固定で他の環境で使えないので修正.
+" set runtimepath+=/Users/rintaro/.cache/dein/repos/github.com/Shougo/dein.vim
+"  => set runtimepath+=s:dein_repo_dir がエラーになる理由が分からない.
+" 上記では set しているが参考サイトでは下記のように let を使っているがそれぞれのメリデメが分からない.
 " 参考サイト : https://qiita.com/kawaz/items/ee725f6214f91337b42b
-" let &runtimepath = s:dein_repo_dir .",". &runtimepath
+let &runtimepath = s:dein_repo_dir .",". &runtimepath
 
 " プラグイン読み込み&キャッシュ作成.
 if dein#load_state(s:dein_dir)
