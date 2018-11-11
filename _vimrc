@@ -77,6 +77,9 @@ set smarttab
 set shiftround
 " クリップボード
 set clipboard=unnamed
+" backspace で削除できるものを指定
+" indent: 行頭の空白, eol: 改行, start:挿入モード開始位置より手前の文字
+set backspace=indent,eol,start
 " ファイルのスプリット
 nnoremap <silent> <Space>j :<C-u>split<CR>
 nnoremap <silent> <Space>l :<C-u>vsplit<CR>
