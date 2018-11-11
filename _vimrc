@@ -84,10 +84,10 @@ set backspace=indent,eol,start
 nnoremap <silent> <Space>j :<C-u>split<CR>
 nnoremap <silent> <Space>l :<C-u>vsplit<CR>
 " ウィンドウ移動
-nnoremap <S-h> <C-w>h
-nnoremap <S-j> <C-w>j
-nnoremap <S-k> <C-w>k
-nnoremap <S-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 " ナイスなVimの設定を思いついたら即座にvimrcを開き反映
 nnoremap <F5> :<C-u>split $MYVIMRC<CR>
 nnoremap <F6> :<C-u>source $MYVIMRC<CR>
