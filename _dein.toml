@@ -81,4 +81,10 @@ hook_add = '''
   let g:previm_open_cmd = "open -a 'Google Chrome'"
 '''
 
+# TODO: 理解が不十分なのできちんとドキュメントを確認する.
+[[plugins]] # swift のシンタックスを有効に.
+repo = 'apple/swift'
+rtp = 'utils/vim'
+on_ft = 'swift'
+
 
