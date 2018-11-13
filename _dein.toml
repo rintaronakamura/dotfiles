@@ -86,4 +86,7 @@ repo = 'apple/swift'
 rtp = 'utils/vim' # vim プラグインがあるところまでのパスを指定.
 on_ft = 'swift' # ファイルタイプが swift のものを開いた時にのみプラグインを読み込む.
 
+[[plugins]] # Vimスクリプト基礎文法最速マスター( https://thinca.hatenablog.com/entry/20100201/1265009821 )を:help learn-vimscript で閲覧できる.
+repo = 'mattn/learn-vimscript'
+
 
