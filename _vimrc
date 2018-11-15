@@ -98,8 +98,6 @@ nnoremap <F6> :<C-u>source $MYVIMRC<CR>
 "*****************************************************************************
 " User defined command
 "*****************************************************************************
-" 1行目を削除するコマンド
-command! DeleteFirstLine 1delete
 " MarkDownをChromeで表示するショートカットキー
 command! Previm PrevimOpen
 " 基礎文法を表示するショートカットキー
