@@ -1,5 +1,4 @@
 # dotfiles
-![dotfiles_img](./dotfiles_img.png)
 
 ## Setup
 
