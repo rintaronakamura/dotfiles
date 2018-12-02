@@ -1,10 +1,10 @@
 
 [user]
-name = NRintaro
+name = residenti
 email = hemisphere.babylon@icloud.com
 
 [core]
-excludesfile = /Users/NRintaro/.gitignore_global
+excludesfile = /Users/residenti/.gitignore_global
 
 [difftool "sourcetree"]
 cmd = opendiff \"$LOCAL\" \"$REMOTE\"
