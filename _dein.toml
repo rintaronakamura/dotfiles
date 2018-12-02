@@ -89,10 +89,11 @@ on_ft = 'swift' # ファイルタイプが swift のものを開いた時にの�
 [[plugins]] # Vimスクリプト基礎文法最速マスター( https://thinca.hatenablog.com/entry/20100201/1265009821 )を:help learn-vimscript で閲覧できる.
 repo = 'mattn/learn-vimscript'
 
-[[plugins]] # オート閉じたぐ.
+[[plugins]] # 閉じタグを自動で入力する.
 repo = 'alvan/vim-closetag'
 hook_add = '''
-let g:closetag_filenames = '*.html' # 有効にするファイルの拡張子を指定する.
+" 有効にするファイルの拡張子を指定する.
+let g:closetag_filenames = '*.html'
 '''
 
 
