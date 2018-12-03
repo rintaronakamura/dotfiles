@@ -96,4 +96,6 @@ hook_add = '''
 let g:closetag_filenames = '*.html'
 '''
 
+[[plugins]] # emmet
+repo = 'mattn/emmet-vim'
 
