@@ -98,4 +98,7 @@ let g:closetag_filenames = '*.html'
 
 [[plugins]] # emmet
 repo = 'mattn/emmet-vim'
+hook_add = '''
+let g:user_emmet_leader_key='<C-e>'
+'''
 
