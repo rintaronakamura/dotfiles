@@ -128,4 +128,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 '''
 
+[[plugins]] #  インデントを可視化.
+repo = 'Yggdroot/indentLine'
+hook_add = '''
+let g:indentLine_char = '¦'
+'''
+
 
