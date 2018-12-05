@@ -55,6 +55,7 @@ syntax enable
 if &compatible
   set nocompatible
 endif
+
 " 行数を表示
 set number
 " ファイルタイトルを表示
@@ -63,23 +64,34 @@ set title
 set isk+=-
 " vimの256色対応
 set t_Co=256
-" 検索&置換(小文字だけの検索は大文字小文字を無視、大文字で検索した場合は無視しない)
-set ignorecase
-set smartcase
-set wrapscan
-set incsearch
-" タブ幅
-set tabstop=2
-set shiftwidth=2
-set softtabstop=0
-set expandtab
-set smarttab
-set shiftround
 " クリップボード
 set clipboard=unnamed
 " backspace で削除できるものを指定
 " indent: 行頭の空白, eol: 改行, start:挿入モード開始位置より手前の文字
 set backspace=indent,eol,start
+" カーソルの左右移動で行末から次の行の行頭への移動が可能になる
+set whichwrap=b,s,h,l,<,>,[,],~
+" カーソルラインをハイライト"
+set cursorline
+
+" 検索パターンに大文字小文字を区別しない
+set ignorecase
+" インクリメンタルサーチ. １文字入力毎に検索を行う
+set incsearch
+" 検索パターンに大文字を含んでいたら大文字小文字を区別する
+set smartcase
+" 検索結果をハイライト"
+set hlsearch
+
+" タブ入力を複数の空白入力に置き換える
+set expandtab
+" タブ幅
+set tabstop=2
+" 連続した空白に対してタブキーやバックスペースでカーソルが動く幅
+set softtabstop=0
+" smartindentで増減する幅
+set shiftwidth=2
+
 " ファイルのスプリット
 nnoremap <silent> <Space>j :<C-u>split<CR>
 nnoremap <silent> <Space>l :<C-u>vsplit<CR>
