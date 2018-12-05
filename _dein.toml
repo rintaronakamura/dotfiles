@@ -100,6 +100,9 @@ let g:closetag_filenames = '*.html'
 repo = 'mattn/emmet-vim'
 hook_add = '''
 let g:user_emmet_leader_key='<C-e>'
+" HTML/CSSのみ有効にする.
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 '''
 
 [[plugins]] # ステータスラインのテーマ
