@@ -102,8 +102,8 @@ hook_add = '''
 let g:user_emmet_leader_key='<C-e>'
 '''
 
-[[plugins]]
-repo    = 'vim-airline/vim-airline'
+[[plugins]] # ステータスラインのテーマ
+repo = 'vim-airline/vim-airline'
 depends = ['vim-airline-themes']
 hook_add = '''
 let g:airline_theme = 'tender'
@@ -111,5 +111,8 @@ let g:airline_theme = 'tender'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]] # "を打つと自動補完してくれる.
+repo = 'Townk/vim-autoclose'
 
 
