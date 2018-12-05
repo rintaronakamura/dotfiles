@@ -112,10 +112,10 @@ let g:airline_theme = 'tender'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 
-[[plugins]] # "を打つと自動補完してくれる.
+[[plugins]] # "を打つと""に自動補完してくれる.
 repo = 'Townk/vim-autoclose'
 
-[[plugins]] " syntaxのチェック
+[[plugins]] # syntaxのチェック
 repo =  'scrooloose/syntastic'
 hook_add = '''
 set statusline+=%#warningmsg#
