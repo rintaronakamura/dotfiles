@@ -146,6 +146,6 @@ repo = 'simeji/winresizer'
 hook_add = '''
 let g:winresizer_start_key = '<Space>w'
 " enter で完了する.
-g:winresizer_keycode_finish = 13
+let g:winresizer_keycode_finish = 13
 '''
 
