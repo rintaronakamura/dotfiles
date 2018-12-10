@@ -141,4 +141,11 @@ hook_add = '''
 let g:indentLine_char = '¦'
 '''
 
+[[plugins]] #  ウィンドウサイズを変更.
+repo = 'simeji/winresizer'
+hook_add = '''
+let g:winresizer_start_key = '<Space>w'
+" enter で完了する.
+g:winresizer_keycode_finish = 13
+'''
 
