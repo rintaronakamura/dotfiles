@@ -149,3 +149,7 @@ let g:winresizer_start_key = '<Space>w'
 let g:winresizer_keycode_finish = 13
 '''
 
+ [[plugins]] #  コメントアウト.
+repo = 'tyru/caw.vim'
+
+
