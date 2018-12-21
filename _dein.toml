@@ -152,4 +152,7 @@ let g:winresizer_keycode_finish = 13
  [[plugins]] #  コメントアウト.
 repo = 'tyru/caw.vim'
 
+ [[plugins]] # 自作プラグイン.
+repo = 'residenti/vim_helloworld'
+
 
