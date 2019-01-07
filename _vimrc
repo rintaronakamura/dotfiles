@@ -132,6 +132,8 @@ autocmd MyAutoCmd VimEnter,WinEnter *
 autocmd MyAutoCmd VimEnter * execute 'NERDTree'
 
 autocmd BufRead,BufNewFile *.md set filetype=markdown
+" :vimgrep,:grep,:Ggrepで自動的にquickfix-window(:cw)を開くようにする.
+autocmd QuickFixCmdPost *grep* cwindow
 "*****************************************************************************
 " End Autocmd
 "*****************************************************************************
