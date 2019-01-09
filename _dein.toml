@@ -23,6 +23,13 @@ hook_add = '''
   autocmd Bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 '''
 
+#インストール方法メモ
+#1. https://github.com/ryanoasis/nerd-fonts#font-installation のoption4: Homebrewでフォントをインストールする.
+#2. 利用しているターミナルのフォントを手順1でインストールしたFontに変更する.iTerm2なら設定画面>Profiles>Text>Font>Change Fontから設定する.
+#3. ryanoasis/vim-deviconsをインストールする.
+[[plugins]] # 有名どころのVimプラグインにアイコンを追加する.
+repo = 'ryanoasis/vim-devicons'
+
 [[plugins]] # カラースキームを設定
 repo = 'tomasr/molokai'
 hook_add = '''
