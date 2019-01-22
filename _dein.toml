@@ -1,4 +1,3 @@
-
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -48,36 +47,7 @@ let g:airline_theme = 'light'
 '''
 
 [[plugins]]
-repo = 'Shougo/neosnippet.vim'
-hook_add = '''
-  " エンターキーで補完候補&スニペットの展開確定.
-  imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
-  " タブキーで補完候補の選択&スニペット内のジャンプ.
-  imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
-'''
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
-repo = 'Shougo/neocomplete.vim'
-hook_add = '''
-  " Vim起動時にneocompleteを有効にする
-  let g:neocomplete#enable_at_startup = 1
-  " smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
-  let g:neocomplete#enable_smart_case = 1
-  " 3文字以上の単語に対して補完を有効にする
-  let g:neocomplete#min_keyword_length = 3
-  " 区切り文字まで補完する
-  let g:neocomplete#enable_auto_delimiter = 1
-  " 1文字目の入力から補完のポップアップを表示
-  let g:neocomplete#auto_completion_start_length = 1
-  " バックスペースで補完のポップアップを閉じる
-  inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
-'''
-
-[[plugins]] # tomlのシンタックスを有効に.
-repo = 'cespare/vim-toml'
+repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]] # カーソル位置のコンテキストに合わせて filetype を切り替え.
 repo = 'osyo-manga/vim-precious'
@@ -86,44 +56,8 @@ depends = ['Shougo/context_filetype.vim']
 [[plugins]] # カーソル位置のコンテキストの filetype を判定するライブラリ.
 repo = 'Shougo/context_filetype.vim'
 
-[[plugins]]
-repo = 'tpope/vim-markdown'
-
-[[plugins]]
-repo = 'previm/previm'
-hook_add = '''
-  let g:previm_open_cmd = "open -a 'Google Chrome'"
-'''
-
-[[plugins]] # swift のシンタックスを有効に.
-repo = 'apple/swift'
-rtp = 'utils/vim' # vim プラグインがあるところまでのパスを指定.
-on_ft = 'swift' # ファイルタイプが swift のものを開いた時にのみプラグインを読み込む.
-
 [[plugins]] # Vimスクリプト基礎文法最速マスター( https://thinca.hatenablog.com/entry/20100201/1265009821 )を:help learn-vimscript で閲覧できる.
 repo = 'mattn/learn-vimscript'
-
-[[plugins]] # 閉じタグを自動で入力する.
-repo = 'alvan/vim-closetag'
-hook_add = '''
-" 有効にするファイルの拡張子を指定する.
-let g:closetag_filenames = '*.html'
-'''
-
-[[plugins]] # emmet
-repo = 'mattn/emmet-vim'
-hook_add = '''
-let g:user_emmet_leader_key='<C-e>'
-" HTML/CSSのみ有効にする.
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-'''
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-
-[[plugins]] # "を打つと""に自動補完してくれる.
-repo = 'Townk/vim-autoclose'
 
 [[plugins]] # syntaxのチェック
 repo =  'scrooloose/syntastic'
@@ -142,13 +76,13 @@ let g:syntastic_mode_map = { 'mode': 'active',
   \ 'passive_filetypes': ['html'] }
 '''
 
-[[plugins]] #  インデントを可視化.
+[[plugins]] # インデントを可視化.
 repo = 'Yggdroot/indentLine'
 hook_add = '''
 let g:indentLine_char = '¦'
 '''
 
-[[plugins]] #  ウィンドウサイズを変更.
+[[plugins]] # ウィンドウサイズを変更.
 repo = 'simeji/winresizer'
 hook_add = '''
 let g:winresizer_start_key = '<Space>w'
@@ -156,10 +90,5 @@ let g:winresizer_start_key = '<Space>w'
 let g:winresizer_keycode_finish = 13
 '''
 
- [[plugins]] #  コメントアウト.
+ [[plugins]] # コメントアウト.
 repo = 'tyru/caw.vim'
-
- [[plugins]] # 自作プラグイン.
-repo = 'residenti/amatatsu'
-
-

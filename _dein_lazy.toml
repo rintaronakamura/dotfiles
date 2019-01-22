@@ -1,0 +1,62 @@
+# [[plugins]] # 補完
+# repo = 'Shougo/deoplete.nvim'
+# depends = [ 'roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc' ]
+# on_i = 1 # インサートモードに入ったら読み込む.
+# hook_source = '''
+# let g:deoplete#enable_at_startup = 1
+# let g:deoplete#auto_completion_start_length = 0
+# set completeopt+=noinsert
+# '''
+#
+# [[plugins]] # vim8でdeopleteを使うのに必要
+# repo = 'roxma/nvim-yarp'
+# if = '''! has('nvim')'''
+# on_ft = ['ruby', 'swift']
+#
+# [[plugins]] # vim8でdeopleteを使うのに必要
+# repo = 'roxma/vim-hug-neovim-rpc'
+# if = '''! has('nvim')'''
+# on_ft = ['ruby', 'swift']
+
+[[plugins]] # 閉じタグを自動で入力する.
+repo = 'alvan/vim-closetag'
+on_i = 1
+hook_add = '''
+" 有効にするファイルの拡張子を指定する.
+let g:closetag_filenames = '*.html'
+'''
+
+[[plugins]] # "を打つと""に自動補完してくれる.
+repo = 'Townk/vim-autoclose'
+on_i = 1
+
+[[plugins]] # TOML のシンタックスハイライト.
+repo = 'cespare/vim-toml'
+on_ft = ['toml'] # 特定のファイルタイプで読み込む.
+
+[[plugins]] # swift のシンタックスハイライト.
+repo = 'apple/swift'
+on_ft = 'swift' # ファイルタイプが swift のものを開いた時にのみプラグインを読み込む.
+rtp = 'utils/vim' # vim プラグインがあるところまでのパスを指定.
+
+[[plugins]] # MARKDOWN ファイルのプレビュー.
+repo = 'previm/previm'
+on_ft = ['markdown']
+hook_add = '''
+  let g:previm_open_cmd = "open -a 'Google Chrome'"
+'''
+
+[[plugins]] # emmet
+repo = 'mattn/emmet-vim'
+on_ft = ['html']
+hook_add = '''
+let g:user_emmet_leader_key='<C-e>'
+" HTML/CSSのみ有効にする.
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+'''
+
+[[plugins]] # 自作プラグイン.
+repo = 'residenti/amatatsu'
+on_cmd = ['z'] # 特定のコマンドを打ったら読み込む.
+
