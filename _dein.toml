@@ -47,16 +47,21 @@ let g:airline_theme = 'light'
 '''
 
 [[plugins]]
-repo = 'Shougo/neosnippet.vim'
-hook_add = '''
-  " エンターキーで補完候補&スニペットの展開確定.
-  imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
-  " タブキーで補完候補の選択&スニペット内のジャンプ.
-  imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
-'''
+repo = 'vim-airline/vim-airline-themes'
 
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+[[plugins]] # tomlのシンタックスを有効に.
+repo = 'cespare/vim-toml'
+
+[[plugins]] # swift のシンタックスを有効に.
+repo = 'apple/swift'
+rtp = 'utils/vim' # vim プラグインがあるところまでのパスを指定.
+on_ft = 'swift' # ファイルタイプが swift のものを開いた時にのみプラグインを読み込む.
+
+[[plugins]] #  インデントを可視化.
+repo = 'Yggdroot/indentLine'
+hook_add = '''
+let g:indentLine_char = '¦'
+'''
 
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
@@ -75,53 +80,19 @@ hook_add = '''
   inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
 '''
 
-[[plugins]] # tomlのシンタックスを有効に.
-repo = 'cespare/vim-toml'
-
-[[plugins]] # カーソル位置のコンテキストに合わせて filetype を切り替え.
-repo = 'osyo-manga/vim-precious'
-depends = ['Shougo/context_filetype.vim']
-
-[[plugins]] # カーソル位置のコンテキストの filetype を判定するライブラリ.
-repo = 'Shougo/context_filetype.vim'
-
 [[plugins]]
-repo = 'previm/previm'
+repo = 'Shougo/neosnippet.vim'
 hook_add = '''
-  let g:previm_open_cmd = "open -a 'Google Chrome'"
-'''
-
-[[plugins]] # swift のシンタックスを有効に.
-repo = 'apple/swift'
-rtp = 'utils/vim' # vim プラグインがあるところまでのパスを指定.
-on_ft = 'swift' # ファイルタイプが swift のものを開いた時にのみプラグインを読み込む.
-
-[[plugins]] # Vimスクリプト基礎文法最速マスター( https://thinca.hatenablog.com/entry/20100201/1265009821 )を:help learn-vimscript で閲覧できる.
-repo = 'mattn/learn-vimscript'
-
-[[plugins]] # 閉じタグを自動で入力する.
-repo = 'alvan/vim-closetag'
-hook_add = '''
-" 有効にするファイルの拡張子を指定する.
-let g:closetag_filenames = '*.html'
-'''
-
-[[plugins]] # emmet
-repo = 'mattn/emmet-vim'
-hook_add = '''
-let g:user_emmet_leader_key='<C-e>'
-" HTML/CSSのみ有効にする.
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+  " エンターキーで補完候補&スニペットの展開確定.
+  imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
+  " タブキーで補完候補の選択&スニペット内のジャンプ.
+  imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 '''
 
 [[plugins]]
-repo = 'vim-airline/vim-airline-themes'
+repo = 'Shougo/neosnippet-snippets'
 
-[[plugins]] # "を打つと""に自動補完してくれる.
-repo = 'Townk/vim-autoclose'
-
-[[plugins]] # syntaxのチェック
+[[plugins]] # syntaxのチェック.
 repo =  'scrooloose/syntastic'
 hook_add = '''
 set statusline+=%#warningmsg#
@@ -138,13 +109,24 @@ let g:syntastic_mode_map = { 'mode': 'active',
   \ 'passive_filetypes': ['html'] }
 '''
 
-[[plugins]] #  インデントを可視化.
-repo = 'Yggdroot/indentLine'
+[[plugins]] # "を打つと""に自動補完してくれる.
+repo = 'Townk/vim-autoclose'
+
+[[plugins]] # 閉じタグを自動で入力する.
+repo = 'alvan/vim-closetag'
 hook_add = '''
-let g:indentLine_char = '¦'
+" 有効にするファイルの拡張子を指定する.
+let g:closetag_filenames = '*.html'
 '''
 
-[[plugins]] #  ウィンドウサイズを変更.
+[[plugins]] # カーソル位置のコンテキストに合わせて filetype を切り替え.
+repo = 'osyo-manga/vim-precious'
+depends = ['Shougo/context_filetype.vim']
+
+[[plugins]] # カーソル位置のコンテキストの filetype を判定するライブラリ.
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]] # ウィンドウサイズを変更.
 repo = 'simeji/winresizer'
 hook_add = '''
 let g:winresizer_start_key = '<Space>w'
@@ -152,8 +134,26 @@ let g:winresizer_start_key = '<Space>w'
 let g:winresizer_keycode_finish = 13
 '''
 
- [[plugins]] #  コメントアウト.
+[[plugins]] # コメントアウト.
 repo = 'tyru/caw.vim'
 
- [[plugins]] # 自作プラグイン.
+[[plugins]]
+repo = 'previm/previm'
+hook_add = '''
+  let g:previm_open_cmd = "open -a 'Google Chrome'"
+'''
+
+[[plugins]] # emmet.
+repo = 'mattn/emmet-vim'
+hook_add = '''
+let g:user_emmet_leader_key='<C-e>'
+" HTML/CSSのみ有効にする.
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+'''
+
+[[plugins]] # Vimスクリプト基礎文法最速マスター( https://thinca.hatenablog.com/entry/20100201/1265009821 )を:help learn-vimscript で閲覧できる.
+repo = 'mattn/learn-vimscript'
+
+[[plugins]] # 自作プラグイン.
 repo = 'residenti/amatatsu'
