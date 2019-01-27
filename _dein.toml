@@ -1,4 +1,3 @@
-
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -87,9 +86,6 @@ depends = ['Shougo/context_filetype.vim']
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
-repo = 'tpope/vim-markdown'
-
-[[plugins]]
 repo = 'previm/previm'
 hook_add = '''
   let g:previm_open_cmd = "open -a 'Google Chrome'"
@@ -161,5 +157,3 @@ repo = 'tyru/caw.vim'
 
  [[plugins]] # 自作プラグイン.
 repo = 'residenti/amatatsu'
-
-
