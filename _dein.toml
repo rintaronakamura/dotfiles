@@ -108,20 +108,12 @@ hook_add = '''
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]] # syntaxのチェック.
-repo =  'scrooloose/syntastic'
+repo =  'w0rp/ale'
 hook_add = '''
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_mode_map = { 'mode': 'active',
-  \ 'active_filetypes': [],
-  \ 'passive_filetypes': ['html'] }
+" ファイルを開いた時のチェックを無くす.
+let g:ale_lint_on_enter = 0
+" ファイルがエラーもしくは警告を含むなら loclist で表示する.
+let g:ale_open_list = 1
 '''
 
 [[plugins]] # "を打つと""に自動補完してくれる.
