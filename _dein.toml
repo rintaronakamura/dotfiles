@@ -29,6 +29,9 @@ hook_add = '''
 [[plugins]] # 有名どころのVimプラグインにアイコンを追加する.
 repo = 'ryanoasis/vim-devicons'
 
+[[plugins]] # ファイル検索として利用.
+repo = 'ctrlpvim/ctrlp.vim'
+
 [[plugins]] # カラースキームを設定
 repo = 'tomasr/molokai'
 hook_add = '''
