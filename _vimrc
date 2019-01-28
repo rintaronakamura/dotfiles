@@ -69,8 +69,6 @@ set clipboard=unnamed
 " backspace で削除できるものを指定
 " indent: 行頭の空白, eol: 改行, start:挿入モード開始位置より手前の文字
 set backspace=indent,eol,start
-" カーソルの左右移動で行末から次の行の行頭への移動が可能になる
-set whichwrap=b,s,h,l,<,>,[,],~
 " カーソルラインをハイライト"
 set cursorline
 
