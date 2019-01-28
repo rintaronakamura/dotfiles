@@ -58,12 +58,6 @@ repo = 'airblade/vim-gitgutter'
 hook_add = '''
 " 差分を認識する間隔(ミリ秒).
 set updatetime=100
-" 差分が表示されるカラムを常に表示.
-if exists('&signcolumn')
-  set signcolumn=yes
-else
-  let g:gitgutter_sign_column_always = 1
-endif
 '''
 
 [[plugins]]
