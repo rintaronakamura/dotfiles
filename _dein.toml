@@ -54,14 +54,14 @@ let g:airline_theme = 'light'
 '''
 
 [[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
 " 差分を認識する間隔(ミリ秒).
 set updatetime=100
 '''
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]] # tomlのシンタックスを有効に.
 repo = 'cespare/vim-toml'
