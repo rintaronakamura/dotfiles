@@ -30,8 +30,11 @@ let &runtimepath = s:dein_repo_dir .",". &runtimepath
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
-  let s:plugings_file = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
-  call dein#load_toml(s:plugings_file)
+  let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
+  let s:toml_lazy_file = fnamemodify(expand('<sfile>'), ':h').'/dein_lazy.toml'
+
+  call dein#load_toml(s:toml_file, {'lazy': 0})
+  call dein#load_toml(s:toml_lazy_file, {'lazy': 1})
 
   call dein#end()
   call dein#save_state()
