@@ -1,10 +1,6 @@
-
 [user]
 name = residenti
 email = n.queue.r@gmail.com
-
-[core]
-excludesfile = /Users/residenti/.gitignore_global
 
 [difftool "sourcetree"]
 cmd = opendiff \"$LOCAL\" \"$REMOTE\"
