@@ -51,6 +51,7 @@ repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]] # tomlのシンタックスを有効に.
 repo = 'cespare/vim-toml'
+on_ft = 'toml' # ファイルタイプが toml のものを開いた時にのみプラグインを読み込む.
 
 [[plugins]] # swift のシンタックスを有効に.
 repo = 'apple/swift'
@@ -142,6 +143,7 @@ repo = 'previm/previm'
 hook_add = '''
   let g:previm_open_cmd = "open -a 'Google Chrome'"
 '''
+on_ft = ['md', 'markdown'] # ファイルタイプが markdown のものを開いた時にのみプラグインを読み込む.
 
 [[plugins]] # emmet.
 repo = 'mattn/emmet-vim'
@@ -151,6 +153,7 @@ let g:user_emmet_leader_key='<C-e>'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 '''
+on_ft = ['html', 'css'] # ファイルタイプが html/css のものを開いた時にのみプラグインを読み込む.
 
 [[plugins]] # Vimスクリプト基礎文法最速マスター( https://thinca.hatenablog.com/entry/20100201/1265009821 )を:help learn-vimscript で閲覧できる.
 repo = 'mattn/learn-vimscript'
