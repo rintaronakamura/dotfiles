@@ -154,6 +154,12 @@ autocmd FileType html,css EmmetInstall
 '''
 on_ft = ['html', 'css'] # ファイルタイプが html/css のものを開いた時にのみプラグインを読み込む.
 
+[[plugins]] # helpの日本語版
+repo = 'vim-jp/vimdoc-ja'
+hook_add = '''
+set helplang=ja,en
+'''
+
 [[plugins]] # Vimスクリプト基礎文法最速マスター( https://thinca.hatenablog.com/entry/20100201/1265009821 )を:help learn-vimscript で閲覧できる.
 repo = 'mattn/learn-vimscript'
 
