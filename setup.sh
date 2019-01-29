@@ -5,7 +5,5 @@ ln -s ~/dotfiles/_vimrc ~/.vimrc
 ln -s ~/dotfiles/_dein.toml ~/dein.toml
 
 ln -s ~/dotfiles/_gitconfig ~/.gitconfig
-if [ ! -e ~/.config/git ]; then
-  mkdir ~/.config/git;
-fi
+test ! -e ~/.config/git && mkdir ~/.config/git
 ln -s ~/dotfiles/.config/git/ignore ~/.config/git/ignore
