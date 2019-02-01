@@ -32,6 +32,9 @@ repo = 'ryanoasis/vim-devicons'
 [[plugins]] # ファイル検索として利用.
 repo = 'ctrlpvim/ctrlp.vim'
 hook_add = '''
+" 検索範囲を指定. TODO: オプションの明確な使い方を把握する.
+" let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 'c'
 " 検索対象から除外.
 let g:ctrlp_custom_ignore = 'vendor\|tmp/cache'
 '''
