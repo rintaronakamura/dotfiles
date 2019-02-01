@@ -129,11 +129,11 @@ autocmd MyAutoCmd VimEnter,WinEnter *
 " *で全ファイルに適用
 autocmd MyAutoCmd VimEnter * execute 'NERDTree'
 
-autocmd BufRead,BufNewFile *.md set filetype=markdown
+autocmd MyAutoCmd BufRead,BufNewFile *.md set filetype=markdown
 
 " vimgrep
 "" vimgrep,grep,Ggrepで自動的にquickfix-window(:cw)を開く.
-autocmd QuickFixCmdPost *grep* cwindow
+autocmd MyAutoCmd QuickFixCmdPost *grep* cwindow
 "" vimgrepの検索対象外ファイル・ディレクトリを設定.
 let s:ignore_list  = ',.git/**,.svn/**,obj/**'
 let s:ignore_list .= ',tags,GTAGS,GRTAGS,GPATH'

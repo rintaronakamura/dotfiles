@@ -19,7 +19,7 @@ hook_add = '''
   " 非表示ファイル
   let g:NERDTreeIgnore=['\.swp$', '.DS_Store']
   " 開いているウィンドウがNERDTreeだけならVimを閉じる
-  autocmd Bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  autocmd MyAutoCmd Bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 '''
 
 #インストール方法メモ
@@ -157,7 +157,7 @@ hook_add = '''
 let g:user_emmet_leader_key='<C-e>'
 " HTML/CSSのみ有効にする.
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+autocmd MyAutoCmd FileType html,css EmmetInstall
 '''
 on_ft = ['html', 'css'] # ファイルタイプが html/css のものを開いた時にのみプラグインを読み込む.
 
