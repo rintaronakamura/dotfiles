@@ -130,8 +130,23 @@ autocmd MyAutoCmd VimEnter,WinEnter *
 autocmd MyAutoCmd VimEnter * execute 'NERDTree'
 
 autocmd BufRead,BufNewFile *.md set filetype=markdown
-" :vimgrep,:grep,:Ggrepで自動的にquickfix-window(:cw)を開くようにする.
+
+" vimgrep
+"" vimgrep,grep,Ggrepで自動的にquickfix-window(:cw)を開く.
 autocmd QuickFixCmdPost *grep* cwindow
+"" vimgrepの検索対象外ファイル・ディレクトリを設定.
+let s:ignore_list  = ',.git/**,.svn/**,obj/**'
+let s:ignore_list .= ',tags,GTAGS,GRTAGS,GPATH'
+let s:ignore_list .= ',*.o,*.obj,*.exe,*.dll,*.bin,*.so,*.a,*.out,*.jar,*.pak'
+let s:ignore_list .= ',*.zip,*gz,*.xz,*.bz2,*.7z,*.lha,*.lzh,*.deb,*.rpm,*.iso'
+let s:ignore_list .= ',*.pdf,*.png,*.jp*,*.gif,*.bmp,*.mp*'
+let s:ignore_list .= ',*.od*,*.doc*,*.xls*,*.ppt*'
+
+if exists('+wildignore')
+  autocmd MyAutoCmd QuickFixCmdPre  * execute 'setlocal wildignore+=' . s:ignore_list
+  autocmd MyAutoCmd QuickFixCmdPost * execute 'setlocal wildignore-=' . s:ignore_list
+endif
+
 "*****************************************************************************
 " End Autocmd
 "*****************************************************************************
