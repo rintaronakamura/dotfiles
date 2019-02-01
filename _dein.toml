@@ -49,11 +49,13 @@ hook_add = '''
 [[plugins]] # ステータスライン
 repo = 'itchyny/lightline.vim'
 
-[[plugins]]
+# [[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
+" バッファを保存時に差分を認識する.
+autocmd MyAutoCmd BufWritePost * GitGutter
 " 差分を認識する間隔(ミリ秒).
-set updatetime=100
+" set updatetime=100
 '''
 
 [[plugins]] # tomlのシンタックスを有効に.
