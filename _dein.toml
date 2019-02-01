@@ -167,5 +167,5 @@ set helplang=ja,en
 [[plugins]] # Vimスクリプト基礎文法最速マスター( https://thinca.hatenablog.com/entry/20100201/1265009821 )を:help learn-vimscript で閲覧できる.
 repo = 'mattn/learn-vimscript'
 
-[[plugins]] # 自作プラグイン.
-repo = 'residenti/amatatsu'
+# [[plugins]] # 自作プラグイン.
+# repo = 'residenti/amatatsu'
