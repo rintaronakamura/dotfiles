@@ -1,0 +1,6 @@
+/* 詳しくは man ctags で確認する. */
+
+/* tagsファイルがあれば追加もしく、置き換える. */
+--append=yes
+/* -Rと同じ */
+--recurse=yes
