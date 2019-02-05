@@ -1,11 +1,11 @@
-export PATH=/usr/local/bin/:$PATH
+export PATH="/usr/local/bin/:$PATH"
 
 # rbenv
-export PATH=$HOME/.rbenv/bin:$PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 # node. nodebrewでcurrentを指定しないとパスエラーになる.
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH="$HOME/.nodebrew/current/bin:$PATH"
 
 # .bashrcの読み込み.
 test -r ~/.bashrc && . ~/.bashrc
