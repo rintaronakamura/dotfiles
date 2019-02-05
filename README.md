@@ -11,7 +11,3 @@ git clone git@github.com:residenti/dotfiles.git
 cd dotfiles
 sh setup.sh
 ```
-
-## TODO
-
-- setup ruby devEnv.
