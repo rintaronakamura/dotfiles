@@ -2,6 +2,7 @@
 alias ll='ls -la'
 alias v='vim'
 alias c='clear'
+alias rb='rbenv'
 alias brails='bundle exec rails'
 
 # original command.
