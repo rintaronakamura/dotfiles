@@ -10,3 +10,5 @@ export PATH="$HOME/.nodebrew/current/bin:$PATH"
 
 # .bashrcの読み込み.
 test -r ~/.bashrc && . ~/.bashrc
+
+export PATH="/usr/local/opt/openssl/bin:$PATH"
