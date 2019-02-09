@@ -169,8 +169,11 @@ hook_add = '''
 set helplang=ja,en
 '''
 
-[[plugins]] # Vimスクリプト基礎文法最速マスター( https://thinca.hatenablog.com/entry/20100201/1265009821 )を:help learn-vimscript で閲覧できる.
+[[plugins]] # Vimスクリプト基礎文法最速マスター.
 repo = 'mattn/learn-vimscript'
+hook_add = '''
+command! Help help learn-vimscript
+'''
 
 # [[plugins]] # 自作プラグイン.
 # repo = 'residenti/amatatsu'
