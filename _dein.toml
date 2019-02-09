@@ -178,3 +178,8 @@ repo = 'mattn/learn-vimscript'
 hook_add = '''
 command! Help help learn-vimscript
 '''
+
+# Ruby/Rails開発用プラグイン
+[[plugins]]
+repo = 'thinca/vim-ref'
+on_ft = ['ruby', 'erb']
