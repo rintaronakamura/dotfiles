@@ -1,8 +1,15 @@
 brew install git
+brew install openssl
 brew install ctags
 brew install curl
 brew install mysql
+brew install sqlite
+brew install postgresql
+brew install peco
+brew install bat
 brew install tree
+brew install vim
+brew install ffmpeg
 brew install rbenv ruby-build
 brew tap heroku/brew && brew install heroku
 
