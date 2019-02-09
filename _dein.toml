@@ -1,3 +1,6 @@
+# [[plugins]] # 自作プラグイン.
+# repo = 'residenti/amatatsu'
+
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -175,6 +178,3 @@ repo = 'mattn/learn-vimscript'
 hook_add = '''
 command! Help help learn-vimscript
 '''
-
-# [[plugins]] # 自作プラグイン.
-# repo = 'residenti/amatatsu'
