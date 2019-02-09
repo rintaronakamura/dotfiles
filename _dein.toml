@@ -149,7 +149,8 @@ repo = 'tyru/caw.vim'
 [[plugins]]
 repo = 'previm/previm'
 hook_add = '''
-  let g:previm_open_cmd = "open -a 'Google Chrome'"
+let g:previm_open_cmd = "open -a 'Google Chrome'"
+command! Previm PrevimOpen
 '''
 on_ft = ['md', 'markdown'] # ファイルタイプが markdown のものを開いた時にのみプラグインを読み込む.
 
