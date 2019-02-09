@@ -180,6 +180,6 @@ command! Help help learn-vimscript
 '''
 
 # Ruby/Rails開発用プラグイン
-[[plugins]]
+[[plugins]] # refe2 のインストールと設定が必要.
 repo = 'thinca/vim-ref'
 on_ft = ['ruby', 'erb']
