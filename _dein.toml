@@ -124,8 +124,8 @@ repo = 'Townk/vim-autoclose'
 [[plugins]] # 閉じタグを自動で入力する.
 repo = 'alvan/vim-closetag'
 hook_add = '''
-" 有効にするファイルの拡張子を指定する.
-let g:closetag_filenames = '*.html'
+" 有効にするファイルをタイプで指定.
+let g:closetag_filetypes = 'html,xhtml,phtml'
 '''
 
 [[plugins]] # カーソル位置のコンテキストに合わせて filetype を切り替え.
