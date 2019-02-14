@@ -32,14 +32,29 @@ hook_add = '''
 [[plugins]] # 有名どころのVimプラグインにアイコンを追加する.
 repo = 'ryanoasis/vim-devicons'
 
-[[plugins]] # ファイル検索として利用.
-repo = 'ctrlpvim/ctrlp.vim'
+[[plugins]]
+repo = '/usr/local/opt/fzf'
+
+[[plugins]]
+repo = '/usr/local/opt/the_silver_searcher'
+
+[[plugins]] # ファイル検索.
+repo = 'junegunn/fzf.vim'
+depends = ['/usr/local/opt/fzf', '/usr/local/opt/the_silver_searcher']
 hook_add = '''
-" 検索範囲を指定. TODO: オプションの明確な使い方を把握する.
-let g:ctrlp_working_path_mode = 'ra'
-" let g:ctrlp_working_path_mode = 'c'
-" 検索対象から除外.
-let g:ctrlp_custom_ignore = 'vendor\|tmp/cache'
+fun! FzfOmniFiles()
+  let is_git = system('git status')
+  if v:shell_error
+    :Files
+  else
+    :GitFiles
+  endif
+endfun
+
+nnoremap <C-g> :Ag<Space>
+nnoremap <C-d> :GFiles?<CR>
+nnoremap <C-p> :call FzfOmniFiles()<CR>
+nnoremap <C-c> :Commands<CR>
 '''
 
 [[plugins]] # カラースキームを設定
