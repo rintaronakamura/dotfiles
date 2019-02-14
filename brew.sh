@@ -8,6 +8,8 @@ brew install postgresql
 brew install peco
 brew install bat
 brew install tree
+brew install the_silver_searcher
+brew install fzf
 brew install vim
 brew install ffmpeg
 brew install rbenv ruby-build
