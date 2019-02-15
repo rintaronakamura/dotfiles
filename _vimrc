@@ -111,7 +111,7 @@ nnoremap <F6> :<C-u>source $MYVIMRC<CR>
 " 必ずaugroup名を指定して書く
 " 保存時に行末スペースを取り除く TODO: 全角対応
 " eフラグは検索パターンが何もマッチしなかった時に、エラーメッセージを表示させないため
-autocmd MyAutoCmd BufWritePre * %s/\s\+$//e
+" autocmd MyAutoCmd BufWritePre * %s/\s\+$//e
 " 行末スペースをハイライトで可視化する TODO: 全角対応
 autocmd MyAutoCmd VimEnter,WinEnter *
   \ match Error /\s\+$/
