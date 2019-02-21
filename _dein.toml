@@ -89,6 +89,9 @@ repo = 'apple/swift'
 rtp = 'utils/vim' # vim プラグインがあるところまでのパスを指定.
 on_ft = 'swift' # ファイルタイプが swift のものを開いた時にのみプラグインを読み込む.
 
+[[plugins]] # 全角半角の空白文字を可視化.
+repo = 'bronson/vim-trailing-whitespace'
+
 [[plugins]] #  インデントを可視化.
 repo = 'Yggdroot/indentLine'
 hook_add = '''

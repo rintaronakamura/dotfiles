@@ -130,9 +130,6 @@ nnoremap <F6> :<C-u>source $MYVIMRC<CR>
 " 保存時に行末スペースを取り除く TODO: 全角対応
 " eフラグは検索パターンが何もマッチしなかった時に、エラーメッセージを表示させないため
 autocmd MyAutoCmd BufWritePre * %s/\s\+$//e
-" 行末スペースをハイライトで可視化する TODO: 全角対応
-autocmd MyAutoCmd VimEnter,WinEnter *
-  \ match Error /\s\+$/
 " *で全ファイルに適用
 autocmd MyAutoCmd VimEnter * execute 'NERDTree'
 
