@@ -91,7 +91,7 @@ set softtabstop=0
 set shiftwidth=2
 
 " ファイルのスプリット
-nnoremap <silent> <Space>h :<C-u>split<CR>
+nnoremap <silent> <Space>x :<C-u>split<CR>
 nnoremap <silent> <Space>v :<C-u>vsplit<CR>
 " ウィンドウ移動
 nnoremap <C-h> <C-w>h
