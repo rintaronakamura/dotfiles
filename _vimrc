@@ -56,22 +56,6 @@ if &compatible
   set nocompatible
 endif
 
-" 行数を表示
-set number
-" ファイルタイトルを表示
-set title
-" -(ハイフン)を単語に含める
-set isk+=-
-" vimの256色対応
-set t_Co=256
-" クリップボード
-set clipboard=unnamed
-" backspace で削除できるものを指定
-" indent: 行頭の空白, eol: 改行, start:挿入モード開始位置より手前の文字
-set backspace=indent,eol,start
-" カーソルラインをハイライト"
-set cursorline
-
 " 検索パターンに大文字小文字を区別しない
 set ignorecase
 " インクリメンタルサーチ. １文字入力毎に検索を行う
@@ -83,12 +67,46 @@ set hlsearch
 
 " タブ入力を複数の空白入力に置き換える
 set expandtab
-" タブ幅
+" 画面上でタブ文字が占める幅
 set tabstop=2
 " 連続した空白に対してタブキーやバックスペースでカーソルが動く幅
-set softtabstop=0
+set softtabstop=2
+" 改行時に前の行の構文をチェックし次の行のインデントを増減する
+set smartindent
 " smartindentで増減する幅
 set shiftwidth=2
+
+" 行数を表示
+set number
+" ファイルタイトルを表示
+set title
+" -(ハイフン)を単語に含める
+set isk+=-
+" vimの256色対応
+set t_Co=256
+" クリップボード
+set clipboard=unnamed
+" indent: 行頭の空白, eol: 改行, start: 挿入モード開始位置より手前の文字でバックスペースを有効化
+set backspace=indent,eol,start
+" カーソルラインをハイライト"
+set cursorline
+" □や○文字が崩れる問題を解決
+set ambiwidth=double
+" Vimの「%」を拡張する
+source $VIMRUNTIME/macros/matchit.vim
+" コマンドモードの補完
+set wildmenu
+" マウスでカーソル移動やスクロール移動を可能に.
+if has('mouse')
+    set mouse=a
+    if has('mouse_sgr')
+        set ttymouse=sgr
+    elseif v:version > 703 || v:version is 703 && has('patch632')
+        set ttymouse=sgr
+    else
+        set ttymouse=xterm2
+    endif
+endif
 
 " ファイルのスプリット
 nnoremap <silent> <Space>x :<C-u>split<CR>
@@ -111,7 +129,7 @@ nnoremap <F6> :<C-u>source $MYVIMRC<CR>
 " 必ずaugroup名を指定して書く
 " 保存時に行末スペースを取り除く TODO: 全角対応
 " eフラグは検索パターンが何もマッチしなかった時に、エラーメッセージを表示させないため
-" autocmd MyAutoCmd BufWritePre * %s/\s\+$//e
+autocmd MyAutoCmd BufWritePre * %s/\s\+$//e
 " 行末スペースをハイライトで可視化する TODO: 全角対応
 autocmd MyAutoCmd VimEnter,WinEnter *
   \ match Error /\s\+$/
