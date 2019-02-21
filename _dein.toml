@@ -55,6 +55,7 @@ nnoremap <C-g> :Ag<Space>
 nnoremap <C-d> :GFiles?<CR>
 nnoremap <C-p> :call FzfOmniFiles()<CR>
 nnoremap <C-c> :Commands<CR>
+nnoremap <silent> <Space>h :History<CR>
 '''
 
 [[plugins]] # カラースキームを設定
