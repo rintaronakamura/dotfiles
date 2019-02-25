@@ -127,7 +127,7 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
-[[plugins]] # syntaxのチェック.
+# [[plugins]] # syntaxのチェック.
 # repo =  'w0rp/ale'
 # hook_add = '''
 # " ファイルタイプが変更された時のチェックをオフにする.
