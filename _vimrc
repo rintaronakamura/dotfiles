@@ -129,7 +129,7 @@ nnoremap <F6> :<C-u>source $MYVIMRC<CR>
 " 必ずaugroup名を指定して書く
 " 保存時に行末スペースを取り除く TODO: 全角対応
 " eフラグは検索パターンが何もマッチしなかった時に、エラーメッセージを表示させないため
-autocmd MyAutoCmd BufWritePre * %s/\s\+$//e
+" autocmd MyAutoCmd BufWritePre * %s/\s\+$//e
 " *で全ファイルに適用
 autocmd MyAutoCmd VimEnter * execute 'NERDTree'
 
