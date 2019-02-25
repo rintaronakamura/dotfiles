@@ -97,16 +97,16 @@ source $VIMRUNTIME/macros/matchit.vim
 " コマンドモードの補完
 set wildmenu
 " マウスでカーソル移動やスクロール移動を可能に.
-if has('mouse')
-    set mouse=a
-    if has('mouse_sgr')
-        set ttymouse=sgr
-    elseif v:version > 703 || v:version is 703 && has('patch632')
-        set ttymouse=sgr
-    else
-        set ttymouse=xterm2
-    endif
-endif
+" if has('mouse')
+"     set mouse=a
+"     if has('mouse_sgr')
+"         set ttymouse=sgr
+"     elseif v:version > 703 || v:version is 703 && has('patch632')
+"         set ttymouse=sgr
+"     else
+"         set ttymouse=xterm2
+"     endif
+" endif
 
 " ファイルのスプリット
 nnoremap <silent> <Space>x :<C-u>split<CR>
