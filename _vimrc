@@ -132,8 +132,6 @@ nnoremap <F6> :<C-u>source $MYVIMRC<CR>
 " eフラグは検索パターンが何もマッチしなかった時に、エラーメッセージを表示させないため
 " autocmd MyAutoCmd BufWritePre * %s/\s\+$//e
 
-autocmd MyAutoCmd VimEnter * execute 'NERDTree'
-
 autocmd MyAutoCmd BufRead,BufNewFile *.md set filetype=markdown
 
 " vimgrep
