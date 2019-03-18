@@ -129,6 +129,9 @@ inoremap ( ()<Left>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+" ヤンクした内容が消えないようにする
+nnoremap PP "0p
 "*****************************************************************************
 "" End Basic Settings
 "*****************************************************************************"
