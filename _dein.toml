@@ -8,10 +8,6 @@ hook_add = '''
 nmap <silent> <Space>ne :NERDTreeToggle<CR>
 " 起動時にブックマークを表示
 let g:NERDTreeShowBookmarks=1
-" 水平分割(デフォルトi)
-let g:NERDTreeMapOpenSplit = "<C-x>"
-" 垂直分割(デフォルトs)
-let g:NERDTreeMapOpenVSplit = "<C-v>"
 " 選択しているファイルをブックマークに登録
 nmap <silent> <Space>a :<C-u>Bookmark<CR>
 " 選択しているファイルをブックマークから削除
@@ -59,6 +55,10 @@ nnoremap <C-d> :GFiles?<CR>
 nnoremap <C-p> :call FzfOmniFiles()<CR>
 nnoremap <C-c> :Commands<CR>
 nnoremap <silent> <Space>h :History<CR>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-i': 'split',
+  \ 'ctrl-s': 'vsplit'}
 '''
 
 [[plugins]] # カラースキームを設定
