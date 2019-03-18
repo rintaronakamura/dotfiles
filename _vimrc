@@ -150,6 +150,9 @@ if exists('+wildignore')
   autocmd MyAutoCmd QuickFixCmdPost * execute 'setlocal wildignore-=' . s:ignore_list
 endif
 
+" htmlの閉じタグ補完.
+autocmd MyAutoCmd Filetype xml  inoremap <buffer> </ </<C-x><C-o>
+autocmd MyAutoCmd Filetype html inoremap <buffer> </ </<C-x><C-o>
 "*****************************************************************************
 " End Autocmd
 "*****************************************************************************

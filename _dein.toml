@@ -137,13 +137,6 @@ repo = 'Shougo/neosnippet-snippets'
 [[plugins]] # "を打つと""に自動補完してくれる.
 repo = 'Townk/vim-autoclose'
 
-[[plugins]] # 閉じタグを自動で入力する.
-repo = 'alvan/vim-closetag'
-hook_add = '''
-" 有効にするファイルをタイプで指定.
-let g:closetag_filetypes = 'html,xhtml,phtml'
-'''
-
 [[plugins]] # カーソル位置のコンテキストに合わせて filetype を切り替え.
 repo = 'osyo-manga/vim-precious'
 depends = ['Shougo/context_filetype.vim']
