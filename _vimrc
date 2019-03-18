@@ -119,6 +119,16 @@ nnoremap <C-l> <C-w>l
 " ナイスなVimの設定を思いついたら即座にvimrcを開き反映
 nnoremap <F5> :<C-u>split $MYVIMRC<CR>
 nnoremap <F6> :<C-u>source $MYVIMRC<CR>
+
+" 括弧の補完
+inoremap " ""<Left>
+inoremap ' ''<Left>
+inoremap { {}<Left>
+inoremap [ []<Left>
+inoremap ( ()<Left>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
 "*****************************************************************************
 "" End Basic Settings
 "*****************************************************************************"

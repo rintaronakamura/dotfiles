@@ -134,9 +134,6 @@ repo = 'Shougo/neosnippet-snippets'
 # let g:ale_open_list = 1
 # '''
 
-[[plugins]] # "を打つと""に自動補完してくれる.
-repo = 'Townk/vim-autoclose'
-
 [[plugins]] # カーソル位置のコンテキストに合わせて filetype を切り替え.
 repo = 'osyo-manga/vim-precious'
 depends = ['Shougo/context_filetype.vim']
