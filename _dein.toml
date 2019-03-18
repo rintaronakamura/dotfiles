@@ -6,14 +6,6 @@ repo = 'scrooloose/nerdtree'
 hook_add = '''
 " NERDTreeを表示/非表示
 nmap <silent> <Space>ne :NERDTreeToggle<CR>
-" 起動時にブックマークを表示
-let g:NERDTreeShowBookmarks=1
-" 選択しているファイルをブックマークに登録
-nmap <silent> <Space>a :<C-u>Bookmark<CR>
-" 選択しているファイルをブックマークから削除
-nmap <silent> <Space>d :<C-u>ClearBookmarks<CR>
-" 全ブックマークを削除
-nmap <silent> <Space>da :<C-u>ClearAllBookmarks<CR>
 " 隠しファイルを表示
 let g:NERDTreeShowHidden=1
 " 非表示ファイル
