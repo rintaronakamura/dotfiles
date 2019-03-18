@@ -86,11 +86,6 @@ autocmd MyAutoCmd BufWritePost * GitGutter
 repo = 'cespare/vim-toml'
 on_ft = 'toml' # ファイルタイプが toml のものを開いた時にのみプラグインを読み込む.
 
-[[plugins]] # swift のシンタックスを有効に.
-repo = 'apple/swift'
-rtp = 'utils/vim' # vim プラグインがあるところまでのパスを指定.
-on_ft = 'swift' # ファイルタイプが swift のものを開いた時にのみプラグインを読み込む.
-
 [[plugins]] # 全角半角の空白文字を可視化.
 repo = 'bronson/vim-trailing-whitespace'
 
@@ -193,14 +188,3 @@ repo = 'vim-jp/vimdoc-ja'
 hook_add = '''
 set helplang=ja,en
 '''
-
-[[plugins]] # Vimスクリプト基礎文法最速マスター.
-repo = 'mattn/learn-vimscript'
-hook_add = '''
-command! Help help learn-vimscript
-'''
-
-# Ruby/Rails開発用プラグイン
-[[plugins]] # refe2 のインストールと設定が必要.
-repo = 'thinca/vim-ref'
-on_ft = ['ruby', 'erb']
