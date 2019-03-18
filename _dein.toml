@@ -1,6 +1,3 @@
-# [[plugins]] # 自作プラグイン.
-# repo = 'residenti/amatatsu'
-
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
