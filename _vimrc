@@ -88,8 +88,6 @@ set t_Co=256
 set clipboard=unnamed
 " indent: 行頭の空白, eol: 改行, start: 挿入モード開始位置より手前の文字でバックスペースを有効化
 set backspace=indent,eol,start
-" カーソルラインをハイライト"
-set cursorline
 " □や○文字が崩れる問題を解決
 set ambiwidth=double
 " Vimの「%」を拡張する
