@@ -165,11 +165,14 @@ endif
 autocmd MyAutoCmd Filetype xml  inoremap <buffer> </ </<C-x><C-o>
 autocmd MyAutoCmd Filetype html inoremap <buffer> </ </<C-x><C-o>
 
-" ファイルを開いてカーソルの位置を元に戻す
+" ファイルを開いてカーソルの位置を元に戻す.
 autocmd MyAutoCmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
+
+" 保存時にファイルをリロードする.
+autocmd MyAutoCmd BufWritePost $MYVIMRC source $MYVIMRC
 "*****************************************************************************
 " End Autocmd
 "*****************************************************************************
