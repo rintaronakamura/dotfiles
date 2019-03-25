@@ -164,6 +164,12 @@ endif
 " htmlの閉じタグ補完.
 autocmd MyAutoCmd Filetype xml  inoremap <buffer> </ </<C-x><C-o>
 autocmd MyAutoCmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+
+" ファイルを開いてカーソルの位置を元に戻す
+autocmd MyAutoCmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
 "*****************************************************************************
 " End Autocmd
 "*****************************************************************************
