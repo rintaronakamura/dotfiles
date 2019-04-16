@@ -65,9 +65,9 @@ set smartcase
 " 検索結果をハイライト"
 set hlsearch
 
-" タブ入力を複数の空白入力に置き換える
+" タブをスペースに変換する
 set expandtab
-" 画面上でタブ文字が占める幅
+" ファイル上のタブ文字の幅
 set tabstop=2
 " 連続した空白に対してタブキーやバックスペースでカーソルが動く幅
 set softtabstop=2
