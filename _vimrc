@@ -94,6 +94,10 @@ set ambiwidth=double
 source $VIMRUNTIME/macros/matchit.vim
 " コマンドモードの補完
 set wildmenu
+" 不可視文字を表示する
+set list
+" タブを -- 半スペを - で表示する
+set lcs=tab:>-,trail:-
 " マウスでカーソル移動やスクロール移動を可能に.
 " if has('mouse')
 "     set mouse=a
