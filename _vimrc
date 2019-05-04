@@ -112,10 +112,10 @@ set nofixeol
 "     endif
 " endif
 
-" ファイルのスプリット
+" ファイルの分割
 nnoremap <silent> <Space>x :<C-u>split<CR>
 nnoremap <silent> <Space>v :<C-u>vsplit<CR>
-" ウィンドウ移動
+" ウィンドウ間におけるカーソルの移動
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
