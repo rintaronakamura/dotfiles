@@ -11,3 +11,9 @@ function ruby_refe() {
   # 実行するとterminalの特殊文字が変更され終了したときに元の設定に復元されないため下記実行.
   stty sane
 }
+
+# git settings
+source /usr/local/git/contrib/completion/git-prompt.sh
+source /usr/local/git/contrib/completion/git-completion.bash
+GIT_PS1_SHOWDIRTYSTATE=true
+export PS1='[\u@\h \W]\[\033[32m\]$(__git_ps1)\[\033[00m\]\$ '
