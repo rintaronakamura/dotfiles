@@ -12,3 +12,5 @@ export PATH="$HOME/.nodebrew/current/bin:$PATH"
 test -r ~/.bashrc && . ~/.bashrc
 
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+export PATH="$HOME/.cargo/bin:$PATH"

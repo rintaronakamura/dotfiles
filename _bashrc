@@ -7,7 +7,7 @@ alias brails='bundle exec rails'
 
 # original command.
 function ruby_refe() {
-  cat ~/ruby_refe.txt | peco | xargs refe | bat -l ruby
+  cat ~/ruby_refe.txt | fzf | xargs refe | bat -l ruby
   # 実行するとterminalの特殊文字が変更され終了したときに元の設定に復元されないため下記実行.
   stty sane
 }
