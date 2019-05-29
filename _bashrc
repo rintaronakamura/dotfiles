@@ -16,4 +16,4 @@ function ruby_refe() {
 source /usr/local/git/contrib/completion/git-prompt.sh
 source /usr/local/git/contrib/completion/git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=true
-export PS1='\[\033[32m\]\u@\h \[\033[35m\]\W\[\033[34m\]$(__git_ps1)\[\033[00m\] \$ '
+export PS1='\u@\h:\W\[\033[33m\]$(__git_ps1)\[\033[00m\] \$ '
