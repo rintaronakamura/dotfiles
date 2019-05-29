@@ -13,7 +13,7 @@ function ruby_refe() {
 }
 
 # git settings
-source /usr/local/git/contrib/completion/git-prompt.sh
-source /usr/local/git/contrib/completion/git-completion.bash
+source ~/dotfiles/git-prompt.sh
+source ~/dotfiles/git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=true
 export PS1='\u@\h:\W\[\033[33m\]$(__git_ps1)\[\033[00m\] \$ '
