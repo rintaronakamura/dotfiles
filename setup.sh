@@ -4,7 +4,7 @@ ln -s ~/dotfiles/_bashrc ~/.bashrc
 ln -s ~/dotfiles/_ctags ~/.ctags
 
 ln -s ~/dotfiles/_gitconfig ~/.gitconfig
-test ! -e ~/.config/git && mkdir ~/.config/git
+test ! -e ~/.config/git && mkdir -p ~/.config/git
 ln -s ~/dotfiles/.config/git/ignore ~/.config/git/ignore
 
 sh ./brew.sh
