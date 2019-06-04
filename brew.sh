@@ -1,4 +1,3 @@
-brew install git
 brew install openssl
 brew install ctags
 brew install curl
@@ -18,7 +17,5 @@ brew tap heroku/brew && brew install heroku
 brew tap caskroom/fonts
 brew cask install font-hack-nerd-font
 
-brew cask install iterm2
 brew cask install alfred
-brew cask install sblack
 brew cask install google-chrome
