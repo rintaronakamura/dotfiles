@@ -12,8 +12,12 @@ function ruby_refe() {
   stty sane
 }
 
-# git settings
+# prompt.
 source ~/dotfiles/git-prompt.sh
 source ~/dotfiles/git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=true
-export PS1='\u@\h:\W\[\033[33m\]$(__git_ps1)\[\033[00m\] \$ '
+if [ -n "$VIMRUNTIME" ]; then
+  export PS1='\[\e[32m\]vim) \[\e[0m\]\u@\h:\W \[\e[33m\]$(__git_ps1) \[\e[0m\]\$ '
+else
+  export PS1='\u@\h:\W \[\e[33m\]$(__git_ps1) \[\e[0m\]\$ '
+fi
