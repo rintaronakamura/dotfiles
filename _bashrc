@@ -4,6 +4,7 @@ alias v='vim'
 alias c='clear'
 alias rb='rbenv'
 alias brails='bundle exec rails'
+alias t='tmux'
 
 # original command.
 function ruby_refe() {
