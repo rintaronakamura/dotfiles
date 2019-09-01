@@ -140,6 +140,8 @@ inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 inoremap <C-l> <Right>
+
+command! Path echo expand("%:p")
 "*****************************************************************************
 "" End Basic Settings
 "*****************************************************************************"
