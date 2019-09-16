@@ -75,6 +75,9 @@ autocmd MyAutoCmd BufWritePost * GitGutter
 " set updatetime=100
 '''
 
+[[plugins]]
+repo = 'tomlion/vim-solidity'
+
 [[plugins]] # tomlのシンタックスを有効に.
 repo = 'cespare/vim-toml'
 on_ft = 'toml' # ファイルタイプが toml のものを開いた時にのみプラグインを読み込む.
