@@ -114,19 +114,6 @@ imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosni
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
-# [[plugins]] # syntaxのチェック.
-# repo =  'w0rp/ale'
-# hook_add = '''
-# " ファイルタイプが変更された時のチェックをオフにする.
-# let g:ale_lint_on_filetype_changed = 0
-# " バッファの保存時にチェックする.
-# let g:ale_lint_on_text_changed = 'never'
-# " ファイルを開いた時のチェックを無くす.
-# let g:ale_lint_on_enter = 0
-# " ファイルがエラーもしくは警告を含むなら loclist で表示する.
-# let g:ale_open_list = 1
-# '''
-
 [[plugins]] # カーソル位置のコンテキストに合わせて filetype を切り替え.
 repo = 'osyo-manga/vim-precious'
 depends = ['Shougo/context_filetype.vim']
@@ -150,21 +137,8 @@ command! Pre PrevimOpen
 '''
 on_ft = ['md', 'markdown'] # ファイルタイプが markdown のものを開いた時にのみプラグインを読み込む.
 
-[[plugins]] # emmet.
-repo = 'mattn/emmet-vim'
-hook_add = '''
-let g:user_emmet_leader_key='<C-e>'
-" HTML/CSSのみ有効にする.
-let g:user_emmet_install_global = 0
-autocmd MyAutoCmd FileType html,css EmmetInstall
-'''
-on_ft = ['html', 'css'] # ファイルタイプが html/css のものを開いた時にのみプラグインを読み込む.
-
 [[plugins]] # helpの日本語版
 repo = 'vim-jp/vimdoc-ja'
 hook_add = '''
 set helplang=ja,en
 '''
-
-# [[plugins]]
-# repo = 'zxqfl/tabnine-vim'
