@@ -82,6 +82,9 @@ repo = 'tomlion/vim-solidity'
 repo = 'cespare/vim-toml'
 on_ft = 'toml' # ファイルタイプが toml のものを開いた時にのみプラグインを読み込む.
 
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+
 [[plugins]] #  インデントを可視化.
 repo = 'Yggdroot/indentLine'
 hook_add = '''

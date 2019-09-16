@@ -129,18 +129,6 @@ nnoremap PP "0p
 " 現在カーソルがあるウィンドウと一つ前のウィンドウを入れ替える
 nnoremap <C-w> <C-w>x
 
-" 括弧の補完
-inoremap " ""<Left>
-inoremap ' ''<Left>
-inoremap { {}<Left>
-inoremap [ []<Left>
-inoremap ( ()<Left>
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
-
-inoremap <C-l> <Right>
-
 command! Path echo expand("%:p")
 "*****************************************************************************
 "" End Basic Settings
