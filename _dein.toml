@@ -2,6 +2,49 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'ryanolsonx/vim-lsp-javascript'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+if executable('solargraph')
+  " gem install solargraph
+  augroup LspRuby
+    au!
+    au User lsp_setup call lsp#register_server({
+          \ 'name': 'solargraph',
+          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+          \ 'initialization_options': {"diagnostics": "true"},
+          \ 'whitelist': ['ruby'],
+          \ })
+  augroup END
+endif
+
+if executable('typescript-language-server')
+  " npm install -g typescript typescript-language-server
+  augroup LspTypeScript
+    au!
+    echo 'LspTypeScript'
+    au User lsp_setup call lsp#register_server({
+          \ 'name': 'typescript-language-server',
+          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+          \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+          \ 'whitelist': ['typescript', 'typescript.tsx', 'javascript', 'javascript.jsx'],
+          \ })
+  augroup END
+endif
+'''
+
+[[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
 " NERDTreeを表示/非表示
@@ -96,35 +139,6 @@ hook_add = '''
 let g:indentLine_char = '¦'
 '''
 
-[[plugins]]
-repo = 'Shougo/neocomplete.vim'
-hook_add = '''
-" Vim起動時にneocompleteを有効にする
-let g:neocomplete#enable_at_startup = 1
-" smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
-let g:neocomplete#enable_smart_case = 1
-" 3文字以上の単語に対して補完を有効にする
-let g:neocomplete#min_keyword_length = 3
-" 区切り文字まで補完する
-let g:neocomplete#enable_auto_delimiter = 1
-" 1文字目の入力から補完のポップアップを表示
-let g:neocomplete#auto_completion_start_length = 1
-" バックスペースで補完のポップアップを閉じる
-inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
-'''
-
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-hook_add = '''
-" エンターキーで補完候補&スニペットの展開確定.
-imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
-" タブキーで補完候補の選択&スニペット内のジャンプ.
-imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
-'''
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
 [[plugins]] # カーソル位置のコンテキストに合わせて filetype を切り替え.
 repo = 'osyo-manga/vim-precious'
 depends = ['Shougo/context_filetype.vim']
@@ -153,52 +167,3 @@ repo = 'vim-jp/vimdoc-ja'
 hook_add = '''
 set helplang=ja,en
 '''
-
-# LSP設定
-#[[plugins]]
-#repo='prabirshrestha/vim-lsp'
-#hook_add='''
-#" Ruby
-#if executable('solargraph')
-#    " gem install solargraph
-#    au User lsp_setup call lsp#register_server({
-#        \ 'name': 'solargraph',
-#        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
-#        \ 'initialization_options': {"diagnostics": "true"},
-#        \ 'whitelist': ['ruby'],
-#        \ })
-#endif
-#
-#" Debug
-#let g:lsp_log_verbose = 1
-#let g:lsp_log_file = expand('~/vim-lsp.log')
-#let g:asyncomplete_log_file = expand('~/asyncomplete.log')
-#
-#let g:lsp_signs_enabled = 1         " enable signs
-#let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
-#
-#let g:lsp_signs_error = {'text': '✗'}
-#let g:lsp_signs_warning = {'text': '‼'}
-#'''
-#
-#[[plugins]]
-#repo='prabirshrestha/asyncomplete.vim'
-#
-#[[plugins]]
-#repo='prabirshrestha/asyncomplete-lsp.vim'
-#
-#[[plugins]]
-#repo='prabirshrestha/asyncomplete-neosnippet.vim'
-#hook_add='''
-#call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
-#    \ 'name': 'neosnippet',
-#    \ 'whitelist': ['*'],
-#    \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
-#    \ }))
-#imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-#smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-#xmap <C-k>     <Plug>(neosnippet_expand_target)
-#'''
-#
-#[[plugins]]
-#repo = 'prabirshrestha/async.vim'
