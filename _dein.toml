@@ -76,6 +76,10 @@ autocmd MyAutoCmd BufWritePost * GitGutter
 '''
 
 [[plugins]]
+repo = 'posva/vim-vue'
+on_ft = 'vue'
+
+[[plugins]]
 repo = 'tomlion/vim-solidity'
 on_ft = 'solidity'
 
