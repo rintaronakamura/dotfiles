@@ -145,6 +145,9 @@ command! Path echo expand("%:p")
 
 autocmd MyAutoCmd BufRead,BufNewFile *.md set filetype=markdown
 
+" golangならハードタブに.
+autocmd MyAutoCmd BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4
+
 " vimgrep
 "" vimgrep,grep,Ggrepで自動的にquickfix-window(:cw)を開く.
 autocmd MyAutoCmd QuickFixCmdPost *grep* cwindow
