@@ -112,16 +112,6 @@ let g:fzf_action = {
   \ 'ctrl-s': 'vsplit'}
 '''
 
-[[plugins]] # カラースキームを設定
-repo = 'tomasr/molokai'
-hook_add = '''
-set background=dark
-" colorscheme 設定は source 後に行う必要があるので確実に読まれている VimEnter のタイミングで行う。
-" 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
-" TODO: nestedについて&auとautocmdの違いについて
-autocmd MyAutoCmd VimEnter * nested colorscheme molokai
-'''
-
 [[plugins]] # ステータスライン
 repo = 'itchyny/lightline.vim'
 

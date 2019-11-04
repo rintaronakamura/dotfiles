@@ -44,6 +44,7 @@ endif
 
 filetype plugin indent on
 syntax enable
+colorscheme lucario " https://github.com/raphamorim/lucario
 "*****************************************************************************
 "" End dein Settings
 "*****************************************************************************"
