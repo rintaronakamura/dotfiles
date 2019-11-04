@@ -8,3 +8,6 @@ co = checkout
 st = status
 log = log --oneline --graph --decorate
 graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+
+[ghq]
+root = /Users/NRintaro/go/src

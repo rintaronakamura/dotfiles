@@ -13,6 +13,8 @@ brew install tree
 brew install the_silver_searcher
 brew install vim
 brew install ffmpeg
+brew install go
+brew install ghq
 brew install rbenv ruby-build
 brew tap heroku/brew && brew install heroku
 
