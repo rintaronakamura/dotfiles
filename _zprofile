@@ -1,0 +1,20 @@
+export PATH="/usr/local/bin/:$PATH"
+
+# rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# node. nodebrewでcurrentを指定しないとパスエラーになる.
+export PATH="$HOME/.nodebrew/current/bin:$PATH"
+
+# .zshrcの読み込み.
+test -r ~/.zshrc && . ~/.zshrc
+
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# go.
+export GOPATH=$(go env GOPATH)
+export PATH=$PATH:$GOPATH/bin

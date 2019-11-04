@@ -1,0 +1,36 @@
+# alias command
+alias ll='ls -la'
+alias v='vim'
+alias c='clear'
+alias rb='rbenv'
+alias brails='bundle exec rails'
+alias t='tmux'
+
+# original command.
+function ruby_refe() {
+  cat ~/ruby_refe.txt | fzf | xargs refe | bat -l ruby
+  # 実行するとterminalの特殊文字が変更され終了したときに元の設定に復元されないため下記実行.
+  stty sane
+}
+
+bindkey '^]' peco-src
+function peco-src() {
+  local src=$(ghq list --full-path | peco --query "$LBUGGER")
+  if [ -n "$src" ]; then
+    BUFFER="cd $src"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N peco-src
+
+# bashからzshに変更したら動かなくなったやつ。気が向いたら治す。
+# prompt.
+# source ~/dotfiles/completion/git-prompt.sh
+# source ~/dotfiles/completion/_git
+# GIT_PS1_SHOWDIRTYSTATE=true
+# if [ -n "$VIMRUNTIME" ]; then
+#   export PS1='\[\e[32m\]vim) \[\e[0m\]\u@\h:\W \[\e[33m\]$(__git_ps1) \[\e[0m\]\$ '
+# else
+#   export PS1='\u@\h:\W \[\e[33m\]$(__git_ps1) \[\e[0m\]\$ '
+# fi

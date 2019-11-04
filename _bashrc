@@ -14,8 +14,8 @@ function ruby_refe() {
 }
 
 # prompt.
-source ~/dotfiles/git-prompt.sh
-source ~/dotfiles/git-completion.bash
+source ~/dotfiles/completion/git-prompt.sh
+source ~/dotfiles/completion/git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=true
 if [ -n "$VIMRUNTIME" ]; then
   export PS1='\[\e[32m\]vim) \[\e[0m\]\u@\h:\W \[\e[33m\]$(__git_ps1) \[\e[0m\]\$ '
