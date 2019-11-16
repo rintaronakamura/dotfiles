@@ -10,3 +10,6 @@
 [submodule "_vim/pack/simeji/start/winresizer"]
 	path = _vim/pack/simeji/start/winresizer
 	url = https://github.com/simeji/winresizer.git
+[submodule "_vim/pack/itchyny/start/lightline.vim"]
+	path = _vim/pack/itchyny/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim.git
