@@ -13,3 +13,6 @@
 [submodule "_vim/pack/itchyny/start/lightline.vim"]
 	path = _vim/pack/itchyny/start/lightline.vim
 	url = https://github.com/itchyny/lightline.vim.git
+[submodule "_vim/pack/airblade/start/vim-gitgutter"]
+	path = _vim/pack/airblade/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
