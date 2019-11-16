@@ -7,3 +7,6 @@
 [submodule "_vim/pack/ryanoasis/start/vim-devicons"]
 	path = _vim/pack/ryanoasis/start/vim-devicons
 	url = https://github.com/ryanoasis/vim-devicons.git
+[submodule "_vim/pack/simeji/start/winresizer"]
+	path = _vim/pack/simeji/start/winresizer
+	url = https://github.com/simeji/winresizer.git
