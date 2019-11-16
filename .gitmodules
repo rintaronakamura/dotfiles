@@ -28,3 +28,6 @@
 [submodule "_vim/pack/osyo-manga/start/vim-precious"]
 	path = _vim/pack/osyo-manga/start/vim-precious
 	url = https://github.com/osyo-manga/vim-precious
+[submodule "_vim/pack/Yggdroot/start/indentLine"]
+	path = _vim/pack/Yggdroot/start/indentLine
+	url = https://github.com/Yggdroot/indentLine
