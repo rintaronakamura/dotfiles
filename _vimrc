@@ -1,61 +1,14 @@
 "*****************************************************************************
-"" dein Settings
-"*****************************************************************************"
-" TODO: XDG Base Directory Specification に対応しないなら変更する必要あり
-let s:cache_home = empty($XDG_CACHE_HOME) ? expand('$HOME/.cache') : $XDG_CACHE_HOME
-let s:dein_dir = s:cache_home . '/dein'
-let s:dein_repo_dir = s:dein_dir .'/repos/github.com/Shougo/dein.vim'
-
-" autocmd が複数登録されないように最初に削除
-" dein.toml で MyAutoCmd を使うので dein.toml を読み込む前に定義
-augroup MyAutoCmd
-  autocmd!
-augroup END
-
-" dein.vimを自動でインストール.
-" system はシェルの実行、shellescapeはシェルで利用できる文字列に変換
-if !isdirectory(s:dein_repo_dir)
-  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
-endif
-
-" dein.vim本体をruntimepathに自己代入.つまりプラグインとして読み込む.
-" TODO:下記の場合 rintaro の部分が固定で他の環境で使えないので修正.
-" set runtimepath+=/Users/rintaro/.cache/dein/repos/github.com/Shougo/dein.vim
-"  => set runtimepath+=s:dein_repo_dir がエラーになる理由が分からない.
-" 上記では set しているが参考サイトでは下記のように let を使っているがそれぞれのメリデメが分からない.
-" 参考サイト : https://qiita.com/kawaz/items/ee725f6214f91337b42b
-let &runtimepath = s:dein_repo_dir .",". &runtimepath
-
-" プラグイン読み込み&キャッシュ作成.
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-
-  let s:plugings_file = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
-  call dein#load_toml(s:plugings_file)
-
-  call dein#end()
-  call dein#save_state()
-endif
-
-" 起動時に不足プラグインを自動でインストール.
-if has('vim_starting') && dein#check_install()
-  call dein#install()
-endif
-
-filetype plugin indent on
-syntax enable
-colorscheme lucario " https://github.com/raphamorim/lucario
-"*****************************************************************************
-"" End dein Settings
-"*****************************************************************************"
-
-"*****************************************************************************
 "" Basic Settings
 "*****************************************************************************"
 " VimをVi互換モードではなく、Vimとして使用(compatibleオプションはデフォルトで有効だが、vimrc/gvimrcを読み込むと無効になる)
 if &compatible
   set nocompatible
 endif
+
+filetype plugin indent on
+syntax enable
+colorscheme lucario
 
 " 検索パターンに大文字小文字を区別しない
 set ignorecase
@@ -140,9 +93,13 @@ command! Path echo expand("%:p")
 " 必ずaugroup名を指定して書く
 " *で全ファイルに適用
 "*****************************************************************************
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
 " 保存時に行末スペースを取り除く TODO: 全角対応
 " eフラグは検索パターンが何もマッチしなかった時に、エラーメッセージを表示させないため
-" autocmd MyAutoCmd BufWritePre * %s/\s\+$//e
+autocmd MyAutoCmd BufWritePre * %s/\s\+$//e
 
 autocmd MyAutoCmd BufRead,BufNewFile *.md set filetype=markdown
 
@@ -180,3 +137,124 @@ autocmd MyAutoCmd BufWritePost $MYVIMRC source $MYVIMRC
 "*****************************************************************************
 " End Autocmd
 "*****************************************************************************
+
+"*****************************************************************************
+"" Plugin Settings
+"*****************************************************************************
+" NERDTree
+" NERDTreeを表示/非表示
+nmap <silent> <Space>ne :NERDTreeToggle<CR>
+" 隠しファイルを表示
+let g:NERDTreeShowHidden=1
+" 非表示ファイル
+let g:NERDTreeIgnore=['\.swp$', '.DS_Store']
+" 開いているウィンドウがNERDTreeだけならVimを閉じる
+autocmd MyAutoCmd Bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" NERDTreeを起動する.
+autocmd MyAutoCmd VimEnter * execute 'NERDTree'
+
+" vim-devicons
+"インストール方法メモ
+"1. https://github.com/ryanoasis/nerd-fonts#font-installation のoption4: Homebrewでフォントをインストールする.
+"2. 利用しているターミナルのフォントを手順1でインストールしたFontに変更する.iTerm2なら設定画面>Profiles>Text>Font>Change Fontから設定する.
+"3. ryanoasis/vim-deviconsをインストールする.
+
+" winresizer
+let g:winresizer_start_key = '<Space>w'
+" enter で完了する.
+let g:winresizer_keycode_finish = 13
+
+" vim-gitgutter
+" バッファを保存時に差分を認識させる.
+autocmd MyAutoCmd BufWritePost * GitGutter
+
+" vimdoc-ja
+set helplang=ja,en
+
+" indentLine
+let g:indentLine_char = '¦'
+
+" fzf.vim
+fun! FzfOmniFiles()
+  let is_git = system('git status')
+  if v:shell_error
+    :Files
+  else
+    :GitFiles
+  endif
+endfun
+
+nnoremap <C-g> :Ag<Space>
+nnoremap <C-d> :GFiles?<CR>
+nnoremap <C-p> :call FzfOmniFiles()<CR>
+nnoremap <C-c> :Commands<CR>
+nnoremap <silent> <Space>h :History<CR>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-i': 'split',
+  \ 'ctrl-s': 'vsplit'}
+
+" asyncomplete.vim
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+
+" vim-lsp
+" Ruby言語用LSP設定の定義
+if executable('solargraph')
+  " gem install solargraph
+  augroup LspRuby
+    au!
+    au User lsp_setup call lsp#register_server({
+          \ 'name': 'solargraph',
+          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+          \ 'initialization_options': {"diagnostics": "true"},
+          \ 'whitelist': ['ruby'],
+          \ })
+  augroup END
+endif
+
+" Javascript, Typescript言語用LSP設定の定義
+if executable('typescript-language-server')
+  " npm install -g typescript typescript-language-server
+  augroup LspTypeScript
+    au!
+    au User lsp_setup call lsp#register_server({
+          \ 'name': 'typescript-language-server',
+          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+          \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+          \ 'whitelist': ['typescript', 'typescript.tsx', 'javascript', 'javascript.jsx'],
+          \ })
+  augroup END
+endif
+
+" Go言語用LSP設定の定義
+if executable('gopls')
+  " go get -u golang.org/x/tools/cmd/gopls
+  augroup LspGo
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'gopls',
+        \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+        \ 'whitelist': ['go'],
+        \ })
+    autocmd BufWritePre *.go LspDocumentFormatSync
+  augroup END
+endif
+
+" 遅延読み込み用関数の定義.
+function! s:config_markdown()
+  packadd previm
+  let g:previm_open_cmd = "open -a 'Google Chrome'"
+  command! Pre PrevimOpen
+endfunction
+
+function! s:config_vue()
+  packadd vim-vue
+endfunction
+
+" 遅延読み込み.
+autocmd MyAutoCmd FileType markdown call s:config_markdown()
+autocmd MyAutoCmd FileType vue call s:config_vue()
+"*****************************************************************************
+"" End Plugin Settings
+"*****************************************************************************"

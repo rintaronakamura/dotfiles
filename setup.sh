@@ -17,4 +17,3 @@ sh ./setup_ruby_env.sh
 
 ln -nfs ~/dotfiles/_vim ~/.vim
 ln -s ~/dotfiles/_vimrc ~/.vimrc
-ln -s ~/dotfiles/_dein.toml ~/dein.toml
