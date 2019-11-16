@@ -16,3 +16,6 @@
 [submodule "_vim/pack/airblade/start/vim-gitgutter"]
 	path = _vim/pack/airblade/start/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "_vim/pack/vim-jp/start/vimdoc-ja"]
+	path = _vim/pack/vim-jp/start/vimdoc-ja
+	url = https://github.com/vim-jp/vimdoc-ja
