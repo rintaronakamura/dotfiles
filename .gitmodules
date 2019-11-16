@@ -1,3 +1,0 @@
-[submodule "_vim/pack/mypackage/start/auto-pairs"]
-	path = _vim/pack/mypackage/start/auto-pairs
-	url = https://github.com/jiangmiao/auto-pairs
