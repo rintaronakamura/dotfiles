@@ -25,6 +25,3 @@
 [submodule "_vim/pack/Shougo/opt/context_filetype.vim"]
 	path = _vim/pack/Shougo/opt/context_filetype.vim
 	url = https://github.com/Shougo/context_filetype.vim
-[submodule "_vim/pack/osyo-manga/opt/vim-precious"]
-	path = _vim/pack/osyo-manga/opt/vim-precious
-	url = https://github.com/osyo-manga/vim-precious
