@@ -34,3 +34,12 @@
 [submodule "_vim/pack/posva/opt/vim-vue"]
 	path = _vim/pack/posva/opt/vim-vue
 	url = https://github.com/posva/vim-vue
+[submodule "_vim/pack/junegunn/start/fzf.vim"]
+	path = _vim/pack/junegunn/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "_vim/pack/junegunn/start/fzf"]
+	path = _vim/pack/junegunn/start/fzf
+	url = https://github.com/junegunn/fzf
+[submodule "_vim/pack/ggreer/start/the_silver_searcher"]
+	path = _vim/pack/ggreer/start/the_silver_searcher
+	url = https://github.com/ggreer/the_silver_searcher
