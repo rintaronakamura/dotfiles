@@ -19,3 +19,6 @@
 [submodule "_vim/pack/vim-jp/start/vimdoc-ja"]
 	path = _vim/pack/vim-jp/start/vimdoc-ja
 	url = https://github.com/vim-jp/vimdoc-ja
+[submodule "_vim/pack/previm/opt/previm"]
+	path = _vim/pack/previm/opt/previm
+	url = https://github.com/previm/previm
