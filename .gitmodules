@@ -22,3 +22,6 @@
 [submodule "_vim/pack/previm/opt/previm"]
 	path = _vim/pack/previm/opt/previm
 	url = https://github.com/previm/previm
+[submodule "_vim/pack/Shougo/start/context_filetype.vim"]
+	path = _vim/pack/Shougo/start/context_filetype.vim
+	url = https://github.com/Shougo/context_filetype.vim
