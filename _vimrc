@@ -200,7 +200,14 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
+"
 " vim-lsp
+"
+
+" 全般
+let g:lsp_signs_error = {'text': '💩'}
+let g:lsp_signs_warning = {'text': '🚽'}
+
 " Ruby言語用LSP設定の定義
 if executable('solargraph')
   " gem install solargraph
