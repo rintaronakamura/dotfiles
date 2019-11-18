@@ -231,9 +231,38 @@ if executable('typescript-language-server')
           \ 'name': 'typescript-language-server',
           \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
           \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-          \ 'whitelist': ['typescript', 'typescript.tsx', 'javascript', 'javascript.jsx'],
+          \ 'blacklist': ['vue'],
+          \ 'whitelist': ['typescript', 'typescript.tsx']
           \ })
   augroup END
+endif
+
+" Vue.js用LSP設定の定義
+if executable('vls')
+  " npm i -g vue-language-server
+  augroup LspVls
+    au!
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'vue-language-server',
+        \ 'cmd': {server_info->['vls']},
+        \ 'whitelist': ['vue'],
+        \ 'initialization_options': {
+        \         'config': {
+        \             'html': {},
+        \             'vetur': {
+        \                 'validation': {},
+        \                 'completion': {
+        \                   'scaffoldSnippetSources': {
+        \                         'workspace': '💼',
+        \                         'user': '(️User)',
+        \                         'vetur': ""
+        \                     }
+        \                 }
+        \             }
+        \         }
+        \     }
+        \ })
+  augroup end
 endif
 
 " Go言語用LSP設定の定義
