@@ -7,8 +7,9 @@ if &compatible
 endif
 
 filetype plugin indent on
+packadd! dracula
 syntax enable
-colorscheme lucario
+colorscheme dracula
 
 " 検索パターンに大文字小文字を区別しない
 set ignorecase

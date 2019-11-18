@@ -58,3 +58,6 @@
 [submodule "_vim/pack/prabirshrestha/start/vim-lsp"]
 	path = _vim/pack/prabirshrestha/start/vim-lsp
 	url = https://github.com/prabirshrestha/vim-lsp
+[submodule "_vim/pack/dracula/start/dracula"]
+	path = _vim/pack/dracula/start/dracula
+	url = https://github.com/dracula/vim.git
