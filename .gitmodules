@@ -61,3 +61,6 @@
 [submodule "_vim/pack/dracula/start/dracula"]
 	path = _vim/pack/dracula/start/dracula
 	url = https://github.com/dracula/vim.git
+[submodule "_vim/pack/plugins/start/vim-go"]
+	path = _vim/pack/plugins/start/vim-go
+	url = https://github.com/fatih/vim-go.git
