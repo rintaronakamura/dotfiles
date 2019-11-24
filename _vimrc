@@ -100,7 +100,7 @@ augroup END
 
 " 保存時に行末スペースを取り除く TODO: 全角対応
 " eフラグは検索パターンが何もマッチしなかった時に、エラーメッセージを表示させないため
-autocmd MyAutoCmd BufWritePre * %s/\s\+$//e
+" autocmd MyAutoCmd BufWritePre * %s/\s\+$//e
 
 autocmd MyAutoCmd BufRead,BufNewFile *.md set filetype=markdown
 
