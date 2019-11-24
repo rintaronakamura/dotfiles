@@ -203,7 +203,8 @@ inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
 " 全般
 let g:lsp_signs_error = {'text': '💩'}
-let g:lsp_signs_warning = {'text': '🚽'}
+let g:lsp_signs_warning = {'text': '⚡️'}
+let g:lsp_signs_hint = {'text': '😕'}
 
 " Ruby言語用LSP設定の定義
 if executable('solargraph')
