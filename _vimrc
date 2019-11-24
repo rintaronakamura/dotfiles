@@ -197,7 +197,10 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
-"
+" vim-go
+" ファイル保存時に自動でパッケージをimportする.
+let g:go_fmt_command = "goimports"
+
 " vim-lsp
 "
 
