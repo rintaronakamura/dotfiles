@@ -263,7 +263,7 @@ if executable('vls')
         \         }
         \     }
         \ })
-  augroup end
+  augroup END
 endif
 
 " Go言語用LSP設定の定義
