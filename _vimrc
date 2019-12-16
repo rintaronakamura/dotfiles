@@ -7,7 +7,9 @@ if &compatible
 endif
 
 syntax on
-colorscheme onehalfdark
+let g:dracula_italic = 0 " https://github.com/dracula/vim/issues/96
+packadd! dracula
+colorscheme dracula
 
 filetype plugin indent on
 
