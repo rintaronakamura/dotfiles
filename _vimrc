@@ -6,11 +6,13 @@ if &compatible
   set nocompatible
 endif
 
-filetype plugin indent on
-" packadd! dracula
-syntax enable
-colorscheme molokai
+syntax on
+colorscheme onehalfdark
 
+filetype plugin indent on
+
+" カーソルがある行を目立たせる
+set cursorline
 " 検索パターンに大文字小文字を区別しない
 set ignorecase
 " インクリメンタルサーチ. １文字入力毎に検索を行う
