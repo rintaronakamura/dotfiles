@@ -24,13 +24,8 @@ function peco-src() {
 }
 zle -N peco-src
 
-# bashからzshに変更したら動かなくなったやつ。気が向いたら治す。
-# prompt.
-# source ~/dotfiles/completion/git-prompt.sh
-# source ~/dotfiles/completion/_git
-# GIT_PS1_SHOWDIRTYSTATE=true
-# if [ -n "$VIMRUNTIME" ]; then
-#   export PS1='\[\e[32m\]vim) \[\e[0m\]\u@\h:\W \[\e[33m\]$(__git_ps1) \[\e[0m\]\$ '
-# else
-#   export PS1='\u@\h:\W \[\e[33m\]$(__git_ps1) \[\e[0m\]\$ '
-# fi
+if [ -n "$VIMRUNTIME" ]; then
+  PS1='(VIM) %m 🍊 %c %# '
+else
+  PS1='%m 🍊 %c %# '
+fi
