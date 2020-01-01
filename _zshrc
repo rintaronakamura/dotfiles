@@ -25,7 +25,7 @@ function peco-src() {
 zle -N peco-src
 
 if [ -n "$VIMRUNTIME" ]; then
-  PS1='(VIM) %m 🍊 %c %# '
+  PS1='(VIM) %m 😈 %c %# '
 else
-  PS1='%m 🍊 %c %# '
+  PS1='%m 😈 %c %# '
 fi
