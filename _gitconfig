@@ -1,13 +1,28 @@
 [user]
-name = residenti
-email = n.queue.r@gmail.com
+  name = residenti
+  email = n.queue.r@gmail.com
+
+[core]
+  excludesfile = ~/.config/git/ignore
 
 [alias]
-br = branch
-co = checkout
-st = status
-log = log --oneline --graph --decorate
-graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+  br = branch
+  co = checkout
+  st = status
+  log = log --oneline --graph --decorate
+  logone = log --oneline
+  graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+
+[secrets]
+	providers = git secrets --aws-provider
+	patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
+	patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
+	patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
+	allowed = AKIAIOSFODNN7EXAMPLE
+	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+
+[init]
+	templatedir = ~/.git-templates/git-secrets
 
 [ghq]
-root = /Users/NRintaro/go/src
+  root = ~/go/src
