@@ -20,3 +20,6 @@ export GOPATH=$(go env GOPATH)
 export PATH=$PATH:$GOPATH/bin
 # デフォルトがauto. $GOPATH/src 内であってもgo.modが存在する場合はmodule-aware modeと認識されるためコメントアウト.
 # export GO111MODULE=on
+
+# flutter
+export PATH="$PATH:$HOME/Documents/program/private/src/flutter/flutter/bin"
