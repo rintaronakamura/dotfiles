@@ -292,19 +292,15 @@ endfunction
 
 function! s:config_vue()
   packadd vim-vue
-  " Enable Flutter menu
-  call FlutterMenu()
-  " Some of these key choices were arbitrary;
-  " it's just an example.
-  nnoremap <leader>fa :FlutterRun<cr>
-  nnoremap <leader>fq :FlutterQuit<cr>
-  nnoremap <leader>fr :FlutterHotReload<cr>
-  nnoremap <leader>fR :FlutterHotRestart<cr>
-  nnoremap <leader>fD :FlutterVisualDebug<cr>
 endfunction
 
 function! s:config_flutter()
   packadd vim-flutter
+  "nnoremap <silent>fa :FlutterRun<cr>
+  "nnoremap <silent>fq :FlutterQuit<cr>
+  "nnoremap <silent>fr :FlutterHotReload<cr>
+  "nnoremap <silent>fR :FlutterHotRestart<cr>
+  "nnoremap <silent>fD :FlutterVisualDebug<cr>
 endfunction
 
 " 遅延読み込み.
