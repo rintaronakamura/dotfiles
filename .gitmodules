@@ -64,3 +64,6 @@
 [submodule "_vim/pack/plugins/start/vim-go"]
 	path = _vim/pack/plugins/start/vim-go
 	url = https://github.com/fatih/vim-go.git
+[submodule "_vim/pack/thosakwe/opt/vim-flutter"]
+	path = _vim/pack/thosakwe/opt/vim-flutter
+	url = https://github.com/thosakwe/vim-flutter.git

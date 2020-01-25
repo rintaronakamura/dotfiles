@@ -292,11 +292,25 @@ endfunction
 
 function! s:config_vue()
   packadd vim-vue
+  " Enable Flutter menu
+  call FlutterMenu()
+  " Some of these key choices were arbitrary;
+  " it's just an example.
+  nnoremap <leader>fa :FlutterRun<cr>
+  nnoremap <leader>fq :FlutterQuit<cr>
+  nnoremap <leader>fr :FlutterHotReload<cr>
+  nnoremap <leader>fR :FlutterHotRestart<cr>
+  nnoremap <leader>fD :FlutterVisualDebug<cr>
+endfunction
+
+function! s:config_flutter()
+  packadd vim-flutter
 endfunction
 
 " 遅延読み込み.
 autocmd MyAutoCmd FileType markdown call s:config_markdown()
 autocmd MyAutoCmd FileType vue call s:config_vue()
+autocmd MyAutoCmd FileType dart call s:config_flutter()
 "*****************************************************************************
 "" End Plugin Settings
 "*****************************************************************************"
