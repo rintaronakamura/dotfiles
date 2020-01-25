@@ -67,3 +67,6 @@
 [submodule "_vim/pack/thosakwe/opt/vim-flutter"]
 	path = _vim/pack/thosakwe/opt/vim-flutter
 	url = https://github.com/thosakwe/vim-flutter.git
+[submodule "_vim/pack/dart-lang/start/dart-vim-plugin"]
+	path = _vim/pack/dart-lang/start/dart-vim-plugin
+	url = https://github.com/dart-lang/dart-vim-plugin.git
