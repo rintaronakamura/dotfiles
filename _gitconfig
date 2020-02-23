@@ -22,6 +22,7 @@
 	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 
 [init]
+	# https://qiita.com/jqtype/items/9196e047eddb53d07a91
 	templatedir = ~/.git-templates/git-secrets
 
 [ghq]
