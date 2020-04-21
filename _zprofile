@@ -22,4 +22,4 @@ export PATH=$PATH:$GOPATH/bin
 # export GO111MODULE=on
 
 # flutter
-export PATH="$PATH:$HOME/Documents/program/private/src/flutter/flutter/bin"
+export PATH="$PATH:$HOME/Documents/program/src/flutter/flutter/bin"
