@@ -26,4 +26,4 @@
 	templatedir = ~/.git-templates/git-secrets
 
 [ghq]
-  root = ~/Documents/program/ref_src
+  root = ~/Documents/program/src
