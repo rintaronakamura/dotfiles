@@ -23,3 +23,5 @@ export PATH=$PATH:$GOPATH/bin
 
 # flutter
 export PATH="$PATH:$HOME/Documents/program/src/flutter/flutter/bin"
+
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"
