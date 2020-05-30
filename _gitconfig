@@ -4,6 +4,7 @@
 
 [core]
   excludesfile = ~/.config/git/ignore
+	quotepath = false
 
 [alias]
   br = branch
