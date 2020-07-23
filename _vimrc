@@ -194,12 +194,20 @@ let g:fzf_action = {
   \ 'ctrl-s': 'vsplit'}
 
 " asyncomplete.vim
+" 自動で入力補完ポップアップを表示する
+let g:asyncomplete_auto_popup = 1
+" ポップアップを表示するまでのディレイ
+let g:asyncomplete_popup_delay = 200
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
 " vim-lsp
+" ファイルの変更に伴いリアルタイムにエラー表示する機能 Diagnostics を有効にする
+let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
+" LSP の仕様である textEdit を有効にする(未完成なのでバグ有り?)
+let g:lsp_text_edit_enabled = 1
 let g:lsp_signs_error = {'text': '🚨'}
 let g:lsp_signs_warning = {'text': '⚠️'}
 let g:lsp_signs_hint = {'text': '😕'}
