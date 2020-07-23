@@ -52,6 +52,3 @@
 [submodule "_vim/pack/dracula/start/dracula"]
 	path = _vim/pack/dracula/start/dracula
 	url = https://github.com/dracula/vim.git
-[submodule "_vim/pack/dart-lang/start/dart-vim-plugin"]
-	path = _vim/pack/dart-lang/start/dart-vim-plugin
-	url = https://github.com/dart-lang/dart-vim-plugin.git
