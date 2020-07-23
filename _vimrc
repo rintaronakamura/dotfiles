@@ -292,18 +292,8 @@ function! s:config_markdown()
   command! Pre PrevimOpen
 endfunction
 
-function! s:config_flutter()
-  packadd vim-flutter
-  "nnoremap <silent>fa :FlutterRun<cr>
-  "nnoremap <silent>fq :FlutterQuit<cr>
-  "nnoremap <silent>fr :FlutterHotReload<cr>
-  "nnoremap <silent>fR :FlutterHotRestart<cr>
-  "nnoremap <silent>fD :FlutterVisualDebug<cr>
-endfunction
-
 " 遅延読み込み.
 autocmd MyAutoCmd FileType markdown call s:config_markdown()
-autocmd MyAutoCmd FileType dart call s:config_flutter()
 "*****************************************************************************
 "" End Plugin Settings
 "*****************************************************************************"
