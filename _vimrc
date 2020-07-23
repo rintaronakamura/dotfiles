@@ -292,10 +292,6 @@ function! s:config_markdown()
   command! Pre PrevimOpen
 endfunction
 
-function! s:config_vue()
-  packadd vim-vue
-endfunction
-
 function! s:config_flutter()
   packadd vim-flutter
   "nnoremap <silent>fa :FlutterRun<cr>
@@ -307,7 +303,6 @@ endfunction
 
 " 遅延読み込み.
 autocmd MyAutoCmd FileType markdown call s:config_markdown()
-autocmd MyAutoCmd FileType vue call s:config_vue()
 autocmd MyAutoCmd FileType dart call s:config_flutter()
 "*****************************************************************************
 "" End Plugin Settings

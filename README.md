@@ -18,3 +18,10 @@ Since vim plug-in is managed as git submodule, batch update is performed as foll
 % git submodule foreach git pull
 % git commit -a -m 'update all vim plugins.'
 ```
+
+## How to remove vim plugin
+```
+# example
+ % git submodule deinit _vim/pack/posva/opt/vim-vue
+ % git rm _vim/pack/posva/opt/vim-vue
+```
