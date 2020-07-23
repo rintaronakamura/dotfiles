@@ -170,9 +170,6 @@ let g:winresizer_keycode_finish = 13
 " バッファを保存時に差分を認識させる.
 autocmd MyAutoCmd BufWritePost * GitGutter
 
-" vimdoc-ja
-set helplang=ja,en
-
 " indentLine
 let g:indentLine_char = '¦'
 
