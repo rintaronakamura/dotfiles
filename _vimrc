@@ -199,84 +199,11 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
 " vim-lsp
-"
-
-" 全般
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_signs_error = {'text': '🚨'}
 let g:lsp_signs_warning = {'text': '⚠️'}
 let g:lsp_signs_hint = {'text': '😕'}
 nnoremap <C-]> :LspDefinition<CR>
-
-" Ruby言語用LSP設定の定義
-if executable('solargraph')
-  " gem install solargraph
-  augroup LspRuby
-    au!
-    au User lsp_setup call lsp#register_server({
-          \ 'name': 'solargraph',
-          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
-          \ 'initialization_options': {"diagnostics": "true"},
-          \ 'whitelist': ['ruby'],
-          \ })
-  augroup END
-endif
-
-" Javascript, Typescript言語用LSP設定の定義
-if executable('typescript-language-server')
-  " npm install -g typescript typescript-language-server
-  augroup LspTypeScript
-    au!
-    au User lsp_setup call lsp#register_server({
-          \ 'name': 'typescript-language-server',
-          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-          \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-          \ 'blacklist': ['vue'],
-          \ 'whitelist': ['typescript', 'typescript.tsx']
-          \ })
-  augroup END
-endif
-
-" Vue.js用LSP設定の定義
-if executable('vls')
-  " npm i -g vue-language-server
-  augroup LspVls
-    au!
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'vue-language-server',
-        \ 'cmd': {server_info->['vls']},
-        \ 'whitelist': ['vue'],
-        \ 'initialization_options': {
-        \         'config': {
-        \             'html': {},
-        \             'vetur': {
-        \                 'validation': {},
-        \                 'completion': {
-        \                   'scaffoldSnippetSources': {
-        \                         'workspace': '💼',
-        \                         'user': '(️User)',
-        \                         'vetur': ""
-        \                     }
-        \                 }
-        \             }
-        \         }
-        \     }
-        \ })
-  augroup END
-endif
-
-" Go言語用LSP設定の定義
-if executable('gopls')
-  " go get -u golang.org/x/tools/cmd/gopls
-  augroup LspGo
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'gopls',
-        \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
-        \ 'whitelist': ['go'],
-        \ })
-    autocmd BufWritePre *.go LspDocumentFormatSync
-  augroup END
-endif
 
 " 遅延読み込み用関数の定義.
 function! s:config_markdown()

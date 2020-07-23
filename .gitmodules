@@ -52,3 +52,6 @@
 [submodule "_vim/pack/dracula/start/dracula"]
 	path = _vim/pack/dracula/start/dracula
 	url = https://github.com/dracula/vim.git
+[submodule "_vim/pack/mattn/start/vim-lsp-settings"]
+	path = _vim/pack/mattn/start/vim-lsp-settings
+	url = https://github.com/mattn/vim-lsp-settings

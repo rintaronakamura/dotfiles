@@ -11,6 +11,14 @@ Execute the following command in the home directory.
 % sh setup.sh
 ```
 
+## How to add vim plugin
+```
+# example
+% mkdir -p _vim/pack/residenti/start
+% git submodule add https://github.com/residenti/amatatsu.git _vim/pack/residenti/start/amatatsu
+```
+If you want to do lazy loading, Click [here](https://residenti-blog.herokuapp.com/articles/442) for details.
+
 ## How to update vim plugin
 Since vim plug-in is managed as git submodule, batch update is performed as follows.
 
