@@ -24,6 +24,9 @@ set smartcase
 " 検索結果をハイライト"
 set hlsearch
 
+" キーワード 検索マッチ件数を表示する
+set shortmess-=S
+
 " タブをスペースに変換する
 set expandtab
 " ファイル上のタブ文字の幅
