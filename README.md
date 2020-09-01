@@ -11,6 +11,9 @@ Execute the following command in the home directory.
 % sh setup.sh
 ```
 
+change terminal font.  
+`Hack Regular Nerd Font Complete 14 pt`
+
 ## How to add vim plugin
 ```
 # example
