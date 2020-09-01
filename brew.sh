@@ -18,7 +18,7 @@ brew install ghq
 brew install rbenv ruby-build
 brew tap heroku/brew && brew install heroku
 
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 brew cask install font-hack-nerd-font
 
 brew cask install alfred
