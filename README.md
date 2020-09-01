@@ -14,6 +14,9 @@ Execute the following command in the home directory.
 change terminal font.  
 `Hack Regular Nerd Font Complete 14 pt`
 
+change terminal theme.  
+[Dracula](https://draculatheme.com/terminal/)
+
 [change macbook(pc) name.](https://support.apple.com/ja-jp/guide/mac-help/mchlp2322/mac)
 
 ## How to add vim plugin
