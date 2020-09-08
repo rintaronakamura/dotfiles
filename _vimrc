@@ -110,6 +110,7 @@ augroup END
 " autocmd MyAutoCmd BufWritePre * %s/\s\+$//e
 
 autocmd MyAutoCmd BufRead,BufNewFile *.md set filetype=markdown
+autocmd MyAutoCmd BufRead,BufNewFile *.slim set filetype=slim
 
 " vimgrep
 "" vimgrep,grep,Ggrepで自動的にquickfix-window(:cw)を開く.
@@ -223,8 +224,13 @@ function! s:config_markdown()
   command! Pre PrevimOpen
 endfunction
 
+function! s:config_slim()
+  packadd vim-slim
+endfunction
+
 " 遅延読み込み.
 autocmd MyAutoCmd FileType markdown call s:config_markdown()
+autocmd MyAutoCmd FileType slim call s:config_slim()
 "*****************************************************************************
 "" End Plugin Settings
 "*****************************************************************************"

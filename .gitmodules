@@ -55,3 +55,6 @@
 [submodule "_vim/pack/mattn/start/vim-lsp-settings"]
 	path = _vim/pack/mattn/start/vim-lsp-settings
 	url = https://github.com/mattn/vim-lsp-settings
+[submodule "_vim/pack/slim-template/opt/vim-slim"]
+	path = _vim/pack/slim-template/opt/vim-slim
+	url = https://github.com/slim-template/vim-slim.git
