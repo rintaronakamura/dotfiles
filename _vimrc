@@ -111,6 +111,7 @@ augroup END
 
 autocmd MyAutoCmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd MyAutoCmd BufRead,BufNewFile *.slim set filetype=slim
+autocmd MyAutoCmd BufRead,BufNewFile *.coffee set filetype=coffee
 
 " vimgrep
 "" vimgrep,grep,Ggrepで自動的にquickfix-window(:cw)を開く.
@@ -228,9 +229,14 @@ function! s:config_slim()
   packadd vim-slim
 endfunction
 
+function! s:config_coffee()
+  packadd vim-coffee-script
+endfunction
+
 " 遅延読み込み.
 autocmd MyAutoCmd FileType markdown call s:config_markdown()
 autocmd MyAutoCmd FileType slim call s:config_slim()
+autocmd MyAutoCmd FileType coffee call s:config_coffee()
 "*****************************************************************************
 "" End Plugin Settings
 "*****************************************************************************"

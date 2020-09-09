@@ -58,3 +58,6 @@
 [submodule "_vim/pack/slim-template/opt/vim-slim"]
 	path = _vim/pack/slim-template/opt/vim-slim
 	url = https://github.com/slim-template/vim-slim.git
+[submodule "_vim/pack/kchmck/opt/vim-coffee-script"]
+	path = _vim/pack/kchmck/opt/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
