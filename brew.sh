@@ -4,7 +4,6 @@ brew install curl
 brew install mysql
 brew install sqlite
 brew install postgresql
-brew install peco
 brew install fzf
 brew install jq
 brew install bat

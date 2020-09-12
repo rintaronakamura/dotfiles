@@ -6,16 +6,16 @@ alias rb='rbenv'
 alias brails='bundle exec rails'
 alias t='tmux'
 
-bindkey '^]' peco-src
-function peco-src() {
-  local src=$(ghq list --full-path | peco --query "$LBUGGER")
+bindkey '^]' fzf-src
+function fzf-src() {
+  local src=$(ghq list --full-path | fzf --query "$LBUGGER")
   if [ -n "$src" ]; then
     BUFFER="cd $src"
     zle accept-line
   fi
   zle -R -c
 }
-zle -N peco-src
+zle -N fzf-src
 
 if [ -n "$VIMRUNTIME" ]; then
   PS1='%F{green}(Vim)%f %m 😈 %c %# '
