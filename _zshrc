@@ -6,13 +6,6 @@ alias rb='rbenv'
 alias brails='bundle exec rails'
 alias t='tmux'
 
-# original command.
-function ruby_refe() {
-  cat ~/ruby_refe.txt | fzf | xargs refe | bat -l ruby
-  # 実行するとterminalの特殊文字が変更され終了したときに元の設定に復元されないため下記実行.
-  stty sane
-}
-
 bindkey '^]' peco-src
 function peco-src() {
   local src=$(ghq list --full-path | peco --query "$LBUGGER")

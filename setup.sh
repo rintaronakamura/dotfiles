@@ -11,7 +11,6 @@ test ! -e ~/.config/git && mkdir -p ~/.config/git
 ln -s ~/dotfiles/.config/git/ignore ~/.config/git/ignore
 
 sh ./brew.sh
-sh ./setup_ruby_env.sh
 
 ln -nfs ~/dotfiles/_vim ~/.vim
 ln -s ~/dotfiles/_vimrc ~/.vimrc
