@@ -1,6 +1,5 @@
 brew install tmux
 brew install openssl
-brew install ctags
 brew install curl
 brew install mysql
 brew install sqlite
