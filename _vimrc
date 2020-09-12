@@ -158,7 +158,7 @@ let g:NERDTreeIgnore=['\.swp$', '.DS_Store']
 " 開いているウィンドウがNERDTreeだけならVimを閉じる
 autocmd MyAutoCmd Bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " NERDTreeを起動する.
-autocmd MyAutoCmd VimEnter * execute 'NERDTree'
+" autocmd MyAutoCmd VimEnter * execute 'NERDTree'
 
 " vim-devicons
 "インストール方法メモ
