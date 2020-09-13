@@ -62,17 +62,6 @@ set list
 set lcs=tab:>-,trail:-
 " 末尾に改行がついていないファイルを編集し保存するとファイル末尾に改行追加されるのを防ぐ
 set nofixeol
-" マウスでカーソル移動やスクロール移動を可能に.
-" if has('mouse')
-"     set mouse=a
-"     if has('mouse_sgr')
-"         set ttymouse=sgr
-"     elseif v:version > 703 || v:version is 703 && has('patch632')
-"         set ttymouse=sgr
-"     else
-"         set ttymouse=xterm2
-"     endif
-" endif
 
 " ファイルの分割
 nnoremap <silent> <Space>x :<C-u>split<CR>
@@ -104,10 +93,6 @@ command! Path echo expand("%:p")
 augroup MyAutoCmd
   autocmd!
 augroup END
-
-" 保存時に行末スペースを取り除く TODO: 全角対応
-" eフラグは検索パターンが何もマッチしなかった時に、エラーメッセージを表示させないため
-" autocmd MyAutoCmd BufWritePre * %s/\s\+$//e
 
 autocmd MyAutoCmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd MyAutoCmd BufRead,BufNewFile *.slim set filetype=slim
@@ -157,14 +142,6 @@ let g:NERDTreeShowHidden=1
 let g:NERDTreeIgnore=['\.swp$', '.DS_Store']
 " 開いているウィンドウがNERDTreeだけならVimを閉じる
 autocmd MyAutoCmd Bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" NERDTreeを起動する.
-" autocmd MyAutoCmd VimEnter * execute 'NERDTree'
-
-" vim-devicons
-"インストール方法メモ
-"1. https://github.com/ryanoasis/nerd-fonts#font-installation のoption4: Homebrewでフォントをインストールする.
-"2. 利用しているターミナルのフォントを手順1でインストールしたFontに変更する.iTerm2なら設定画面>Profiles>Text>Font>Change Fontから設定する.
-"3. ryanoasis/vim-deviconsをインストールする.
 
 " winresizer
 let g:winresizer_start_key = '<Space>w'
