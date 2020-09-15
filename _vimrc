@@ -155,6 +155,9 @@ autocmd MyAutoCmd BufWritePost * GitGutter
 " indentLine
 let g:indentLine_char = '¦'
 
+" lightline.vim
+set laststatus=2
+
 " fzf.vim
 fun! FzfOmniFiles()
   let is_git = system('git status')
