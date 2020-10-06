@@ -191,6 +191,9 @@ inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 " ファイルの変更に伴いリアルタイムにエラー表示する機能 Diagnostics を有効にする
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_settings_filetype_html = ['html-languageserver', 'vls']
+let g:lsp_settings_filetype_javascript = ['typescript-language-server']
+let g:lsp_settings_filetype_typescript = ['typescript-language-server']
 " LSP の仕様である textEdit を有効にする(未完成なのでバグ有り?)
 let g:lsp_text_edit_enabled = 1
 let g:lsp_signs_error = {'text': '🚨'}
