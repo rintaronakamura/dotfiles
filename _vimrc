@@ -71,6 +71,8 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+" ハイライトをオフにする
+nnoremap <F3> :noh<CR>
 " ナイスなVimの設定を思いついたら即座にvimrcを開き反映
 nnoremap <F5> :<C-u>split $MYVIMRC<CR>
 nnoremap <F6> :<C-u>source $MYVIMRC<CR>
