@@ -62,6 +62,8 @@ set list
 set lcs=tab:>-,trail:-
 " 末尾に改行がついていないファイルを編集し保存するとファイル末尾に改行追加されるのを防ぐ
 set nofixeol
+" 大文字小文字を区別する
+set noignorecase
 
 " ファイルの分割
 nnoremap <silent> <Space>x :<C-u>split<CR>
