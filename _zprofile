@@ -5,9 +5,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-# node. nodebrewでcurrentを指定しないとパスエラーになる.
-export PATH="$HOME/.nodebrew/current/bin:$PATH"
-
 # .zshrcの読み込み.
 test -r ~/.zshrc && . ~/.zshrc
 
@@ -25,3 +22,6 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="$PATH:$HOME/Documents/program/src/flutter/flutter/bin"
 
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+
+# node. nodebrewでcurrentを指定しないとパスエラーになる.
+export PATH="$HOME/.nodebrew/current/bin:$PATH"
