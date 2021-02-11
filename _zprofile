@@ -25,3 +25,5 @@ export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 
 # node. nodebrewでcurrentを指定しないとパスエラーになる.
 export PATH="$HOME/.nodebrew/current/bin:$PATH"
+
+export BUNDLER_EDITOR=vim
