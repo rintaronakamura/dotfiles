@@ -130,6 +130,10 @@ autocmd MyAutoCmd BufReadPost *
 
 " 保存時にファイルをリロードする.
 autocmd MyAutoCmd BufWritePost $MYVIMRC source $MYVIMRC
+
+" 保存時に行末スペースを取り除く
+" eフラグは検索パターンが何もマッチしなかった時に、エラーメッセージを表示させないため
+autocmd MyAutoCmd BufWritePre * %s/\s\+$//e
 "*****************************************************************************
 " End Autocmd
 "*****************************************************************************
