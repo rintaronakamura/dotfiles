@@ -180,7 +180,7 @@ nnoremap <C-d> :GFiles?<CR>
 nnoremap <C-p> :call FzfOmniFiles()<CR>
 nnoremap <C-c> :Commands<CR>
 nnoremap <silent> <Space>h :History<CR>
-nnoremap <silent> <Space>g :Ag<CR>
+nnoremap <C-g> :Ag<CR>
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-i': 'split',
@@ -208,7 +208,6 @@ let g:lsp_signs_error = {'text': '🚨'}
 let g:lsp_signs_warning = {'text': '⚠️'}
 let g:lsp_signs_hint = {'text': '😕'}
 nnoremap <C-]> :LspDefinition<CR>
-nnoremap <C-g> :LspReferences<CR>
 
 " 遅延読み込み用関数の定義.
 function! s:config_markdown()
