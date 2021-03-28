@@ -13,6 +13,10 @@ colorscheme dracula
 
 filetype plugin indent on
 
+" スペルチェック
+" zg で カーソルの下の単語を正しい (good) 単語として、'spellfile' の最初のファイルに追加する
+set spell
+set spelllang=en,cjk
 " カーソルがある行を目立たせる
 set cursorline
 " 検索パターンに大文字小文字を区別しない
