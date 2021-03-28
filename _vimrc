@@ -208,9 +208,6 @@ let g:lsp_settings_filetype_javascript = ['typescript-language-server']
 let g:lsp_settings_filetype_typescript = ['typescript-language-server']
 " LSP の仕様である textEdit を有効にする(未完成なのでバグ有り?)
 let g:lsp_text_edit_enabled = 1
-let g:lsp_signs_error = {'text': '🚨'}
-let g:lsp_signs_warning = {'text': '⚠️'}
-let g:lsp_signs_hint = {'text': '😕'}
 nnoremap <C-]> :LspDefinition<CR>
 
 " 遅延読み込み用関数の定義.
