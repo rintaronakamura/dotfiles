@@ -1,7 +1,8 @@
 "*****************************************************************************
 "" Basic Settings
 "*****************************************************************************"
-" VimをVi互換モードではなく、Vimとして使用(compatibleオプションはデフォルトで有効だが、vimrc/gvimrcを読み込むと無効になる)
+" VimをVi互換モードではなく、Vimとして使用
+" compatibleオプションはデフォルトで有効だが、vimrc/gvimrcを読み込むと無効になる
 if &compatible
   set nocompatible
 endif
@@ -21,14 +22,14 @@ set spelllang=en,cjk
 set cursorline
 " 検索パターンに大文字小文字を区別しない
 set ignorecase
-" インクリメンタルサーチ. １文字入力毎に検索を行う
+" インクリメンタルサーチ. 1文字入力毎に検索を行う
 set incsearch
 " 検索パターンに大文字を含んでいたら大文字小文字を区別する
 set smartcase
-" 検索結果をハイライト"
+" 検索結果をハイライト
 set hlsearch
 
-" キーワード 検索マッチ件数を表示する
+" キーワード検索マッチ件数を表示する
 set shortmess-=S
 
 " タブをスペースに変換する
@@ -46,7 +47,7 @@ set shiftwidth=2
 set number
 " ファイルタイトルを表示
 set title
-" -(ハイフン)を単語に含める
+" - (ハイフン) を単語に含める
 set isk+=-
 " vimの256色対応
 set t_Co=256
