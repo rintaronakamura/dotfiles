@@ -20,8 +20,6 @@ set spell
 set spelllang=en,cjk
 " カーソルがある行を目立たせる
 set cursorline
-" 検索パターンに大文字小文字を区別しない
-set ignorecase
 " インクリメンタルサーチ. 1文字入力毎に検索を行う
 set incsearch
 " 検索パターンに大文字を含んでいたら大文字小文字を区別する
@@ -65,8 +63,6 @@ set wildmenu
 set list
 " タブを -- 半スペを - で表示する
 set lcs=tab:>-,trail:-
-" 末尾に改行がついていないファイルを編集し保存するとファイル末尾に改行追加されるのを防ぐ
-set nofixeol
 " 大文字小文字を区別する
 set noignorecase
 
@@ -78,13 +74,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-" ハイライトをオフにする
-nnoremap <F3> :noh<CR>
-" ナイスなVimの設定を思いついたら即座にvimrcを開き反映
-nnoremap <F5> :<C-u>split $MYVIMRC<CR>
-nnoremap <F6> :<C-u>source $MYVIMRC<CR>
-" ヤンクした内容が消えないようにする
-nnoremap PP "0p
 " ウィンドウ入れ替え
 " 現在カーソルがあるウィンドウと一つ前のウィンドウを入れ替える
 nnoremap <C-w> <C-w>x
@@ -123,10 +112,6 @@ if exists('+wildignore')
   autocmd MyAutoCmd QuickFixCmdPost * execute 'setlocal wildignore-=' . s:ignore_list
 endif
 
-" htmlの閉じタグ補完.
-autocmd MyAutoCmd Filetype xml  inoremap <buffer> </ </<C-x><C-o>
-autocmd MyAutoCmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-
 " ファイルを開いてカーソルの位置を元に戻す.
 autocmd MyAutoCmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
@@ -153,8 +138,6 @@ nmap <silent> <Space>ne :NERDTreeToggle<CR>
 let g:NERDTreeShowHidden=1
 " 非表示ファイル
 let g:NERDTreeIgnore=['\.swp$', '.DS_Store']
-" 開いているウィンドウがNERDTreeだけならVimを閉じる
-autocmd MyAutoCmd Bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " winresizer
 let g:winresizer_start_key = '<Space>w'
