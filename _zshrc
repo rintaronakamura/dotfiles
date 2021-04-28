@@ -3,6 +3,7 @@ alias ll='ls -la'
 alias v='vim'
 alias c='clear'
 
+# short cut key
 bindkey '^]' fzf-src
 function fzf-src() {
   local src=$(ghq list --full-path | fzf --query "$LBUGGER")
