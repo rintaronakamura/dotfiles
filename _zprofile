@@ -5,9 +5,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-# .zshrcの読み込み.
-test -r ~/.zshrc && . ~/.zshrc
-
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 
 export PATH="$HOME/.cargo/bin:$PATH"
