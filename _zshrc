@@ -1,5 +1,5 @@
 # alias command
-alias ll='ls -la'
+alias ll='ls -laG'
 alias v='vim'
 alias c='clear'
 
