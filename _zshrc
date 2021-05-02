@@ -16,8 +16,16 @@ function fzf-src() {
 zle -N fzf-src
 
 # prompt
+function current-branch-name() {
+  if [ ! -e  ".git" ]; then return; fi
+
+  echo "%F{magenta}(`git rev-parse --abbrev-ref HEAD 2> /dev/null`)%f "
+}
+
 if [ -n "$VIMRUNTIME" ]; then
-  PS1='%F{green}(Vim)%f %m 😈 %c %# '
+  PS1='%m 😈 %c %F{cyan}(vim)%f `current-branch-name`%# '
 else
-  PS1='%m 😈 %c %# '
+  PS1='%m 😈 %c `current-branch-name`%# '
 fi
+
+setopt prompt_subst
