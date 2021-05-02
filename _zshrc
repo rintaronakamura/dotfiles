@@ -15,6 +15,7 @@ function fzf-src() {
 }
 zle -N fzf-src
 
+# prompt
 if [ -n "$VIMRUNTIME" ]; then
   PS1='%F{green}(Vim)%f %m 😈 %c %# '
 else
