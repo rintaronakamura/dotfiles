@@ -1,4 +1,3 @@
-brew install tmux
 brew install openssl
 brew install curl
 brew install fzf
