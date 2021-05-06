@@ -10,6 +10,9 @@
   br = branch
   co = checkout
   st = status
+  sw = switch
+  rs = restore
+  rb = rebase
   log = log --oneline --graph --decorate
   logone = log --oneline
   graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
