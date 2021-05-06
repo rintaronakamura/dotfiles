@@ -2,6 +2,10 @@
 alias ll='ls -laG'
 alias v='vim'
 alias c='clear'
+alias b='bundle'
+alias g='git'
+alias d='docker'
+alias dc='docker compose'
 
 # short cut key
 bindkey '^]' fzf-src
