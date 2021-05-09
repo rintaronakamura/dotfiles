@@ -1,12 +1,6 @@
 "*****************************************************************************
 "" Basic Settings
 "*****************************************************************************"
-" VimをVi互換モードではなく、Vimとして使用
-" compatibleオプションはデフォルトで有効だが、vimrc/gvimrcを読み込むと無効になる
-if &compatible
-  set nocompatible
-endif
-
 syntax on
 let g:dracula_italic = 0 " https://github.com/dracula/vim/issues/96
 packadd! dracula
