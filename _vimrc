@@ -89,7 +89,6 @@ augroup END
 autocmd MyAutoCmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd MyAutoCmd BufRead,BufNewFile *.slim set filetype=slim
 autocmd MyAutoCmd BufRead,BufNewFile *.coffee set filetype=coffee
-autocmd MyAutoCmd BufEnter * echon expand("%:p")
 
 " vimgrep
 "" vimgrep,grep,Ggrepで自動的にquickfix-window(:cw)を開く.
