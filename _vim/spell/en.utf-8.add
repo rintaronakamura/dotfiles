@@ -25,3 +25,6 @@ lsp
 textEdit
 json
 SNS
+config
+args
+chainring
