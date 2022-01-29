@@ -1,8 +1,8 @@
 "*****************************************************************************
 "" Basic Settings
 "*****************************************************************************"
-syntax on
 packadd! dracula
+syntax enable
 colorscheme dracula
 
 filetype plugin indent on
