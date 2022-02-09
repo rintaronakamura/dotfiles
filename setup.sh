@@ -7,5 +7,9 @@ ln -s ~/dotfiles/.config/git/ignore ~/.config/git/ignore
 
 sh ./brew.sh
 
-ln -nfs ~/dotfiles/_vim ~/.vim
-ln -s ~/dotfiles/_vimrc ~/.vimrc
+# link to spacemacs dotfiles.
+ln -s ~/dotfiles/.spacemacs ~/.spacemacs
+
+# link to vim dotfiles.
+# ln -nfs ~/dotfiles/_vim ~/.vim
+# ln -s ~/dotfiles/_vimrc ~/.vimrc
