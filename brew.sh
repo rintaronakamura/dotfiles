@@ -7,5 +7,5 @@ brew install nodenv
 brew install rbenv
 
 brew tap homebrew/cask-fonts
-brew cask install font-hack-nerd-font
-brew cask install google-chrome
+brew install font-hack-nerd-font --cask
+brew install google-chrome --cask
