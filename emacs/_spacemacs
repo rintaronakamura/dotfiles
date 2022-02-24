@@ -50,6 +50,7 @@ This function should only modify configuration layer settings."
      multiple-cursors
      (org :variables
           org-enable-org-journal-support t
+          org-journal-dir "~/Documents/sync/マイドライブ/journal/"
           org-journal-date-prefix "#+TITLE: "
           org-journal-file-format "%Y-%m-%d")
      ;; (shell :variables
