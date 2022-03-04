@@ -568,6 +568,7 @@ before packages are loaded."
   (define-key evil-normal-state-map (kbd "<tab>") 'helm-M-x)
   (define-key global-map [?¥] [?\\])
   (my-setup-indent 2)
+  (setq ispell-program-name "aspell")
 )
 
 
