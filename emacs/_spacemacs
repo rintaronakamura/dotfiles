@@ -548,6 +548,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
    web-mode-css-indent-offset 2
    web-mode-code-indent-offset 2
    web-mode-attr-indent-offset 2)
+  (modify-syntax-entry ?_ "w")
 )
 
 
