@@ -1,6 +1,7 @@
 sh ~/dotfiles/setup.sh
 brew install emacs --cask
 brew install ripgrep
+brew install haskell-language-server
 rm -rf ~/.emacs.d
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
