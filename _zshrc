@@ -27,11 +27,7 @@ function current-branch-name() {
   echo "%F{magenta}(`git rev-parse --abbrev-ref HEAD 2> /dev/null`)%f "
 }
 
-if [ -n "$VIMRUNTIME" ]; then
-  PS1='%m 😈 %c %F{cyan}(vim)%f `current-branch-name`%# '
-else
-  PS1='%m 😈 %c `current-branch-name`%# '
-fi
+PS1='%m 😈 %c `current-branch-name`%# '
 
 setopt prompt_subst
 
