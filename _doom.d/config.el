@@ -75,3 +75,4 @@
 ;; they are implemented.
 
 (define-key global-map [?¥] [?\\])
+(setq confirm-kill-emacs nil)
