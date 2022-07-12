@@ -76,3 +76,6 @@
 
 (define-key global-map [?¥] [?\\])
 (setq confirm-kill-emacs nil)
+(setq org-journal-dir "~/Documents/sync/マイドライブ/journal/")
+(setq org-journal-file-format "%Y-%m-%d.org")
+(setq org-journal-date-format "%Y-%m-%d, %A")
