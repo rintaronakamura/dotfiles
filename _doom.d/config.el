@@ -54,6 +54,8 @@
 (setq org-journal-dir "~/Documents/sync/マイドライブ/journal/")
 (setq org-journal-file-format "%Y-%m-%d.org")
 (setq org-journal-date-format "%Y-%m-%d, %A")
+;; org-roam
+(setq org-roam-directory "~/Documents/sync/マイドライブ/journal/")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
