@@ -37,9 +37,23 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
+(setq confirm-kill-emacs nil)
+
+;; global
+(define-key global-map [?¥] [?\\])
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
+;; org-download
+(add-hook 'dired-mode-hook 'org-download-enable)
+;; org-agenda
+(setq org-agenda-files '( "~/Documents/sync/マイドライブ/journal/"))
+;; org-journal
+(setq org-journal-carryover-items "")
+(setq org-journal-dir "~/Documents/sync/マイドライブ/journal/")
+(setq org-journal-file-format "%Y-%m-%d.org")
+(setq org-journal-date-format "%Y-%m-%d, %A")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -73,12 +87,3 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-
-(define-key global-map [?¥] [?\\])
-(setq confirm-kill-emacs nil)
-(setq org-journal-dir "~/Documents/sync/マイドライブ/journal/")
-(setq org-journal-file-format "%Y-%m-%d.org")
-(setq org-journal-date-format "%Y-%m-%d, %A")
-(add-hook 'dired-mode-hook 'org-download-enable)
-(setq org-agenda-files '( "~/Documents/sync/マイドライブ/journal/"))
-(setq org-journal-carryover-items "")
