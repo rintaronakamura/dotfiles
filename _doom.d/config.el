@@ -48,14 +48,14 @@
 ;; org-download
 (add-hook 'dired-mode-hook 'org-download-enable)
 ;; org-agenda
-(setq org-agenda-files '( "~/Documents/sync/My Drive/org-files/"))
+(setq org-agenda-files '( "~/Google Drive/My Drive/org-files"))
 ;; org-journal
 (setq org-journal-carryover-items "")
-(setq org-journal-dir "~/Documents/sync/My Drive/org-files/")
+(setq org-journal-dir "~/Google Drive/My Drive/org-files")
 (setq org-journal-file-format "%Y-%m-%d.org")
 (setq org-journal-date-format "%Y-%m-%d, %A")
 ;; org-roam
-(setq org-roam-directory "~/Documents/sync/My Drive/org-files/")
+(setq org-roam-directory "~/Google Drive/My Drive/org-files")
 ;; org-roam-ui
 (use-package! websocket
     :after org-roam)
