@@ -10,6 +10,11 @@
 ;(package! some-package)
 (package! org-journal)
 (package! org-download)
+;; NOTE:
+;; Org-roam-ui tries to keep up with the latest features of org-roam, which conflicts with Doom Emacs's desire for stability.
+;; To make sure nothing breaks, use the latest version of org-roam by unpinning it.
+(unpin! org-roam)
+(package! org-roam-ui)
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
@@ -50,7 +55,3 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
-
-;; org-roam
-(unpin! org-roam)
-(package! org-roam-ui)
