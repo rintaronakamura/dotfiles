@@ -105,3 +105,38 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+
+;; カレントポイントの行にあるURLをブラウザで開く
+;; (defun my-buffer-substring-current-line ()
+;;   "show current line."
+;;   (interactive) ;; NOTE: M-x で呼び出せるようにするための決まり文句
+;;   (message "%s"
+;;       (buffer-substring-no-properties (point-at-bol) (point-at-eol)))) ;; NOTE: C-x C-e で関数を評価
+;;
+;; (defun my-get-url (s)
+;;   (if (string-match ".*\\(https:\\/\\/.*\\/\\).*" s)
+;;       (match-string 1 s)
+;;     s))
+;;
+;; (defun my-test ()
+;;   "test my-get-url function"
+;;   (interactive)
+;;   (message "%s" (my-get-url "hello https://residenti.github.io/ world!")))
+;;
+;; (defun my-open-url-test ()
+;;   (interactive)
+;;   (shell-command "open https://residenti.github.io/"))
+;;
+;; ref: https://osima.jp/posts/elisp-open-url-function/
+(defun my-get-current-line ()
+  (buffer-substring-no-properties (point-at-bol) (point-at-eol)))
+
+(defun my-get-url (s)
+  (if (string-match ".*\\(https:\\/\\/.*\\/\\).*" s)
+      (match-string 1 s)
+    s))
+
+(defun my-opne-url ()
+  (interactive)
+  (shell-command (concat "open " (my-get-url (my-get-current-line)))))
