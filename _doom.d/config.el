@@ -57,7 +57,6 @@
 ;; org-roam
 (setq org-roam-directory "~/Google Drive/My Drive/org-files")
 ;; org-roam-ui
-;; FIXME: なぜかタブが2つ開かれちゃう
 (use-package! websocket
     :after org-roam)
 (use-package! org-roam-ui
@@ -70,7 +69,9 @@
     (setq org-roam-ui-sync-theme t
           org-roam-ui-follow t
           org-roam-ui-update-on-save t
-          org-roam-ui-open-on-start t))
+          org-roam-ui-open-on-start t
+          ;; NOTE: これ設定しないと、なぜかタブが2つ開かれちゃう
+          org-roam-ui-open-on-start nil))
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
