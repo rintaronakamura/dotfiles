@@ -57,6 +57,7 @@
 ;; org-roam
 (setq org-roam-directory "~/Google Drive/My Drive/org-files")
 ;; org-roam-ui
+;; FIXME: なぜかタブが2つ開かれちゃう
 (use-package! websocket
     :after org-roam)
 (use-package! org-roam-ui
