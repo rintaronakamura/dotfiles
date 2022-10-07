@@ -129,9 +129,11 @@
 ;;   (shell-command "open https://residenti.github.io/"))
 ;;
 ;; ref: https://osima.jp/posts/elisp-open-url-function/
+;;
 (defun my-get-current-line ()
   (buffer-substring-no-properties (point-at-bol) (point-at-eol)))
 
+;; FIXME: org-insert-linkで挿入したURLが認識される開けない
 (defun my-get-url (s)
   (if (string-match ".*\\(https:\\/\\/.*\\/\\).*" s)
       (match-string 1 s)
