@@ -141,3 +141,20 @@
 (defun my-open-url ()
   (interactive)
   (shell-command (concat "open " (my-get-url (my-get-current-line)))))
+
+;; TODO: カレントバッファをGithubで開く
+;; 1. カレントバッファのパスを取得する
+;; buffer-file-name: カレントファイルの絶対パスを返す
+;; (current-buffer): カレントバッファを返す
+;; (buffer-name): カレントバッファのファイル名を返す
+;; expand-file-name: 第1引数のみ -> 絶対パス。 第2引数あり -> 引数をルートにする。
+;; 2. パスを元にGithubのURLを生成する
+;; 2'. リポジトリ名も取得する必要あるかも？
+;; 3. 生成したGithubのURLをブラウザで開く
+;;
+;; (expand-file-name buffer-file-name "/dotfiles")
+;;
+;; (current-buffer)
+;; (buffer-name)
+;;
+;; (expand-file-name (buffer-name) "/dotfiles") ;; => /dotfiles/config.el
