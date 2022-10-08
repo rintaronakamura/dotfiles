@@ -139,6 +139,6 @@
       (match-string 1 s)
     s))
 
-(defun my-opne-url ()
+(defun my-open-url ()
   (interactive)
   (shell-command (concat "open " (my-get-url (my-get-current-line)))))
