@@ -114,15 +114,15 @@
 ;;   (message "%s"
 ;;       (buffer-substring-no-properties (point-at-bol) (point-at-eol)))) ;; NOTE: C-x C-e で関数を評価
 ;;
-;; (defun my-get-url (s)
-;;   (if (string-match ".*\\(https:\\/\\/.*\\/\\).*" s)
+;; (defun my-test-get-url (s)
+;;   (if (string-match ".*\\(https:\\/\\/.*\\(\\/\\| \\)\\).*" s)
 ;;       (match-string 1 s)
 ;;     s))
 ;;
 ;; (defun my-test ()
-;;   "test my-get-url function"
+;;   "test my-test-get-url function"
 ;;   (interactive)
-;;   (message "%s" (my-get-url "hello https://residenti.github.io/ world!")))
+;;   (message "%s" (my-test-get-url "hello https://residenti.github.io world!")))
 ;;
 ;; (defun my-open-url-test ()
 ;;   (interactive)
@@ -134,7 +134,7 @@
   (buffer-substring-no-properties (point-at-bol) (point-at-eol)))
 
 (defun my-get-url (s)
-  (if (string-match ".*\\(https:\\/\\/.*\\/\\).*" s)
+  (if (string-match ".*\\(https:\\/\\/.*\\(\\/\\| \\)\\).*" s)
       (match-string 1 s)
     s))
 
