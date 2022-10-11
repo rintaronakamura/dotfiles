@@ -130,17 +130,17 @@
 ;;
 ;; ref: https://osima.jp/posts/elisp-open-url-function/
 ;;
-(defun my-get-current-line ()
+(defun my/get-current-line ()
   (buffer-substring-no-properties (point-at-bol) (point-at-eol)))
 
-(defun my-get-url (s)
+(defun my/get-url (s)
   (if (string-match ".*\\(https:\\/\\/.*\\(\\/\\| \\|$\\)\\).*" s)
       (match-string 1 s)
     s))
 
-(defun my-browse-url-at-point ()
+(defun my/browse-url-at-point ()
   (interactive)
-  (browse-url (my-get-url (my-get-current-line))))
+  (browse-url (my/get-url (my/get-current-line))))
 
 ;; TODO: カレントバッファをGithubで開く
 ;; 1. カレントバッファのパスを取得する
