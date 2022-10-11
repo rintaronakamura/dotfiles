@@ -138,9 +138,9 @@
       (match-string 1 s)
     s))
 
-(defun my-open-url ()
+(defun my-browse-url-at-point ()
   (interactive)
-  (shell-command (concat "open " (my-get-url (my-get-current-line)))))
+  (browse-url (my-get-url (my-get-current-line))))
 
 ;; TODO: カレントバッファをGithubで開く
 ;; 1. カレントバッファのパスを取得する
