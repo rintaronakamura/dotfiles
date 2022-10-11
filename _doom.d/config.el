@@ -134,7 +134,7 @@
   (buffer-substring-no-properties (point-at-bol) (point-at-eol)))
 
 (defun my-get-url (s)
-  (if (string-match ".*\\(https:\\/\\/.*\\(\\/\\| \\)\\).*" s)
+  (if (string-match ".*\\(https:\\/\\/.*\\(\\/\\| \\|$\\)\\).*" s)
       (match-string 1 s)
     s))
 
