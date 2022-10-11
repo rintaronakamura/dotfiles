@@ -142,19 +142,21 @@
   (interactive)
   (browse-url (my/get-url (my/get-current-line))))
 
-;; TODO: カレントバッファをGithubで開く
-;; 1. カレントバッファのパスを取得する
-;; buffer-file-name: カレントファイルの絶対パスを返す
-;; (current-buffer): カレントバッファを返す
-;; (buffer-name): カレントバッファのファイル名を返す
-;; expand-file-name: 第1引数のみ -> 絶対パス。 第2引数あり -> 引数をルートにする。
-;; 2. パスを元にGithubのURLを生成する
-;; 2'. リポジトリ名も取得する必要あるかも？
-;; 3. 生成したGithubのURLをブラウザで開く
-;;
-;; (expand-file-name buffer-file-name "/dotfiles")
-;;
-;; (current-buffer)
-;; (buffer-name)
-;;
-;; (expand-file-name (buffer-name) "/dotfiles") ;; => /dotfiles/config.el
+(defun my/github-url ()
+  (s-join "/"
+    `("https://github.com"
+      ,(s-chomp
+        (replace-regexp-in-string
+         "^.*github\.com[\:|\/]\\(.*\\)\.git.*" "\\1" (shell-command-to-string "git remote -v | head -1")))
+      ,"blob"
+      ,(s-chomp (shell-command-to-string "git branch --show-current"))
+      )))
+
+(defun my/current-file-path-from-repository-root ()
+  (s-replace (projectile-project-root) "" (buffer-file-name)))
+
+(defun my/browse-current-file-on-github ()
+  (interactive)
+  (browse-url (s-join "/"
+                `(,(my/github-url)
+                  ,(my/current-file-path-from-repository-root)))))
