@@ -158,5 +158,5 @@
 (defun my/browse-current-file-on-github ()
   (interactive)
   (browse-url (s-join "/"
-                `(,(my/github-url)
+                `(,(my/github-url) ;; TODO: ここなんで「,」がいるのか良く分からん
                   ,(my/current-file-path-from-repository-root)))))
