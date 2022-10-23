@@ -133,6 +133,7 @@
 (defun my/get-current-line ()
   (buffer-substring-no-properties (point-at-bol) (point-at-eol)))
 
+;; FIXME: 正規表現を間違っていて、行末まで拾ってしまう。
 (defun my/get-url (s)
   (if (string-match ".*\\(https:\\/\\/.*\\(\\/\\| \\|$\\)\\).*" s)
       (match-string 1 s)
