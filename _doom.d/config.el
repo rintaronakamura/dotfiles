@@ -7,6 +7,12 @@
 ;; https://github.com/noctuid/evil-guide#evils-tools
 (evil-set-initial-state 'flycheck-error-list-mode 'emacs)
 
+;; JavaScriptのデフォルトインデントをスペース2に設定する
+(add-hook 'js-mode-hook
+          (lambda ()
+            (make-local-variable 'js-indent-level)
+            (setq js-indent-level 2)))
+
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 (setq user-full-name "residenti"

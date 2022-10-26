@@ -6,5 +6,4 @@ export PATH="$HOME/.stack/programs/x86_64-osx/ghc-9.0.2/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export BUNDLER_EDITOR=emacs
 
-eval "$(nodenv init -)"
 eval "$(rbenv init -)"
