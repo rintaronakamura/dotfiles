@@ -3,7 +3,7 @@
 Do not forget to install [[https://brew.sh/index_ja][homebrew]] .
 #+begin_src
 cd ~
-git clone git@github.com:residenti/dotfiles.git
+git clone git@github.com:rintaronakamura/dotfiles.git
 cd dotfiles
 sh ./setup.sh
 #+end_src

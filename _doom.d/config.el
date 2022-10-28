@@ -15,7 +15,7 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "residenti"
+(setq user-full-name "rintaronakamura"
       user-mail-address "n.queue.r@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
@@ -131,11 +131,11 @@
 ;; (defun my-test ()
 ;;   "test my-test-get-url function"
 ;;   (interactive)
-;;   (message "%s" (my-test-get-url "hello https://residenti.github.io world!")))
+;;   (message "%s" (my-test-get-url "hello https://rintaronakamura.github.io world!")))
 ;;
 ;; (defun my-open-url-test ()
 ;;   (interactive)
-;;   (shell-command "open https://residenti.github.io/"))
+;;   (shell-command "open https://rintaronakamura.github.io/"))
 ;;
 ;; ref: https://osima.jp/posts/elisp-open-url-function/
 ;;
