@@ -1,5 +1,7 @@
 sh ./brew.sh
 
+curl https://get.volta.sh | bash
+
 rm -rf ~/.emacs.d
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
