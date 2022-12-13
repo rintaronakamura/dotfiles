@@ -1,6 +1,7 @@
 brew install curl
 brew install fzf
 brew install ghq
+brew install fd
 brew install rbenv
 brew install ripgrep
 brew install haskell-language-server
