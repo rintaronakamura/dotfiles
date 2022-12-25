@@ -5,6 +5,7 @@ brew install fd
 brew install rbenv
 brew install ripgrep
 brew install haskell-language-server
+brew install coreutils
 
 brew install emacs --cask
 brew install font-hack-nerd-font --cask

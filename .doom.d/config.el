@@ -3,6 +3,9 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
+;; fix "ls does not support --dired; see ‘dired-use-ls-dired’ for more details."
+(setq dired-use-ls-dired t)
+
 ;; 指定したmodeでevil-modeを無効化する
 ;; https://github.com/noctuid/evil-guide#evils-tools
 (evil-set-initial-state 'flycheck-error-list-mode 'emacs)
