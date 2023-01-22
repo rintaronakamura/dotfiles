@@ -1,6 +1,5 @@
 # alias command
 alias ll='ls -laG'
-alias v='vim'
 alias e='emacsclient -n'
 alias c='clear'
 alias b='bundle'
