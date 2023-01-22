@@ -1,6 +1,8 @@
 # alias command
 alias ll='ls -laG'
-alias e='emacsclient -n'
+alias e='emacs --daemon'
+alias kill-e="emacsclient -e '(kill-emacs)'"
+alias E='emacsclient --create-frame'
 alias c='clear'
 alias b='bundle'
 alias g='git'
