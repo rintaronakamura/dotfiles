@@ -56,7 +56,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/Documents/programing/src/github.com/rintaronakamura/org-files")
 ;; org-download
 (add-hook 'dired-mode-hook 'org-download-enable)
 ;; org-agenda
