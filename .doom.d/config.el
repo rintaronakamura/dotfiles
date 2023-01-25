@@ -173,3 +173,11 @@
   (browse-url (s-join "/"
                 `(,(my/github-url) ;; TODO: ここなんで「,」がいるのか良く分からん
                   ,(my/current-file-path-from-repository-root)))))
+
+(defun elisp-mode-hooks ()
+  "カーソル位置にあるElisp関数や変数の情報をエコーエリアへ表示させる"
+  (when (require 'eldoc nil t)
+    (setq eldoc-idle-delay 0.2)
+    (setq eldoc-echo-area-use-multiline-p t)
+    (turn-on-eldoc-mode)))
+(add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
