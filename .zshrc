@@ -4,8 +4,6 @@ alias e='emacs --daemon'
 alias kill-e="emacsclient -e '(kill-emacs)'"
 alias E='emacsclient --create-frame'
 alias c='clear'
-alias b='bundle'
-alias g='git'
 alias d='docker'
 alias dc='docker compose'
 
