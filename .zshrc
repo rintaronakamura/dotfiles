@@ -1,5 +1,8 @@
 ### options
+# PROMPT変数内での変数展開を有効にする
 setopt prompt_subst
+# 同時に起動しているzsh間でhistoryの共有を有効にする
+setopt share_history
 
 ### prompt
 PROMPT='%c `current-branch-name`%# '
