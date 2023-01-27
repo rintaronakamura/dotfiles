@@ -9,7 +9,8 @@ PROMPT='%c `current-branch-name`%# '
 function current-branch-name() {
   if [ ! -e  ".git" ]; then return; fi
 
-  echo "%F{magenta}(`git rev-parse --abbrev-ref HEAD 2> /dev/null`)%f "
+  local branchname=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+  echo "%F{magenta}($branchname)%f "
 }
 
 ### shell functions
