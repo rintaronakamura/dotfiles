@@ -38,3 +38,11 @@ function fzf-src() {
   zle -R -c
 }
 zle -N fzf-src
+
+bindkey '^d' open-dotfiles
+function open-dotfiles() {
+  BUFFER="emacsclient --create-frame ~/dotfiles"
+  zle accept-line
+  zle -R -c
+}
+zle -N open-dotfiles
