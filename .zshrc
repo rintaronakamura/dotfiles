@@ -39,10 +39,18 @@ function fzf-src() {
 }
 zle -N fzf-src
 
-bindkey '^d' open-dotfiles
-function open-dotfiles() {
+bindkey '^e' edit-dotfiles
+function edit-dotfiles() {
+  # TODO emacs daemon が立ち上がっていない場合は起動する
+  # local serverrunning=$(emacsclient --eval '(server-running-p)' 2> /dev/null)
+  # if [ -z "$serverrunning" ]; then
+  #   BUFFER="emacs --daemon"
+  #   zle accept-line
+  #   wait
+  # fi
+
   BUFFER="emacsclient --create-frame ~/dotfiles"
   zle accept-line
   zle -R -c
 }
-zle -N open-dotfiles
+zle -N edit-dotfiles
