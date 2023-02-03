@@ -3,8 +3,6 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-(load "private-config")
-
 ;; fix "ls does not support --dired; see ‘dired-use-ls-dired’ for more details."
 (setq dired-use-ls-dired t)
 
