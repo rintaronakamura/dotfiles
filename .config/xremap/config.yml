@@ -7,9 +7,17 @@ modmap:
       # 無変換・変換を IME 無効・ IME 有効に設定しているが、これも xremap 上で管理したい。
       # Muhenkan: Disable IME
       # Henkan: Enable IME
-  - name: Google Search
-    application:
-      only: Google-chrome
-    remap:
-      Alt_L: Ctrl_L
-      Alt_R: Ctrl_R
+  # TODO: なんか動かん。。。
+  # GNOME Wayland じゃなくて、X11 の方で Google chrome が表示されてるのおかしい気がする？
+  # https://github.com/k0kubun/xremap#x11-1
+  #
+  # Error Log
+  # GnomeClient#connect() failed: I/O error: No such file or directory (os error 2)
+  # application-client: GNOME (supported: false)
+  #
+  # - name: Google Chrome
+  #   application:
+  #     only: Google-chrome
+  #   remap:
+  #     Alt_L: Ctrl_L
+  #     KatakanaHiragana: Ctrl_R
