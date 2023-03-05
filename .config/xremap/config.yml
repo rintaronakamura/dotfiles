@@ -2,7 +2,14 @@ modmap:
   - name: Global
     remap:
       CapsLock: Ctrl_L
-      # TODO: 正確なキーを指定する
-      # https://github.com/emberian/evdev/blob/1d020f11b283b0648427a2844b6b980f1a268221/src/scancodes.rs#L26-L572
-      # Fn: CapsLock
-      # Ctrl_R: Fn
+      KatakanaHiragana: Alt_R
+      # TODO: システム設定 > キーボード > 入力ソース の日本語(Mozc)のキー設定にて、
+      # 無変換・変換を IME 無効・ IME 有効に設定しているが、これも xremap 上で管理したい。
+      # Muhenkan: Disable IME
+      # Henkan: Enable IME
+  - name: Google Search
+    application:
+      only: Google-chrome
+    remap:
+      Alt_L: Ctrl_L
+      Alt_R: Ctrl_R
