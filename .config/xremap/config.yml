@@ -1,12 +1,13 @@
+# NOTE: 変数名とキーコードの対応表: https://github.com/emberian/evdev/blob/1d020f11b283b0648427a2844b6b980f1a268221/src/scancodes.rs#L26-L572
+# ＊対応表で紐付けられているキー名とキーコードは、環境によってマッチしないので、xev コマンドなどを使いキーコードを確認すること
+# https://symfoware.blog.fc2.com/blog-entry-2677.html
 modmap:
   - name: Global
     remap:
       CapsLock: Ctrl_L
       KatakanaHiragana: Alt_R
-      # TODO: システム設定 > キーボード > 入力ソース の日本語(Mozc)のキー設定にて、
-      # 無変換・変換を IME 無効・ IME 有効に設定しているが、これも xremap 上で管理したい。
-      # Muhenkan: Disable IME
-      # Henkan: Enable IME
+      Muhenkan: Grave # Muhenkan: HankakuZenkaku
+      Henkan: Grave # Henkan: HankakuZenkaku
   # TODO: なんか動かん。。。
   # GNOME Wayland じゃなくて、X11 の方で Google chrome が表示されてるのおかしい気がする？
   # https://github.com/k0kubun/xremap#x11-1
