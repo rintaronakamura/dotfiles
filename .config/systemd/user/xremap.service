@@ -1,0 +1,6 @@
+[Unit]
+Description=xremap
+
+[Service]
+Restart=always
+ExecStart=xremap /home/rnakamura/.config/xremap.yml --watch
