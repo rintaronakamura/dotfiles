@@ -5,7 +5,6 @@
 [core]
   excludesfile = ~/.config/git/ignore
   quotepath = false
-  editor = emacs -nw
 
 [alias]
   br = branch
