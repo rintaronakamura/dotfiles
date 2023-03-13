@@ -121,3 +121,6 @@ export PATH="$HOME/.emacs.d/bin:$PATH"
 alias e='emacs --daemon'
 alias ec='emacsclient --create-frame'
 alias kill-e="emacsclient -e '(kill-emacs)'"
+
+# Linux From Scrach
+export LFS=/mnt/lfs
