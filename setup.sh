@@ -13,6 +13,7 @@ ln -sf ~/dotfiles/.doom.d/packages.el ~/.doom.d/packages.el
 
 ln -s ~/dotfiles/.zprofile ~/.zprofile
 ln -s ~/dotfiles/.zshrc ~/.zshrc
+# ln -s ~/dotfiles/.bashrc ~/.bashrc
 
 ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 test ! -e ~/.config/git && mkdir -p ~/.config/git
