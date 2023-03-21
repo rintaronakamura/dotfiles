@@ -6,8 +6,9 @@ modmap:
     remap:
       CapsLock: Ctrl_L
       KatakanaHiragana: Alt_R
+      # TODO Henkan と同じように、キーを連打しても英語入力を維持したい
       Muhenkan: Grave # Muhenkan: HankakuZenkaku
-      Henkan: Grave # Henkan: HankakuZenkaku
+      Henkan: HIRAGANA
       RIGHTALT: RIGHTCTRL # R_Alt: R_Ctrl = 100(108 - 8): 97(105 - 8)
       SYSRQ: RIGHTCTRL # PrtSc: R_Ctrl = 99(107 - 8): 97(105 - 8)
       Grave: KEY_1 # HankakuZenkaku: 1 = 41(49 - 8): 2(10 - 8)
