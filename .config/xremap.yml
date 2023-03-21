@@ -19,3 +19,4 @@ keymap:
       M-c: C-c
       M-v: C-v
       M-t: C-t
+      M-f: C-f
