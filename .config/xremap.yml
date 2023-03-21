@@ -11,17 +11,11 @@ modmap:
       RIGHTALT: RIGHTCTRL # R_Alt: R_Ctrl = 100(108 - 8): 97(105 - 8)
       SYSRQ: RIGHTCTRL # PrtSc: R_Ctrl = 99(107 - 8): 97(105 - 8)
       Grave: KEY_1 # HankakuZenkaku: 1 = 41(49 - 8): 2(10 - 8)
-  # TODO: なんか動かん。。。
-  # GNOME Wayland じゃなくて、X11 の方で Google chrome が表示されてるのおかしい気がする？
-  # https://github.com/k0kubun/xremap#x11-1
-  #
-  # Error Log
-  # GnomeClient#connect() failed: I/O error: No such file or directory (os error 2)
-  # application-client: GNOME (supported: false)
-  #
-  # - name: Google Chrome
-  #   application:
-  #     only: Google-chrome
-  #   remap:
-  #     Alt_L: Ctrl_L
-  #     KatakanaHiragana: Ctrl_R
+keymap:
+  - name: Google Chrome
+    application:
+      only: Google-chrome
+    remap:
+      M-c: C-c
+      M-v: C-v
+      M-t: C-t
