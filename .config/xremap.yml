@@ -21,3 +21,4 @@ keymap:
       M-v: C-v
       M-t: C-t
       M-f: C-f
+      M-r: C-r
