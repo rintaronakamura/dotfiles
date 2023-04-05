@@ -181,3 +181,128 @@
     (setq eldoc-echo-area-use-multiline-p t)
     (turn-on-eldoc-mode)))
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
+
+;; TimeTree
+;;
+;; TODO
+;; ・とりあえずで殴り書きしたのでリファクタリングする
+;; ・不正値が入力されたときの処理もちゃんと書く
+;; ・任意項目(説明、場所、URL、予定参加者のユーザー)を入力できるようにする
+(defun my/timetree-new-event ()
+  (interactive)
+
+  (defvar access-token (getenv "TIMETREE_ACCESS_TOKEN"))
+
+  (defun process-data (data)
+    (mapcar (lambda (item)
+              (let ((attributes (assoc-default 'attributes item)))
+                (cons (assoc-default 'name attributes) (assoc-default 'id item))))
+            (assoc-default 'data data)))
+
+  (setq calendar-list nil)
+
+  (request "https://timetreeapis.com/calendars"
+    :headers `(("Accept" . "application/vnd.timetree.v1+json")
+               ("Authorization" . ,(concat "Bearer " access-token)))
+    :parser 'json-read
+    :sync t
+    :success (cl-function
+              (lambda (&key data &allow-other-keys)
+                (setq calendar-list (process-data data))))
+    :error (cl-function
+            (lambda (&rest args &key error-thrown &allow-other-keys)
+              (message "Got error: %S" error-thrown))))
+
+  (setq calendar-name-list (mapcar #'car calendar-list))
+
+  (setq selected-calendar-name nil)
+
+  (let ((choices calendar-name-list))
+    (setq selected-calendar-name (completing-read "カレンダーを選択して下さい: " choices)))
+
+  (setq selected-calendar-id (cdr (assoc selected-calendar-name calendar-list)))
+
+  (setq title (read-string "タイトルを入力してください: "))
+
+  (setq start-date
+        (read-string "開始日を入力してください (例 2023-04-05): "))
+
+  (setq start-time
+        (read-string "開始時間を入力してください (例 12:15:00)\n＊終日予定の場合は時刻を 00:00:00 にしてください: "))
+
+  (setq start-at (concat start-date "T" start-time))
+
+  ;; TODO 開始日と等しい場合は省略する
+  (setq end-date (read-string "終了日を入力してください (例 2023-04-05): "))
+
+  ;; TODO 開始時間が 00:00:00 なら省略する
+  (setq end-time
+        (read-string "終了時間を入力してください (例 12:15:00)\n＊終日予定の場合は時刻を 00:00:00 にしてください: "))
+
+  (setq end-at (concat end-date "T" end-time))
+
+  (setq all-day
+    (if (and (string= start-time "00:00:00") (string= end-time "00:00:00"))
+      "true"
+      "false"))
+
+  (setq label-list nil)
+
+  (request (concat "https://timetreeapis.com/calendars/" selected-calendar-id "/labels")
+    :headers `(("Accept" . "application/vnd.timetree.v1+json")
+               ("Authorization" . ,(concat "Bearer " access-token)))
+    :parser 'json-read
+    :sync t
+    :success (cl-function
+              (lambda (&key data &allow-other-keys)
+                (setq label-list (process-data data))))
+    :error (cl-function
+            (lambda (&rest args &key error-thrown &allow-other-keys)
+              (message "Got error: %S" error-thrown))))
+
+  (setq label-name-list (mapcar #'car label-list))
+
+  (setq selected-label-name nil)
+
+  ;; TODO 色の名前だけだと分かりづらいので、色のプレビューも表示する
+  (let ((choices label-name-list))
+    (setq selected-label-name (completing-read "ラベルを選択して下さい: " choices)))
+
+  (setq selected-label-id (cdr (assoc selected-label-name label-list)))
+
+  (setq my-data `(
+    (data . (
+      (attributes . (
+        (category . "schedule")
+        (title . ,title)
+        (all_day . ,all-day)
+        (start_at . ,start-at)
+        (start_timezone . "Asia/Tokyo")
+        (end_at . ,end-at)
+        (end_timezone . "Asia/Tokyo")
+      ))
+      (relationships . (
+        (label . (
+          (data . (
+            (id . ,selected-label-id)
+            (type . "label")
+          ))
+        ))
+      ))
+    ))
+  ))
+
+  (request
+    (concat "https://timetreeapis.com/calendars/" selected-calendar-id "/events")
+    :type "POST"
+    :headers `(("Content-Type" . "application/json")
+               ("Accept" . "application/vnd.timetree.v1+json")
+               ("Authorization" . ,(concat "Bearer " access-token)))
+    :data (json-encode my-data)
+    :parser 'json-read
+    :success (cl-function
+              (lambda (&key data &allow-other-keys)
+                (message "予定を登録しました")))
+    :error (cl-function
+            (lambda (&rest args &key error-thrown &allow-other-keys)
+              (message "Error: %S" error-thrown)))))
