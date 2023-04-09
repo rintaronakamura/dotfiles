@@ -193,11 +193,11 @@
 
   (defvar access-token (getenv "TIMETREE_ACCESS_TOKEN"))
 
-  (defun process-data (data)
+  (defun process-data (alist)
     (mapcar (lambda (item)
               (let ((attributes (assoc-default 'attributes item)))
                 (cons (assoc-default 'name attributes) (assoc-default 'id item))))
-            (assoc-default 'data data)))
+            alist))
 
   (setq calendar-list nil)
 
@@ -208,7 +208,7 @@
     :sync t
     :success (cl-function
               (lambda (&key data &allow-other-keys)
-                (setq calendar-list (process-data data))))
+                (setq calendar-list (process-data (assoc-default 'data data)))))
     :error (cl-function
             (lambda (&rest args &key error-thrown &allow-other-keys)
               (message "Got error: %S" error-thrown))))
@@ -255,7 +255,7 @@
     :sync t
     :success (cl-function
               (lambda (&key data &allow-other-keys)
-                (setq label-list (process-data data))))
+                (setq label-list (process-data (assoc-default 'data data)))))
     :error (cl-function
             (lambda (&rest args &key error-thrown &allow-other-keys)
               (message "Got error: %S" error-thrown))))
