@@ -197,9 +197,6 @@
     (let ((attributes (assoc-default 'attributes item)))
       (cons (assoc-default 'name attributes) (assoc-default 'id item))))
 
-  (defun process-data (alist)
-    (mapcar 'get-name-id-alist alist))
-
   (setq calendar-list nil)
 
   (request "https://timetreeapis.com/calendars"
@@ -209,7 +206,8 @@
     :sync t
     :success (cl-function
               (lambda (&key data &allow-other-keys)
-                (setq calendar-list (process-data (assoc-default 'data data)))))
+                (let ((alist (assoc-default 'data data)))
+                  (setq calendar-list (mapcar 'get-name-id-alist alist)))))
     :error (cl-function
             (lambda (&rest args &key error-thrown &allow-other-keys)
               (message "Got error: %S" error-thrown))))
@@ -256,7 +254,8 @@
     :sync t
     :success (cl-function
               (lambda (&key data &allow-other-keys)
-                (setq label-list (process-data (assoc-default 'data data)))))
+                (let ((alist (assoc-default 'data data)))
+                  (setq label-list (mapcar 'get-name-id-alist alist)))))
     :error (cl-function
             (lambda (&rest args &key error-thrown &allow-other-keys)
               (message "Got error: %S" error-thrown))))
