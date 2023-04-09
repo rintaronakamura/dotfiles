@@ -193,7 +193,7 @@
 (defun my/timetree-new-event ()
   (interactive)
 
-  (defun get-name-id-alist (item)
+  (defun extract-name-id-pair (item)
     (let ((attributes (assoc-default 'attributes item)))
       (cons (assoc-default 'name attributes) (assoc-default 'id item))))
 
@@ -207,7 +207,7 @@
     :success (cl-function
               (lambda (&key data &allow-other-keys)
                 (let ((alist (assoc-default 'data data)))
-                  (setq calendar-list (mapcar 'get-name-id-alist alist)))))
+                  (setq calendar-list (mapcar 'extract-name-id-pair alist)))))
     :error (cl-function
             (lambda (&rest args &key error-thrown &allow-other-keys)
               (message "Got error: %S" error-thrown))))
@@ -255,7 +255,7 @@
     :success (cl-function
               (lambda (&key data &allow-other-keys)
                 (let ((alist (assoc-default 'data data)))
-                  (setq label-list (mapcar 'get-name-id-alist alist)))))
+                  (setq label-list (mapcar 'extract-name-id-pair alist)))))
     :error (cl-function
             (lambda (&rest args &key error-thrown &allow-other-keys)
               (message "Got error: %S" error-thrown))))
