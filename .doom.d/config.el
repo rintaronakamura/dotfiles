@@ -197,7 +197,7 @@
     (let ((attributes (assoc-default 'attributes item)))
       (cons (assoc-default 'name attributes) (assoc-default 'id item))))
 
-  (setq calendar-list nil)
+  (setq calendar-alist nil)
 
   (request "https://timetreeapis.com/calendars"
     :headers `(("Accept" . "application/vnd.timetree.v1+json")
@@ -207,19 +207,19 @@
     :success (cl-function
               (lambda (&key data &allow-other-keys)
                 (let ((alist (assoc-default 'data data)))
-                  (setq calendar-list (mapcar 'extract-name-id-pair alist)))))
+                  (setq calendar-alist (mapcar 'extract-name-id-pair alist)))))
     :error (cl-function
             (lambda (&rest args &key error-thrown &allow-other-keys)
               (message "Got error: %S" error-thrown))))
 
-  (setq calendar-name-list (mapcar #'car calendar-list))
+  (setq calendar-name-list (mapcar #'car calendar-alist))
 
   (setq selected-calendar-name nil)
 
   (let ((choices calendar-name-list))
     (setq selected-calendar-name (completing-read "カレンダーを選択して下さい: " choices)))
 
-  (setq selected-calendar-id (cdr (assoc selected-calendar-name calendar-list)))
+  (setq selected-calendar-id (cdr (assoc selected-calendar-name calendar-alist)))
 
   (setq title (read-string "タイトルを入力してください: "))
 
@@ -245,7 +245,7 @@
       "true"
       "false"))
 
-  (setq label-list nil)
+  (setq label-alist nil)
 
   (request (concat "https://timetreeapis.com/calendars/" selected-calendar-id "/labels")
     :headers `(("Accept" . "application/vnd.timetree.v1+json")
@@ -255,12 +255,12 @@
     :success (cl-function
               (lambda (&key data &allow-other-keys)
                 (let ((alist (assoc-default 'data data)))
-                  (setq label-list (mapcar 'extract-name-id-pair alist)))))
+                  (setq label-alist (mapcar 'extract-name-id-pair alist)))))
     :error (cl-function
             (lambda (&rest args &key error-thrown &allow-other-keys)
               (message "Got error: %S" error-thrown))))
 
-  (setq label-name-list (mapcar #'car label-list))
+  (setq label-name-list (mapcar #'car label-alist))
 
   (setq selected-label-name nil)
 
@@ -268,7 +268,7 @@
   (let ((choices label-name-list))
     (setq selected-label-name (completing-read "ラベルを選択して下さい: " choices)))
 
-  (setq selected-label-id (cdr (assoc selected-label-name label-list)))
+  (setq selected-label-id (cdr (assoc selected-label-name label-alist)))
 
   (setq my-data `(
     (data . (
