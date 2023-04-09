@@ -241,9 +241,9 @@
   (setq end-at (concat end-date "T" end-time))
 
   (setq all-day
-    (if (and (string= start-time "00:00:00") (string= end-time "00:00:00"))
-      "true"
-      "false"))
+        (if (and (string= start-time "00:00:00") (string= end-time "00:00:00"))
+            "true"
+          "false"))
 
   (setq label-alist nil)
 
