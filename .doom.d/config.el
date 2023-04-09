@@ -188,10 +188,10 @@
 ;; ・とりあえずで殴り書きしたのでリファクタリングする
 ;; ・不正値が入力されたときの処理もちゃんと書く
 ;; ・任意項目(説明、場所、URL、予定参加者のユーザー)を入力できるようにする
+(defvar *timetree_access_token* (getenv "TIMETREE_ACCESS_TOKEN"))
+
 (defun my/timetree-new-event ()
   (interactive)
-
-  (defvar access-token (getenv "TIMETREE_ACCESS_TOKEN"))
 
   (defun get-name-id-alist (item)
     (let ((attributes (assoc-default 'attributes item)))
@@ -204,7 +204,7 @@
 
   (request "https://timetreeapis.com/calendars"
     :headers `(("Accept" . "application/vnd.timetree.v1+json")
-               ("Authorization" . ,(concat "Bearer " access-token)))
+               ("Authorization" . ,(concat "Bearer " *timetree_access_token*)))
     :parser 'json-read
     :sync t
     :success (cl-function
@@ -251,7 +251,7 @@
 
   (request (concat "https://timetreeapis.com/calendars/" selected-calendar-id "/labels")
     :headers `(("Accept" . "application/vnd.timetree.v1+json")
-               ("Authorization" . ,(concat "Bearer " access-token)))
+               ("Authorization" . ,(concat "Bearer " *timetree_access_token*)))
     :parser 'json-read
     :sync t
     :success (cl-function
@@ -298,7 +298,7 @@
     :type "POST"
     :headers `(("Content-Type" . "application/json")
                ("Accept" . "application/vnd.timetree.v1+json")
-               ("Authorization" . ,(concat "Bearer " access-token)))
+               ("Authorization" . ,(concat "Bearer " *timetree_access_token*)))
     :data (json-encode my-data)
     :parser 'json-read
     :success (cl-function
