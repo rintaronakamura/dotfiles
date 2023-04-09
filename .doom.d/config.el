@@ -193,11 +193,12 @@
 
   (defvar access-token (getenv "TIMETREE_ACCESS_TOKEN"))
 
+  (defun get-name-id-alist (item)
+    (let ((attributes (assoc-default 'attributes item)))
+      (cons (assoc-default 'name attributes) (assoc-default 'id item))))
+
   (defun process-data (alist)
-    (mapcar (lambda (item)
-              (let ((attributes (assoc-default 'attributes item)))
-                (cons (assoc-default 'name attributes) (assoc-default 'id item))))
-            alist))
+    (mapcar 'get-name-id-alist alist))
 
   (setq calendar-list nil)
 
