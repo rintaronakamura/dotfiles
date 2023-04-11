@@ -199,18 +199,29 @@
 
   (setq calendar-alist nil)
 
-  (request "https://timetreeapis.com/calendars"
-    :headers `(("Accept" . "application/vnd.timetree.v1+json")
-               ("Authorization" . ,(concat "Bearer " *timetree_access_token*)))
-    :parser 'json-read
-    :sync t
-    :success (cl-function
-              (lambda (&key data &allow-other-keys)
-                (let ((alist (assoc-default 'data data)))
-                  (setq calendar-alist (mapcar 'extract-name-id-pair alist)))))
-    :error (cl-function
-            (lambda (&rest args &key error-thrown &allow-other-keys)
-              (message "Got error: %S" error-thrown))))
+  ;; TODO タグ一覧のコールバックとまとめる
+  (defun success-callback-to-calendars ()
+      (cl-function
+       (lambda (&key data &allow-other-keys)
+         (let ((alist (assoc-default 'data data)))
+           (setq calendar-alist (mapcar #'extract-name-id-pair alist))))))
+
+  (defun error-callback ()
+    (cl-function
+     (lambda (&rest args &key error-thrown &allow-other-keys)
+       (message "Got error: %S" error-thrown))))
+
+  ;; TODO: 戻り値を変数に格納するようにしたい
+  (defun request-get (endpoint success-cl error-cl)
+    (request (concat "https://timetreeapis.com/" endpoint)
+      :headers `(("Accept" . "application/vnd.timetree.v1+json")
+                 ("Authorization" . ,(concat "Bearer " *timetree_access_token*)))
+      :parser 'json-read
+      :sync t
+      :success success-cl
+      :error error-cl))
+
+  (request-get "calendars" (success-callback-to-calendars) (error-callback))
 
   (setq calendar-name-list (mapcar #'car calendar-alist))
 
@@ -247,18 +258,17 @@
 
   (setq label-alist nil)
 
-  (request (concat "https://timetreeapis.com/calendars/" selected-calendar-id "/labels")
-    :headers `(("Accept" . "application/vnd.timetree.v1+json")
-               ("Authorization" . ,(concat "Bearer " *timetree_access_token*)))
-    :parser 'json-read
-    :sync t
-    :success (cl-function
-              (lambda (&key data &allow-other-keys)
-                (let ((alist (assoc-default 'data data)))
-                  (setq label-alist (mapcar 'extract-name-id-pair alist)))))
-    :error (cl-function
-            (lambda (&rest args &key error-thrown &allow-other-keys)
-              (message "Got error: %S" error-thrown))))
+  ;; TODO カレンダー一覧のコールバックとまとめる
+  (defun success-callback-to-labels ()
+      (cl-function
+       (lambda (&key data &allow-other-keys)
+         (let ((alist (assoc-default 'data data)))
+           (setq label-alist (mapcar #'extract-name-id-pair alist))))))
+
+  ;; TODO 変数名調整する
+  (setq labels-endpoint (concat "calendars/" selected-calendar-id "/labels"))
+
+  (request-get labels-endpoint (success-callback-to-labels) (error-callback))
 
   (setq label-name-list (mapcar #'car label-alist))
 
