@@ -185,10 +185,11 @@
 ;; TimeTree
 ;;
 ;; TODO
-;; ・とりあえずで殴り書きしたのでリファクタリングする
 ;; ・不正値が入力されたときの処理もちゃんと書く
 ;; ・任意項目(説明、場所、URL、予定参加者のユーザー)を入力できるようにする
+;; ・ネームスペースの衝突さけたくて、1つの関数の中に全部かいちゃってるから、ファイル分けてみる。
 (defvar *timetree_access_token* (getenv "TIMETREE_ACCESS_TOKEN"))
+(defvar *timetree-base-url* "https://timetreeapis.com/")
 
 (defun my/timetree-new-event ()
   (interactive)
@@ -197,40 +198,32 @@
     (let ((attributes (assoc-default 'attributes item)))
       (cons (assoc-default 'name attributes) (assoc-default 'id item))))
 
-  (setq calendar-alist nil)
-
-  ;; TODO タグ一覧のコールバックとまとめる
-  (defun success-callback-to-calendars ()
-      (cl-function
-       (lambda (&key data &allow-other-keys)
-         (let ((alist (assoc-default 'data data)))
-           (setq calendar-alist (mapcar #'extract-name-id-pair alist))))))
+  (defun success-callback (data)
+    (let ((alist (assoc-default 'data data)))
+      (mapcar #'extract-name-id-pair alist)))
 
   (defun error-callback ()
     (cl-function
      (lambda (&rest args &key error-thrown &allow-other-keys)
        (message "Got error: %S" error-thrown))))
 
-  ;; TODO: 戻り値を変数に格納するようにしたい
-  (defun request-get (endpoint success-cl error-cl)
-    (request (concat "https://timetreeapis.com/" endpoint)
-      :headers `(("Accept" . "application/vnd.timetree.v1+json")
-                 ("Authorization" . ,(concat "Bearer " *timetree_access_token*)))
-      :parser 'json-read
-      :sync t
-      :success success-cl
-      :error error-cl))
+  (defun request-get (url)
+    (request-response-data
+     (request url
+       :headers `(("Accept" . "application/vnd.timetree.v1+json")
+                  ("Authorization" . ,(concat "Bearer " *timetree_access_token*)))
+       :parser 'json-read
+       :sync t
+       :error #'error-callback)))
 
-  (request-get "calendars" (success-callback-to-calendars) (error-callback))
+  (setq calendar-alist
+        (success-callback
+         (request-get (concat *timetree-base-url* "calendars"))))
 
-  (setq calendar-name-list (mapcar #'car calendar-alist))
-
-  (setq selected-calendar-name nil)
-
-  (let ((choices calendar-name-list))
-    (setq selected-calendar-name (completing-read "カレンダーを選択して下さい: " choices)))
-
-  (setq selected-calendar-id (cdr (assoc selected-calendar-name calendar-alist)))
+  (setq selected-calendar-id
+        (let ((calendar-name-list (mapcar #'car calendar-alist)))
+          (let ((selected-calendar-name (completing-read "カレンダーを選択して下さい: " calendar-name-list)))
+            (cdr (assoc selected-calendar-name calendar-alist)))))
 
   (setq title (read-string "タイトルを入力してください: "))
 
@@ -256,31 +249,16 @@
             "true"
           "false"))
 
-  (setq label-alist nil)
+  (setq label-alist
+        (success-callback
+         (request-get (concat *timetree-base-url* "calendars/" selected-calendar-id "/labels"))))
 
-  ;; TODO カレンダー一覧のコールバックとまとめる
-  (defun success-callback-to-labels ()
-      (cl-function
-       (lambda (&key data &allow-other-keys)
-         (let ((alist (assoc-default 'data data)))
-           (setq label-alist (mapcar #'extract-name-id-pair alist))))))
+  (setq selected-label-id
+        (let ((label-name-list (mapcar #'car label-alist)))
+          (let ((selected-label-name (completing-read "ラベルを選択して下さい: " label-name-list)))
+            (cdr (assoc selected-label-name label-alist)))))
 
-  ;; TODO 変数名調整する
-  (setq labels-endpoint (concat "calendars/" selected-calendar-id "/labels"))
-
-  (request-get labels-endpoint (success-callback-to-labels) (error-callback))
-
-  (setq label-name-list (mapcar #'car label-alist))
-
-  (setq selected-label-name nil)
-
-  ;; TODO 色の名前だけだと分かりづらいので、色のプレビューも表示する
-  (let ((choices label-name-list))
-    (setq selected-label-name (completing-read "ラベルを選択して下さい: " choices)))
-
-  (setq selected-label-id (cdr (assoc selected-label-name label-alist)))
-
-  (setq my-data `(
+  (setq new-calendar-data `(
     (data . (
       (attributes . (
         (category . "schedule")
@@ -303,12 +281,12 @@
   ))
 
   (request
-    (concat "https://timetreeapis.com/calendars/" selected-calendar-id "/events")
+    (concat *timetree-base-url* "calendars/" selected-calendar-id "/events")
     :type "POST"
     :headers `(("Content-Type" . "application/json")
                ("Accept" . "application/vnd.timetree.v1+json")
                ("Authorization" . ,(concat "Bearer " *timetree_access_token*)))
-    :data (json-encode my-data)
+    :data (json-encode new-calendar-data)
     :parser 'json-read
     :success (cl-function
               (lambda (&key data &allow-other-keys)
