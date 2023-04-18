@@ -198,23 +198,24 @@
     (let ((attributes (assoc-default 'attributes item)))
       (cons (assoc-default 'name attributes) (assoc-default 'id item))))
 
-  (defun success-callback (data)
-    (let ((alist (assoc-default 'data data)))
-      (mapcar #'extract-name-id-pair alist)))
+  (defun success-callback (response)
+    (let ((data (request-response-data response)))
+      (let ((alist (assoc-default 'data data)))
+        (mapcar #'extract-name-id-pair alist))))
 
   (defun error-callback ()
     (cl-function
      (lambda (&rest args &key error-thrown &allow-other-keys)
        (message "Got error: %S" error-thrown))))
 
+  ;; FIXME: エラー処理が拾えていない
   (defun request-get (url)
-    (request-response-data
      (request url
        :headers `(("Accept" . "application/vnd.timetree.v1+json")
                   ("Authorization" . ,(concat "Bearer " *timetree-access-token*)))
        :parser 'json-read
        :sync t
-       :error #'error-callback)))
+       :error #'error-callback))
 
   (setq calendar-alist
         (success-callback
