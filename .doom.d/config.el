@@ -188,7 +188,7 @@
 ;; ・不正値が入力されたときの処理もちゃんと書く
 ;; ・任意項目(説明、場所、URL、予定参加者のユーザー)を入力できるようにする
 ;; ・ネームスペースの衝突さけたくて、1つの関数の中に全部かいちゃってるから、ファイル分けてみる。
-(defvar *timetree_access_token* (getenv "TIMETREE_ACCESS_TOKEN"))
+(defvar *timetree-access-token* (getenv "TIMETREE_ACCESS_TOKEN"))
 (defvar *timetree-base-url* "https://timetreeapis.com/")
 
 (defun my/timetree-new-event ()
@@ -211,7 +211,7 @@
     (request-response-data
      (request url
        :headers `(("Accept" . "application/vnd.timetree.v1+json")
-                  ("Authorization" . ,(concat "Bearer " *timetree_access_token*)))
+                  ("Authorization" . ,(concat "Bearer " *timetree-access-token*)))
        :parser 'json-read
        :sync t
        :error #'error-callback)))
@@ -285,7 +285,7 @@
     :type "POST"
     :headers `(("Content-Type" . "application/json")
                ("Accept" . "application/vnd.timetree.v1+json")
-               ("Authorization" . ,(concat "Bearer " *timetree_access_token*)))
+               ("Authorization" . ,(concat "Bearer " *timetree-access-token*)))
     :data (json-encode new-calendar-data)
     :parser 'json-read
     :success (cl-function
