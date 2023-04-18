@@ -291,6 +291,4 @@
     :success (cl-function
               (lambda (&key data &allow-other-keys)
                 (message "予定を登録しました")))
-    :error (cl-function
-            (lambda (&rest args &key error-thrown &allow-other-keys)
-              (message "Error: %S" error-thrown)))))
+    :error #'error-callback))
