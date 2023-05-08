@@ -124,3 +124,5 @@ alias kill-e="emacsclient -e '(kill-emacs)'"
 
 # Linux From Scrach
 export LFS=/mnt/lfs
+
+export PATH="/usr/local/bin/:$PATH"
