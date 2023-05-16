@@ -108,6 +108,16 @@
 ;;   this file. Emacs searches the `load-path' when you load packages with
 ;;   `require' or `use-package'.
 ;; - `map!' for binding new keys
+;;   ex. (map! :mode "key" #'function-name)
+;;   <Mode List>
+;;   - normal: n
+;;   - visual: v
+;;   - insert: i
+;;   - emacs: e
+;;   - operator: o
+;;   - motion: m
+;;   - replace: r
+;;   - global: g
 ;;
 ;; To get information about any of these functions/macros, move the cursor over
 ;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
