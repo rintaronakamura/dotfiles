@@ -122,5 +122,9 @@ alias e='emacs --daemon'
 alias ec='emacsclient --create-frame'
 alias kill-e="emacsclient -e '(kill-emacs)'"
 
+# Docker
+alias d='docker'
+alias dc='docker compose'
+
 # Linux From Scrach
 export LFS=/mnt/lfs
