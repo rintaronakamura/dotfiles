@@ -85,6 +85,9 @@
           ;; NOTE: これ設定しないと、なぜかタブが2つ開かれちゃう
           org-roam-ui-open-on-start nil))
 
+(defun web-mode-hook ()
+  (setq web-mode-markup-indent-offset 2))
+(add-hook 'web-mode-hook 'web-mode-hook)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
