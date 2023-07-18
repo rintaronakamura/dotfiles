@@ -60,14 +60,15 @@
 ;; org-download
 (add-hook 'dired-mode-hook 'org-download-enable)
 ;; org-agenda
+;; TODO: ここも org-directory の値を使って重複を無くす
 (setq org-agenda-files '( "~/Documents/programing/src/github.com/rintaronakamura/org-files"))
 ;; org-journal
 (setq org-journal-carryover-items "")
-(setq org-journal-dir "~/Documents/programing/src/github.com/rintaronakamura/org-files")
+(setq org-journal-dir org-directory)
 (setq org-journal-file-format "%Y-%m-%d.org")
 (setq org-journal-date-format "%Y-%m-%d, %A")
 ;; org-roam
-(setq org-roam-directory "~/Documents/programing/src/github.com/rintaronakamura/org-files")
+(setq org-roam-directory org-directory)
 ;; org-roam-ui
 (use-package! websocket
     :after org-roam)
