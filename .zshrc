@@ -1,6 +1,7 @@
 # Alias
 alias ll='ls -laG'
 alias c='clear'
+alias d='docker'
 alias dc='docker compose'
 alias e='emacs --daemon'
 alias ec='emacsclient --create-frame'
