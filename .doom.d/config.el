@@ -197,3 +197,4 @@
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
 
 (require 'timetree)
+(require 'deepl)
