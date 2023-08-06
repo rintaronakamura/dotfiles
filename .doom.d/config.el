@@ -56,12 +56,12 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Documents/programing/src/github.com/rintaronakamura/org-files")
+(setq org-directory "~/Documents/software/programs/github.com/rintaronakamura/org-files")
 ;; org-download
 (add-hook 'dired-mode-hook 'org-download-enable)
 ;; org-agenda
 ;; TODO: ここも org-directory の値を使って重複を無くす
-(setq org-agenda-files '( "~/Documents/programing/src/github.com/rintaronakamura/org-files"))
+(setq org-agenda-files '( "~/Documents/software/programs/github.com/rintaronakamura/org-files"))
 ;; org-journal
 (setq org-journal-carryover-items "")
 (setq org-journal-dir org-directory)
