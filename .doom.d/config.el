@@ -183,6 +183,7 @@
   (s-replace (projectile-project-root) "" (buffer-file-name)))
 
 (defun my/browse-current-file-on-github ()
+  "Open the current file on GitHub in the default browser."
   (interactive)
   (browse-url (s-join "/"
                 `(,(my/github-url) ;; TODO: ここなんで「,」がいるのか良く分からん
